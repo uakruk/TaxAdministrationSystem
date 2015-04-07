@@ -1,4 +1,4 @@
-package ua.kpi.lab111.obd.group3.taxadministrationsystem;
+package wrappers;
 
 /**
  * @author Yaroslav Kruk on 18.11.14
