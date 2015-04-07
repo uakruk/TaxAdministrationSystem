@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - db@localhost" uuid="b64488b5-5bce-41f9-8677-1b8ae88c76b4">
+    <database-info product="MySQL" version="5.6.23-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="db"/>
+    <table name="additionalcharges" schema="" catalog="db" type="TABLE">
+      <column name="additionalCharges_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="dateOfCharge" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="sum" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="term" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="typeOfAdditionalCharges" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tax_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="additionalCharges_id"/>
+      <foreign-key name="FK_dsbleiibhj7vhrj17graubaiq" columns="tax_id" ref-table="tax" ref-schema="" ref-catalog="db" ref-columns="tax_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_dsbleiibhj7vhrj17graubaiq" unique="false" columns="tax_id"/>
+    </table>
+    <table name="audit" schema="" catalog="db" type="TABLE">
+      <column name="audit_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="commrnt" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="endDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="reason" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="registrationNumber" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="startDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="referral_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="audit_id"/>
+      <foreign-key name="FK_8updltkexoqhbdlwuuee5kjri" columns="referral_id" ref-table="referral" ref-schema="" ref-catalog="db" ref-columns="referral_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_bwgvliiedfkc5vvf28afr829u" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="db" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_8updltkexoqhbdlwuuee5kjri" unique="false" columns="referral_id"/>
+      <index name="FK_bwgvliiedfkc5vvf28afr829u" unique="false" columns="taxpayer_id"/>
+    </table>
+    <table name="cashregister" schema="" catalog="db" type="TABLE">
+      <column name="cashRegister_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="objectOfTaxation_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="cashRegister_id"/>
+      <foreign-key name="FK_af5mutwjiyx1tkfxejysix2nc" columns="objectOfTaxation_id" ref-table="objectoftaxation" ref-schema="" ref-catalog="db" ref-columns="objectOfTaxation_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_af5mutwjiyx1tkfxejysix2nc" unique="false" columns="objectOfTaxation_id"/>
+    </table>
+    <table name="contact" schema="" catalog="db" type="TABLE">
+      <column name="contact_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="typeOfContact" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="value" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="contact_id"/>
+      <foreign-key name="FK_rpvsayw285rvuy0khqurocn6y" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="db" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_rpvsayw285rvuy0khqurocn6y" unique="false" columns="taxpayer_id"/>
+    </table>
+    <table name="decree" schema="" catalog="db" type="TABLE">
+      <column name="decree_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="registrationNumber" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="signatureByWho" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="text" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="decree_id"/>
+      <exported-key name="FK_q2sfb939nuxloo7tt5cs1mie6" table="referral" schema="" catalog="db" columns="decree_id"/>
+    </table>
+    <table name="employee" schema="" catalog="db" type="TABLE">
+      <column name="employee_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="registration" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="unit_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="employee_id"/>
+      <foreign-key name="FK_il3rsie2ug2qu828529spdo0j" columns="unit_id" ref-table="unit" ref-schema="" ref-catalog="db" ref-columns="unit_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_ci3tvtykx4nhdbkb9qctdm3pj" table="referral" schema="" catalog="db" columns="employee_id"/>
+      <index name="FK_il3rsie2ug2qu828529spdo0j" unique="false" columns="unit_id"/>
+    </table>
+    <table name="license" schema="" catalog="db" type="TABLE">
+      <column name="license_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="authorityIssuedLicense" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="issueDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="number" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="numberOfDecisionAboutIssue" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="series" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="typeOfActivity" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="validityOf" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="license_id"/>
+      <foreign-key name="FK_hdykpx7345cna9fm55djiu7um" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="db" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_hdykpx7345cna9fm55djiu7um" unique="false" columns="taxpayer_id"/>
+    </table>
+    <table name="objectoftaxation" schema="" catalog="db" type="TABLE">
+      <column name="objectOfTaxation_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="objectOfTaxation_id"/>
+      <foreign-key name="FK_cqnn1xx74p6hi2djxay07cm2b" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="db" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_af5mutwjiyx1tkfxejysix2nc" table="cashregister" schema="" catalog="db" columns="objectOfTaxation_id"/>
+      <index name="FK_cqnn1xx74p6hi2djxay07cm2b" unique="false" columns="taxpayer_id"/>
+    </table>
+    <table name="payment" schema="" catalog="db" type="TABLE">
+      <column name="payment_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="amountOfPayment" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="idTransaction" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="paymentDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="receiptNumber" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="tax_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="payment_id"/>
+      <foreign-key name="FK_2upu3wu3383ajdnjgnqlwh67" columns="tax_id" ref-table="tax" ref-schema="" ref-catalog="db" ref-columns="tax_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_2upu3wu3383ajdnjgnqlwh67" unique="false" columns="tax_id"/>
+    </table>
+    <table name="property" schema="" catalog="db" type="TABLE">
+      <column name="property_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cadastralNumber" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="square" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="typeOfProperty" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="property_id"/>
+      <foreign-key name="FK_dwclm3fm2m5swjhylm0ecdryv" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="db" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_dwclm3fm2m5swjhylm0ecdryv" unique="false" columns="taxpayer_id"/>
+    </table>
+    <table name="referral" schema="" catalog="db" type="TABLE">
+      <column name="referral_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="employee_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="decree_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="referral_id"/>
+      <foreign-key name="FK_ci3tvtykx4nhdbkb9qctdm3pj" columns="employee_id" ref-table="employee" ref-schema="" ref-catalog="db" ref-columns="employee_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_q2sfb939nuxloo7tt5cs1mie6" columns="decree_id" ref-table="decree" ref-schema="" ref-catalog="db" ref-columns="decree_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_8updltkexoqhbdlwuuee5kjri" table="audit" schema="" catalog="db" columns="referral_id"/>
+      <index name="FK_ci3tvtykx4nhdbkb9qctdm3pj" unique="false" columns="employee_id"/>
+      <index name="FK_q2sfb939nuxloo7tt5cs1mie6" unique="false" columns="decree_id"/>
+    </table>
+    <table name="tax" schema="" catalog="db" type="TABLE">
+      <column name="tax_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="endDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="startDate" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="typeOfTax" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="tax_id"/>
+      <foreign-key name="FK_eueh2u14ayvragot6oglr9hkg" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="db" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_dsbleiibhj7vhrj17graubaiq" table="additionalcharges" schema="" catalog="db" columns="tax_id"/>
+      <exported-key name="FK_2upu3wu3383ajdnjgnqlwh67" table="payment" schema="" catalog="db" columns="tax_id"/>
+      <index name="FK_eueh2u14ayvragot6oglr9hkg" unique="false" columns="taxpayer_id"/>
+    </table>
+    <table name="taxpayer" schema="" catalog="db" type="TABLE">
+      <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="fullName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="idCode" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="taxpayer_id"/>
+      <exported-key name="FK_bwgvliiedfkc5vvf28afr829u" table="audit" schema="" catalog="db" columns="taxpayer_id"/>
+      <exported-key name="FK_rpvsayw285rvuy0khqurocn6y" table="contact" schema="" catalog="db" columns="taxpayer_id"/>
+      <exported-key name="FK_hdykpx7345cna9fm55djiu7um" table="license" schema="" catalog="db" columns="taxpayer_id"/>
+      <exported-key name="FK_cqnn1xx74p6hi2djxay07cm2b" table="objectoftaxation" schema="" catalog="db" columns="taxpayer_id"/>
+      <exported-key name="FK_dwclm3fm2m5swjhylm0ecdryv" table="property" schema="" catalog="db" columns="taxpayer_id"/>
+      <exported-key name="FK_eueh2u14ayvragot6oglr9hkg" table="tax" schema="" catalog="db" columns="taxpayer_id"/>
+    </table>
+    <table name="unit" schema="" catalog="db" type="TABLE">
+      <column name="unit_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="unit_id"/>
+      <exported-key name="FK_il3rsie2ug2qu828529spdo0j" table="employee" schema="" catalog="db" columns="unit_id"/>
+    </table>
+  </data-source>
+</component>
