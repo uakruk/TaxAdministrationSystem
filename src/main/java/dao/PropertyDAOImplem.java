@@ -1,8 +1,8 @@
-package main.java.dao;
+package dao;
 
-import main.java.logic.Property;
+import logic.Property;
 import org.hibernate.Session;
-import main.java.util.HibernateUtil;
+import util.HibernateUtil;
 
 import javax.swing.*;
 import java.sql.SQLException;

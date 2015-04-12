@@ -1,4 +1,4 @@
-package main.java.util;
+package util;
 
 /**
  * Created by Admon on 27.03.2015.

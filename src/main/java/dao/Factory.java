@@ -1,8 +1,8 @@
-package main.java.dao;
+package dao;
 
-import main.java.logic.AdditionalCharges;
-import main.java.logic.License;
-import main.java.logic.ObjectOfTaxation;
+import logic.AdditionalCharges;
+import logic.License;
+import logic.ObjectOfTaxation;
 
 /**
  * Created by Admon on 05.04.2015.

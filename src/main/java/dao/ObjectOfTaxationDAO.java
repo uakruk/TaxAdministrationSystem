@@ -1,6 +1,6 @@
-package main.java.dao;
+package dao;
 
-import main.java.logic.ObjectOfTaxation;
+import logic.ObjectOfTaxation;
 
 import java.sql.SQLException;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public interface ObjectOfTaxationDAO {
     public void addObjectOfTaxation(ObjectOfTaxation objectOfTaxation) throws SQLException;
-    public void updateObjectOfTaxation(ObjectOfTaxation objectOfTaxation) throws SQLException;
+    public void updateObjectOfTaxation(ObjectOfTaxation objectOfTaxation ) throws SQLException;
     public ObjectOfTaxation getObjectOfTaxationById(Long objectOfTaxation) throws SQLException;
     public Collection getAllObjectOfTaxation() throws SQLException;
     public void deleteObjectOfTaxation(ObjectOfTaxation objectOfTaxation) throws SQLException;

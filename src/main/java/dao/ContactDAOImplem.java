@@ -1,8 +1,8 @@
-package main.java.dao;
+package dao;
 
-import main.java.logic.Contact;
+import logic.Contact;
 import org.hibernate.Session;
-import main.java.util.HibernateUtil;
+import util.HibernateUtil;
 
 import javax.swing.*;
 import java.sql.SQLException;

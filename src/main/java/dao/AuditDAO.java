@@ -1,6 +1,6 @@
-package main.java.dao;
+package dao;
 
-import main.java.logic.Audit;
+import logic.Audit;
 
 import java.sql.SQLException;
 import java.util.Collection;

@@ -1,7 +1,5 @@
-package main.java;
-
-import main.java.dao.Factory;
-import main.java.logic.*;
+import dao.Factory;
+import logic.*;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
