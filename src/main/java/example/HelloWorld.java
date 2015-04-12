@@ -29,11 +29,11 @@ public class HelloWorld {
     }
 
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServerFactory.create("http://localhost:8081/");
+        HttpServer server = HttpServerFactory.create("http://localhost:8080/");
         server.start();
 
         System.out.println("Server running");
-        System.out.println("Visit: http://localhost:8081/helloworld");
+        System.out.println("Visit: http://localhost:9998/helloworld");
         System.out.println("Hit return to stop...");
         System.in.read();
         System.out.println("Stopping server");
