@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - Podatkova@localhost" uuid="90460d44-16b1-4e35-8908-6bdce3c27cbd">
+    <database-info product="MySQL" version="5.7.6-m16" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="Podatkova"/>
+    <table name="Assay" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Assay_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Date_start" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Date_end" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Registration_num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Commert" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Ground Type_GroundType_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Assay_id,Taxpayer_Taxpayer_id,Ground Type_GroundType_id"/>
+      <foreign-key name="fk_Assay_Ground Type1" columns="Ground Type_GroundType_id" ref-table="GroundType" ref-schema="" ref-catalog="Podatkova" ref-columns="GroundType_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Assay_Taxpayer1" columns="Taxpayer_Taxpayer_id" ref-table="Taxpayer" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Direction_Assay1" table="Direction" schema="" catalog="Podatkova" columns="Assay_Assay_id,Assay_Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Solutions_Assay1" table="Solutions" schema="" catalog="Podatkova" columns="Assay_Assay_id,Assay_Taxpayer_Taxpayer_id"/>
+      <index name="fk_Assay_Ground Type1_idx" unique="false" columns="Ground Type_GroundType_id"/>
+      <index name="fk_Assay_Taxpayer1_idx" unique="false" columns="Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="Cash" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Cash_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Main_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Transaction Subject_TransactionSubject_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Transaction Subject_Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Cash_id,Transaction Subject_TransactionSubject_id,Transaction Subject_Taxpayer_Taxpayer_id"/>
+      <foreign-key name="fk_Cash_Transaction Subject1" columns="Transaction Subject_TransactionSubject_id,Transaction Subject_Taxpayer_Taxpayer_id" ref-table="TransactionSubject" ref-schema="" ref-catalog="Podatkova" ref-columns="TransactionSubject_id,Taxpayer_Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Cash_Transaction Subject1_idx" unique="false" columns="Transaction Subject_TransactionSubject_id,Transaction Subject_Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="Charges" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Charges_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Maturity" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Date_of_accrual" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Suma" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Taxes_Taxes_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Taxes_Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Taxes_Type taxes_Type_Texes_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PaymentType_PaymentType_" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Charges_id,Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id,Taxes_Type taxes_Type_Texes_Id,PaymentType_PaymentType_"/>
+      <foreign-key name="fk_Charges_PaymentType1" columns="PaymentType_PaymentType_" ref-table="PaymentType" ref-schema="" ref-catalog="Podatkova" ref-columns="PaymentType_" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Charges_Taxes1" columns="Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id,Taxes_Type taxes_Type_Texes_Id" ref-table="Taxes" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxes_id,Taxpayer_Taxpayer_id,Type taxes_Type_Texes_Id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Charges_PaymentType1_idx" unique="false" columns="PaymentType_PaymentType_"/>
+      <index name="fk_Charges_Taxes1_idx" unique="false" columns="Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id,Taxes_Type taxes_Type_Texes_Id"/>
+    </table>
+    <table name="Contact" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Contact_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Value" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Contact Type_ContactType_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Contact_id,Taxpayer_Taxpayer_id,Contact Type_ContactType_id"/>
+      <foreign-key name="fk_Contact_Contact Type1" columns="Contact Type_ContactType_id" ref-table="ContactType" ref-schema="" ref-catalog="Podatkova" ref-columns="ContactType_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Contact_Taxpayer1" columns="Taxpayer_Taxpayer_id" ref-table="Taxpayer" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Contact_Contact Type1_idx" unique="false" columns="Contact Type_ContactType_id"/>
+      <index name="fk_Contact_Taxpayer1_idx" unique="false" columns="Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="ContactType" schema="" catalog="Podatkova" type="TABLE">
+      <column name="ContactType_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Adress" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Fax" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Legal_adress" sqlType="VARCHAR" precision="70" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ContactType_id"/>
+      <exported-key name="fk_Contact_Contact Type1" table="Contact" schema="" catalog="Podatkova" columns="Contact Type_ContactType_id"/>
+    </table>
+    <table name="Direction" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Direction_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Order_Order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Staff_Staff_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Assay_Assay_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Assay_Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Direction_id,Order_Order_id,Staff_Staff_id,Assay_Assay_id,Assay_Taxpayer_Taxpayer_id"/>
+      <foreign-key name="fk_Direction_Assay1" columns="Assay_Assay_id,Assay_Taxpayer_Taxpayer_id" ref-table="Assay" ref-schema="" ref-catalog="Podatkova" ref-columns="Assay_id,Taxpayer_Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Direction_Order1" columns="Order_Order_id" ref-table="Order" ref-schema="" ref-catalog="Podatkova" ref-columns="Order_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Direction_Staff1" columns="Staff_Staff_id" ref-table="Staff" ref-schema="" ref-catalog="Podatkova" ref-columns="Staff_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Direction_Assay1_idx" unique="false" columns="Assay_Assay_id,Assay_Taxpayer_Taxpayer_id"/>
+      <index name="fk_Direction_Order1_idx" unique="false" columns="Order_Order_id"/>
+      <index name="fk_Direction_Staff1_idx" unique="false" columns="Staff_Staff_id"/>
+    </table>
+    <table name="GroundType" schema="" catalog="Podatkova" type="TABLE">
+      <column name="GroundType_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="GroundType_id"/>
+      <exported-key name="fk_Assay_Ground Type1" table="Assay" schema="" catalog="Podatkova" columns="Ground Type_GroundType_id"/>
+    </table>
+    <table name="Licence" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Licence_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="SerialNum_num" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Issue_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Expiration_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Decision_num" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="LicenseState" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Transaction Subject_TransactionSubject_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Activity" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Licence_id"/>
+      <foreign-key name="fk_Licence_Taxpayer1" columns="Taxpayer_Taxpayer_id" ref-table="Taxpayer" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Licence_Transaction Subject1" columns="Transaction Subject_TransactionSubject_id" ref-table="TransactionSubject" ref-schema="" ref-catalog="Podatkova" ref-columns="TransactionSubject_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Licence_Taxpayer1_idx" unique="false" columns="Taxpayer_Taxpayer_id"/>
+      <index name="fk_Licence_Transaction Subject1_idx" unique="false" columns="Transaction Subject_TransactionSubject_id"/>
+    </table>
+    <table name="Order" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Registration_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Text" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="WriterName" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Order_id"/>
+      <exported-key name="fk_Direction_Order1" table="Direction" schema="" catalog="Podatkova" columns="Order_Order_id"/>
+    </table>
+    <table name="Payment" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Payment_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Suma" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="Date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_transaction" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Num_check" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Taxes_Taxes_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Taxes_Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Payment_id,Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id"/>
+      <foreign-key name="fk_Payment_Taxes1" columns="Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id" ref-table="Taxes" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxes_id,Taxpayer_Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Payment_Taxes1_idx" unique="false" columns="Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="PaymentType" schema="" catalog="Podatkova" type="TABLE">
+      <column name="PaymentType_" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PaymentType_"/>
+      <exported-key name="fk_Charges_PaymentType1" table="Charges" schema="" catalog="Podatkova" columns="PaymentType_PaymentType_"/>
+    </table>
+    <table name="Property" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Property_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Adress" sqlType="VARCHAR" precision="70" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Squere" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="Cadastral_number" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Cost" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Property Type_PropertyType_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Property_id,Taxpayer_Taxpayer_id,Property Type_PropertyType_id"/>
+      <foreign-key name="fk_Property_Property Type1" columns="Property Type_PropertyType_id" ref-table="PropertyType" ref-schema="" ref-catalog="Podatkova" ref-columns="PropertyType_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Property_Taxpayer1" columns="Taxpayer_Taxpayer_id" ref-table="Taxpayer" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Property_Property Type1_idx" unique="false" columns="Property Type_PropertyType_id"/>
+      <index name="fk_Property_Taxpayer1_idx" unique="false" columns="Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="PropertyType" schema="" catalog="Podatkova" type="TABLE">
+      <column name="PropertyType_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PropertyType_id"/>
+      <exported-key name="fk_Property_Property Type1" table="Property" schema="" catalog="Podatkova" columns="Property Type_PropertyType_id"/>
+    </table>
+    <table name="Solutions" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Solutions_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Text" sqlType="VARCHAR" precision="300" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Chief_Agreement" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="Staff_Staff_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Assay_Assay_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Assay_Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Solutions_id,Staff_Staff_id,Assay_Assay_id,Assay_Taxpayer_Taxpayer_id"/>
+      <foreign-key name="fk_Solutions_Assay1" columns="Assay_Assay_id,Assay_Taxpayer_Taxpayer_id" ref-table="Assay" ref-schema="" ref-catalog="Podatkova" ref-columns="Assay_id,Taxpayer_Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Solutions_Staff1" columns="Staff_Staff_id" ref-table="Staff" ref-schema="" ref-catalog="Podatkova" ref-columns="Staff_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_Solutions_Assay1_idx" unique="false" columns="Assay_Assay_id,Assay_Taxpayer_Taxpayer_id"/>
+      <index name="fk_Solutions_Staff1_idx" unique="false" columns="Staff_Staff_id"/>
+    </table>
+    <table name="Staff" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Staff_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Unit_Unit_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="position" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Staff_id,Unit_Unit_id"/>
+      <foreign-key name="fk_Staff_Unit1" columns="Unit_Unit_id" ref-table="Unit" ref-schema="" ref-catalog="Podatkova" ref-columns="Unit_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Direction_Staff1" table="Direction" schema="" catalog="Podatkova" columns="Staff_Staff_id"/>
+      <exported-key name="fk_Solutions_Staff1" table="Solutions" schema="" catalog="Podatkova" columns="Staff_Staff_id"/>
+      <index name="fk_Staff_Unit1_idx" unique="false" columns="Unit_Unit_id"/>
+    </table>
+    <table name="Taxes" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Taxes_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Begining" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="End" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Type taxes_Type_Texes_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Taxes_id,Taxpayer_Taxpayer_id,Type taxes_Type_Texes_Id"/>
+      <foreign-key name="fk_Taxes_Taxpayer1" columns="Taxpayer_Taxpayer_id" ref-table="Taxpayer" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Taxes_Type taxes1" columns="Type taxes_Type_Texes_Id" ref-table="TypeTaxes" ref-schema="" ref-catalog="Podatkova" ref-columns="Type_Texes_Id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Charges_Taxes1" table="Charges" schema="" catalog="Podatkova" columns="Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id,Taxes_Type taxes_Type_Texes_Id"/>
+      <exported-key name="fk_Payment_Taxes1" table="Payment" schema="" catalog="Podatkova" columns="Taxes_Taxes_id,Taxes_Taxpayer_Taxpayer_id"/>
+      <index name="fk_Taxes_Taxpayer1_idx" unique="false" columns="Taxpayer_Taxpayer_id"/>
+      <index name="fk_Taxes_Type taxes1_idx" unique="false" columns="Type taxes_Type_Texes_Id"/>
+    </table>
+    <table name="Taxpayer" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id_code" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="Taxpayer_id"/>
+      <exported-key name="fk_Assay_Taxpayer1" table="Assay" schema="" catalog="Podatkova" columns="Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Contact_Taxpayer1" table="Contact" schema="" catalog="Podatkova" columns="Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Licence_Taxpayer1" table="Licence" schema="" catalog="Podatkova" columns="Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Property_Taxpayer1" table="Property" schema="" catalog="Podatkova" columns="Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Taxes_Taxpayer1" table="Taxes" schema="" catalog="Podatkova" columns="Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Transaction Subject_Taxpayer1" table="TransactionSubject" schema="" catalog="Podatkova" columns="Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="TransactionSubject" schema="" catalog="Podatkova" type="TABLE">
+      <column name="TransactionSubject_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Adress" sqlType="VARCHAR" precision="70" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Taxpayer_Taxpayer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="TransactionSubject_id,Taxpayer_Taxpayer_id"/>
+      <foreign-key name="fk_Transaction Subject_Taxpayer1" columns="Taxpayer_Taxpayer_id" ref-table="Taxpayer" ref-schema="" ref-catalog="Podatkova" ref-columns="Taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_Cash_Transaction Subject1" table="Cash" schema="" catalog="Podatkova" columns="Transaction Subject_TransactionSubject_id,Transaction Subject_Taxpayer_Taxpayer_id"/>
+      <exported-key name="fk_Licence_Transaction Subject1" table="Licence" schema="" catalog="Podatkova" columns="Transaction Subject_TransactionSubject_id"/>
+      <index name="fk_Transaction Subject_Taxpayer1_idx" unique="false" columns="Taxpayer_Taxpayer_id"/>
+    </table>
+    <table name="TypeTaxes" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Type_Texes_Id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Type_Texes_Id"/>
+      <exported-key name="fk_Taxes_Type taxes1" table="Taxes" schema="" catalog="Podatkova" columns="Type taxes_Type_Texes_Id"/>
+    </table>
+    <table name="Unit" schema="" catalog="Podatkova" type="TABLE">
+      <column name="Unit_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Unit_id"/>
+      <exported-key name="fk_Staff_Unit1" table="Staff" schema="" catalog="Podatkova" columns="Unit_Unit_id"/>
+    </table>
+  </data-source>
+</component>
