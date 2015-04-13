@@ -7,11 +7,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Path;
 
-
 /**
  * This class used for:
  *
- * @author Yaroslav Kruk on 12.04.15.
+ * @author Yaroslav Kruk on 13.04.15.
  * e-mail : uakruk@ukr.net
  * GitHub : https://github.com/uakruk
  * @version 1.0
@@ -29,24 +28,16 @@ public class HelloWorld {
         return "Hello World";
     }
 
-    public static void main(String[] args) throws IOException, IllegalArgumentException {
-        try {
-            HttpServer server = HttpServerFactory.create("http://localhost:9998");
-            server.start();
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServerFactory.create("http://localhost:9998/");
+        server.start();
 
-            System.out.println("Server running");
-            System.out.println("Visit: http://localhost:9998/helloworld");
-            System.out.println("Hit return to stop...");
-            System.in.read();
-            System.out.println("Stopping server");
-            server.stop(0);
-            System.out.println("Server stopped");
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public HelloWorld(String[] a) throws IOException {
-        main(a);
+        System.out.println("Server running");
+        System.out.println("Visit: http://localhost:9998/helloworld");
+        System.out.println("Hit return to stop...");
+        System.in.read();
+        System.out.println("Stopping server");
+        server.stop(0);
+        System.out.println("Server stopped");
     }
 }
