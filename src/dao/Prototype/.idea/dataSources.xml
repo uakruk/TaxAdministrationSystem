@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2672132926">
-    <data-source source="LOCAL" name="MySQL - db@localhost" uuid="b64488b5-5bce-41f9-8677-1b8ae88c76b4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1342884536">
+    <data-source source="LOCAL" name="MySQL - taxesdatabase@localhost" uuid="e577a0a1-c69d-4b52-86f4-d8cf57214956">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/db</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/taxesdatabase</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />

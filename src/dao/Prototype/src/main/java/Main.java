@@ -10,6 +10,8 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,6 +21,7 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         Taxpayer man = new Taxpayer();
         man.setFullName("Heinz");
+        man.setTaxpayer_id(3000l);
         ObjectOfTaxation ob = new ObjectOfTaxation();
         ob.setTitle("Auto");
         CashRegister c = new CashRegister();
@@ -27,10 +30,8 @@ public class Main {
         c.setObjectOfTaxation(ob);
         man.getObjectOfTaxations().add(ob);
         ob.setTaxpayer(man);
-        //Factory.getInstance().getContactDAO().addContact(contact);
-        Factory.getInstance().getTaxpayerDAO().addTaxpayer(man);
-        Factory.getInstance().getObjectOfTaxationDAO().addObjectOfTaxation(ob);
-        Factory.getInstance().getCashRegisterDAO().addCashRegister(c);
-        //Factory.getInstance().getAuditDAO().addAudit(audit);
+        List<ObjectOfTaxation> objectOfTaxations = Factory.getInstance().getTaxpayerDAO().getTaxpayerById(3000l).getObjectOfTaxations();
+        System.out.println(objectOfTaxations.get(1).getTitle());
+        System.out.println(objectOfTaxations.get(0).getTitle());
     }
 }

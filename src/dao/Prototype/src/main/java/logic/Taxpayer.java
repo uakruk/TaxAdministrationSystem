@@ -13,11 +13,7 @@ import java.util.List;
 @Table(name="Taxpayer")
 public class Taxpayer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long taxpayer_id;
-
-    @Column(name = "idCode")
-    private long idCode;
 
     @Column(name = "fullName")
     private String fullName;
@@ -29,7 +25,7 @@ public class Taxpayer {
     private Collection<License> licenses = new ArrayList<License>();
 
     @OneToMany(mappedBy = "taxpayer")
-    private Collection<ObjectOfTaxation> objectOfTaxations = new ArrayList<ObjectOfTaxation>();
+    private List<ObjectOfTaxation> objectOfTaxations = new ArrayList<ObjectOfTaxation>();
 
     @OneToMany(mappedBy = "taxpayer")
     private Collection<Property> propertys = new ArrayList<Property>();
@@ -48,14 +44,6 @@ public class Taxpayer {
         this.taxpayer_id = id;
     }
 
-    public long getIdCode() {
-        return idCode;
-    }
-
-    public void setIdCode(long ID) {
-        this.idCode = ID;
-    }
-
     public String getFullName() {
         return fullName;
     }
@@ -72,7 +60,6 @@ public class Taxpayer {
         this.taxes = taxes;
     }
 
-
     public Collection<License> getLicenses() {
         return licenses;
     }
@@ -81,11 +68,11 @@ public class Taxpayer {
         this.licenses = licenses;
     }
 
-    public Collection<ObjectOfTaxation> getObjectOfTaxations() {
+    public List<ObjectOfTaxation> getObjectOfTaxations() {
         return objectOfTaxations;
     }
 
-    public void setObjectOfTaxations(Collection<ObjectOfTaxation> objectOfTaxations) {
+    public void setObjectOfTaxations(List<ObjectOfTaxation> objectOfTaxations) {
         this.objectOfTaxations = objectOfTaxations;
     }
 
@@ -114,7 +101,6 @@ public class Taxpayer {
     }
 
     public Taxpayer() {
-        idCode = 0;
         fullName = "";
         taxes = new ArrayList<Tax>();
         licenses = new ArrayList<License>();
@@ -125,7 +111,6 @@ public class Taxpayer {
     }
 
     public Taxpayer(long ID, String fullName,ArrayList<Tax> taxes, ArrayList<License> licenses, ArrayList<ObjectOfTaxation> objectOfTaxations, ArrayList<Audit> audits, ArrayList<Property> propertys, ArrayList<Contact> contacts) {
-        this.idCode = ID;
         this.fullName = fullName;
         this.taxes = taxes;
         this.licenses = licenses;

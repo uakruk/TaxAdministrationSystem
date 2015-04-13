@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver.class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/taxesdatabase</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">123456</property>
         <property name="hibernate.show_sql">true</property>
@@ -29,5 +29,6 @@
         <mapping class="logic.Decree"/>
         <mapping class="logic.Unit"/>
         <mapping class="logic.Payment"/>
+        <mapping class="logic.Decision"/>
     </session-factory>
 </hibernate-configuration>
