@@ -1,0 +1,109 @@
+<div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="tab-bar hide-for-medium-up">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon"><span></span></a>
+            </section>
+        </nav>
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="#">Головна</a></li>
+                <li><a href="#">Особистий кабінет</a></li>
+                <li><a href="#">Налаштування</a></li>
+                <li><a href="#">Контакти</a></li>
+            </ul>
+        </aside>
+        <a class="exit-off-canvas"></a>
+
+        <!-- top bar code -->
+        <nav class="top-bar show-for-medium-up" data-topbar>
+            <ul class="title-area">
+                <li class="name"></li>
+                <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+            </ul>
+            <section class="top-bar-section">
+                <ul>
+                    <li><a href="#">Головна</a></li>
+                    <li class="has-dropdown"><a href="#">Особистий кабінет</a>
+                        <ul class="dropdown">
+                            <li><a href="#/profile">Інформація</a></li>
+                            <li class="active"><a href="#">F.A.Q.</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Налаштування</a></li>
+                    <li><a href="#">Контакти</a></li>
+                    <li class="active"><a href="#">Увійти</a></li>
+                </ul>
+            </section>
+        </nav>
+
+
+        <div id="main-panel" class="row">
+            <div  class="large-9 large-centered columns text-center">
+                <div class="row panel radius text-center">
+
+                    <div id="logo" class="large-4 columns">
+                        <a href="index.html"><img src="img/logo.png" alt ="Податкова"></a>
+                    </div>
+                    <div class="large-4  columns">
+                        <h5>
+                            Увійдіть в систему:
+                        </h5>
+                        <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label class="text-left">Email користувача: </label>
+                                    <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="Введіть email" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label class="text-left">Пароль користувача: </label>
+                                    <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="Введіть пароль" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 large-centered columns">
+                                    <input class="button radius btn-lg " type="submit" value="Відправити запит"/>
+                                </div>
+                            </div>
+
+                        </form>
+                        <a class="small-link" href="#/auth">Не зареєстровані в системі?</a>
+                    </div>
+                    <div class="large-4 columns show-for-medium-up">
+                        <h3>
+                            Шановні Громадяни України!
+                        </h3>
+                        <p>
+                            Ми раді вітати Вас на оновленому веб-сервісі системи управляння подактками.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-style show-for-medium-up">
+            <footer class="row text-center">
+                <div class="large-12 columns">
+
+                    <p> Система управління податкової системи</p>
+                    <p>&copy; 2015 | Мінестерство доходів і зборів України</p>
+                </div>
+            </footer>
+        </div>
+
+        </br>
+        <footer class="row text-center hide-for-medium-up">
+            <div class="large-8 large-offset-4 columns">
+                <p>&copy; 2015 | Податкова система</p>
+                <p>
+                    <a href="tel:+380953250039"> Подзвонити адміну</a>
+                </p>
+
+            </div>
+        </footer>
+
+    </div><!-- end inner wrap, must go after ALL content -->
+</div><!-- end offcanvas -->
