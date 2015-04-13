@@ -23,7 +23,7 @@
 
 var KursachControllers = angular.module('KursachControllers',[]);
 
-KursachControllers.controller('UserListCtrl',['$scope','$http',
+KursachControllers.controller('UserProfileCtrl',['$scope','$http',
   function ($scope, $http) {
       $http.get('users/users2.json').success(function(data) {
         $scope.users = data;
@@ -35,6 +35,7 @@ KursachControllers.controller('AuthCtrl',
       $scope.handleRegBtnClick = function() {
         $auth.submitRegistration($scope.registrationForm)
           .then(function(resp) {
+
           })
           .catch(function(resp) {
           });

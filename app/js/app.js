@@ -54,26 +54,23 @@ KursachApp.config(function($authProvider) {
                 }
               });
             });
+
 KursachApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/test', {
-              templateUrl: 'partials/test.html',
-              controller: 'UserListCtrl'
+      when('/profile', {
+              templateUrl: 'partials/profile.html',
+              controller: 'UserProfileCtrl'
             }).
       when('/auth', {
                     templateUrl: 'partials/auth.html',
-                    controller: 'AuthCtrl'
+                    controller: 'UserListCtrl'
                   }).
       when('/login', {
                           templateUrl: 'partials/login.html',
                           controller: 'LoginCtrl'
       }).
-      when('/authplace', {
-              templateUrl: 'partials/auth-place.html',
-              controller: 'UserListCtrl'
-            }).
       otherwise({
-        redirectTo: '/test'
+        redirectTo: '/login'
       });
   }]);
