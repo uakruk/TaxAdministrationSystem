@@ -18,8 +18,9 @@
         <dependency>
             <groupId>org.glassfish.hk2</groupId>
             <artifactId>hk2-api</artifactId>
-            <version>2.3.0</version>
+            <version>2.4.0-b16</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.glassfish.hk2</groupId>
@@ -33,6 +34,11 @@
             <version>2.4.0-b16</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.glassfish.hk2</groupId>
+            <artifactId>hk2-utils</artifactId>
+            <version>2.4.0-b16</version>
+        </dependency>
 
     </dependencies>
 </project>
