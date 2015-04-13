@@ -1,0 +1,19 @@
+[
+  {
+    "id": 0,
+    "username": "Valik",
+    "avatarUrl": "img/avatars/valik.jpg"
+  },
+  {
+    "id": 1,
+    "username": "Kruk",
+    "avatarUrl": "img/avatars/kruk.jpg"
+  },
+  {
+    "id": 2,
+    "username": "Dread",
+    "avatarUrl": "img/avatars/dread.jpg"
+
+  }
+
+]
