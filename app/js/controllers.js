@@ -30,3 +30,34 @@ KursachControllers.controller('UserListCtrl',['$scope','$http',
       });
       $scope.orderProp = 'age';
   }]);
+KursachControllers.controller('AuthCtrl',
+  function($scope, $auth) {
+      $scope.handleRegBtnClick = function() {
+        $auth.submitRegistration($scope.registrationForm)
+          .then(function(resp) {
+          })
+          .catch(function(resp) {
+          });
+      };
+  });
+KursachControllers.controller('LoginCtrl', function($scope, $auth) {
+    $scope.handleLoginBtnClick = function() {
+      $auth.submitLogin($scope.loginForm)
+        .then(function(resp) {
+
+        })
+        .catch(function(resp) {
+        });
+    };
+  });
+KursachControllers.controller('SignoutCtrl', function($scope, $auth) {
+    $scope.handleSignOutBtnClick = function() {
+      $auth.signOut()
+        .then(function(resp) {
+          // handle success response
+        })
+        .catch(function(resp) {
+          // handle error response
+        });
+    };
+  });
