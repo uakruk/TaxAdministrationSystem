@@ -28,7 +28,7 @@ public class HelloWorld {
         return "Hello World";
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, IllegalArgumentException {
         HttpServer server = HttpServerFactory.create("http://localhost:9998/");
         server.start();
 
