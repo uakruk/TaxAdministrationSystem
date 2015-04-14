@@ -49,19 +49,20 @@
                         <h5>
                             Увійдіть в систему:
                         </h5>
-                        <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+                        <form ng-submit="login()" role="form">
                             <div class="row">
                                 <div class="large-12 columns">
                                     <label class="text-left">Email користувача: </label>
-                                    <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control" placeholder="Введіть email" />
+                                    <input type="email" name="email" ng-model="email" required="required" class="form-control" placeholder="Введіть email" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="large-12 columns">
                                     <label class="text-left">Пароль користувача: </label>
-                                    <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control" placeholder="Введіть пароль" />
+                                    <input type="password" name="password" ng-model="password" required="required" class="form-control" placeholder="Введіть пароль" />
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="large-12 large-centered columns">
                                     <input class="button radius btn-lg " type="submit" value="Відправити запит"/>

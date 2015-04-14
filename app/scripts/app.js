@@ -2,9 +2,13 @@
 
 angular
   .module('TaxPayerApp', [
-    'ngRoute'
+    'ngRoute',
+    'ngCookies',
+    'ngResource',
+    'ngSanitize'
   ])
   .config(function ($routeProvider) {
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -30,8 +34,12 @@ angular
         redirectTo: '/'
       });
   })
+//  .config(function($locationProvider, $httpProvider){
+//    $httpProvider.responseInterceptors.push('httpInterceptor');
+//  })
+  .run(function (Authentication, Application, $rootScope, $location, RouteFilter,api) {
 
-  .run(function (Authentication, Application, $rootScope, $location, RouteFilter) {
+    api.init();
 
     Authentication.requestUser().then(function() {
 
@@ -51,3 +59,4 @@ angular
       RouteFilter.run($location.path());
     })
   });
+
