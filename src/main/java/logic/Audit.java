@@ -31,6 +31,9 @@ public class Audit {
     @JoinColumn(name="taxpayer_id")
     private Taxpayer taxpayer;
 
+    @OneToMany
+    private ArrayList<Decision> decisions;
+
     public Long getAudit_id() {
         return audit_id;
     }
@@ -71,13 +74,13 @@ public class Audit {
         this.comment = comment;
     }
 
-    /*public ArrayList<Decision> getDecisions() {
+    public ArrayList<Decision> getDecisions() {
         return decisions;
     }
 
     public void setDecisions(ArrayList<Decision> decisions) {
         this.decisions = decisions;
-    }*/
+    }
 
     public String getReason() {
         return reason;

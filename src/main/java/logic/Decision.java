@@ -22,6 +22,16 @@ public class Decision {
     @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
     @JoinColumn(name="employee_id")
     private Employee employee;
+    @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
+    private Audit audit;
+
+    public Audit getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Audit audit) {
+        this.audit = audit;
+    }
     public Long getDecision_id() {
         return decision_id;
     }
