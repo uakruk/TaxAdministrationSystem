@@ -1,13 +1,13 @@
 package restful.resources;
 
 import dao.Factory;
-import dao.PaymentDAO;
 import dao.TaxDAO;
-import logic.Payment;
+import dao.TaxpayerDAO;
+import logic.Taxpayer;
 import logic.Tax;
 import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONObject;
 import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -17,43 +17,43 @@ import java.util.Iterator;
 /**
  * This class used for:
  *
- * @author Yaroslav Kruk on 14.04.15.
+ * @author Yaroslav Kruk on 16.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
  * @version 1.0
  * @since 1.7
  */
-public class PaymentRes {
+public class TaxRes {
+
     private static Factory factory = Factory.getInstance();
-    private static PaymentDAO dao = factory.getPaymentDAO();
-    private static PaymentDAO getDao() {
+    private static TaxDAO dao = factory.getTaxDAO();
+    private static TaxDAO getDao() {
         factory = factory.equals(null) ? Factory.getInstance() : factory;
-        dao = dao.equals(null) ? factory.getPaymentDAO() : dao;
+        dao = dao.equals(null) ? factory.getTaxDAO() : dao;
         return dao;
     }
 
     /**
-     * get payments by tax_id
+     * get taxes by taxpayer_id
      * @param src
      * @return
      */
-    public JSONArray getAllPaymentsById(JSONObject src) {
+    public JSONArray getAllTaxesById(JSONObject src) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
-            TaxDAO tdao= factory.getTaxDAO();
-            Collection<Payment> col = tdao.getTaxById(src.optLong("tax_id"))
-                    .getPayments();
-            Iterator<Payment> iter = col.iterator();
+            TaxpayerDAO tdao = factory.getTaxpayerDAO();
+            Collection<Tax> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+                    .getTaxes();
+            Iterator<Tax> iter = col.iterator();
             while (iter.hasNext()) {
                 temp = new JSONObject();
-                Payment p = iter.next();
-                temp.put("payment_id", p.getPayment_id());
-                temp.put("amountOfPayment", p.getAmountOfPayment());
-                temp.put("idTransaction", p.getIdTransaction());
-                temp.put("paymentDate", p.getPaymentDate().toString());
-                temp.put("receiptNumber", p.getReceiptNumber());
+                Tax t = iter.next();
+                temp.put("tax_id", t.getTax_id());
+                temp.put("typeOfTax", t.getTypeOfTax());
+                temp.put("startDate", t.getStartDate().toString());
+                temp.put("endDate", t.getEndDate().toString());
                 resp.put(temp);
             }
             temp = new JSONObject();
@@ -85,20 +85,19 @@ public class PaymentRes {
     }
 
     /**
-     * get payment by payment_id
+     * get tax by tax_id
      * @param src
      * @return
      */
-    public JSONObject getPaymentById(JSONObject src) {
+    public JSONObject getTaxById(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Payment p = dao.getPaymentById(src.optLong("payment_id"));
-            temp.put("payment_id", p.getPayment_id());
-            temp.put("amountOfPayment", p.getAmountOfPayment());
-            temp.put("idTransaction", p.getIdTransaction());
-            temp.put("paymentDate", p.getPaymentDate().toString());
-            temp.put("receiptNumber", p.getReceiptNumber());
+            Tax t = dao.getTaxById(src.optLong("tax_id"));
+            temp.put("tax_id", t.getTax_id());
+            temp.put("typeOfTax", t.getTypeOfTax());
+            temp.put("startDate", t.getStartDate().toString());
+            temp.put("endDate", t.getEndDate().toString());
             temp.put("MSG", "Item has been delivered successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {
@@ -124,20 +123,19 @@ public class PaymentRes {
     }
 
     /**
-     * update payment by payment_id
+     * update tax by tax_id
      * @param src
      * @return
      */
-    public JSONObject updatePaymentById(JSONObject src) {
+    public JSONObject updateTaxById(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Payment p = dao.getPaymentById(src.optLong("payment_id"));
-            p.setAmountOfPayment(src.optDouble("amountOfPayment"));
-            p.setIdTransaction(src.optLong("idTransaction"));
-            p.setPaymentDate(new Date(src.optLong("paymentDate")));
-            p.setReceiptNumber(src.optLong("receiptNumber"));
-            dao.updatePayment(p);
+            Tax t = dao.getTaxById(src.optLong("tax_id"));
+            t.setTypeOfTax(src.optString("typeOfTax"));
+            t.setStartDate(new Date(src.optLong("startDate")));
+            t.setEndDate(new Date(src.optLong("endDate")));
+            dao.updateTax(t);
             temp.put("MSG", "Item has been updated successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {
@@ -163,22 +161,21 @@ public class PaymentRes {
     }
 
     /**
-     * add payment by tax_id
+     * add tax by taxpayer_id
      * @param src
      * @return
      */
-    public JSONObject addPayment(JSONObject src) {
+    public JSONObject addTaxByTaxpayerId(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Tax t = factory.getTaxDAO().getTaxById(src.optLong("tax_id"));
-            Payment p = new Payment();
-            p.setAmountOfPayment(src.optDouble("amountOfPayment"));
-            p.setIdTransaction(src.optLong("idTransaction"));
-            p.setPaymentDate(new Date(src.optLong("paymentDate")));
-            p.setReceiptNumber(src.optLong("receiptNumber"));
-            p.setTax(t);
-            dao.addPayment(p);
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Tax t = new Tax();
+            t.setTypeOfTax(src.optString("typeOfTax"));
+            t.setStartDate(new Date(src.optLong("startDate")));
+            t.setEndDate(new Date(src.optLong("endDate")));
+            t.setTaxpayer(tp);
+            dao.addTax(t);
             temp.put("MSG", "Item has been added successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {

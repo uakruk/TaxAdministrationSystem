@@ -1,8 +1,6 @@
 package dao;
 
-import logic.AdditionalCharges;
-import logic.License;
-import logic.ObjectOfTaxation;
+import logic.*;
 
 /**
  * Created by Admon on 05.04.2015.
@@ -19,6 +17,39 @@ public class Factory {
     private static AdditionalChargesDAO additionalChargesDAO = null;
     private static CashRegisterDAO cashRegisterDAO = null;
     private static PaymentDAO paymentDAO = null;
+    private static DecisionDAO decisionDAO = null;
+    private static DecreeDAO decreeDAO  = null;
+    private static EmployeeDAO employeeDAO = null;
+    private static ReferralDAO referralDAO = null;
+    private static UnitDAO unitDAO = null;
+
+    public static UnitDAO getUnitDAO() {
+        if (unitDAO == null){
+            unitDAO = new UnitDAOImplem();
+        }
+        return unitDAO;
+    }
+
+    public static EmployeeDAO getEmployeeDAO(){
+    if (employeeDAO == null){
+        employeeDAO = new EmployeeDAOImplem();
+        }
+        return employeeDAO;
+    }
+
+    public static DecreeDAO getDecreeDAO() {
+        if (decreeDAO == null){
+            decreeDAO = new DecreeDAOImplem();
+        }
+        return decreeDAO;
+    }
+
+    public static DecisionDAO getDecisionDAO() {
+        if (decisionDAO == null){
+            decisionDAO = new DecisionDAOImplem();
+        }
+        return decisionDAO;
+    }
 
     public static PaymentDAO getPaymentDAO() {
         if (paymentDAO == null){
@@ -34,7 +65,6 @@ public class Factory {
         return referralDAO;
     }
 
-    private static ReferralDAO referralDAO = null;
     public static synchronized Factory getInstance(){
         if (instance == null){
             instance = new Factory();
@@ -104,4 +134,5 @@ public class Factory {
         }
         return cashRegisterDAO;
     }
+
 }

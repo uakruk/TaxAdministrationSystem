@@ -20,6 +20,8 @@ public class Employee {
     private String position;
     @OneToMany(mappedBy = "employee")
     private Collection<Referral> referral = new ArrayList<Referral>();
+    @OneToMany(mappedBy = "employee")
+    private Collection<Decision> decisions = new ArrayList<Decision>();
     @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
     @JoinColumn(name="unit_id")
     private Unit unit;
@@ -64,18 +66,28 @@ public class Employee {
         this.referral = referral;
     }
 
+    public Collection<Decision> getDecisions() {
+        return decisions;
+    }
+
+    public void setDecisions(Collection<Decision> decisions) {
+        this.decisions = decisions;
+    }
+
 
     public Employee() {
         name = "";
         position = "";
         unit = new Unit();
         referral = new ArrayList<Referral>();
+        decisions = new ArrayList<Decision>();
     }
 
-    public Employee(String name, String position, Unit unitBelongs, ArrayList<Referral> referral) {
+    public Employee(String name, String position, Unit unitBelongs, ArrayList<Referral> referral, ArrayList<Decision> decisions) {
         this.name = name;
         this.position = position;
         this.unit = unitBelongs;
         this.referral = referral;
+        this.decisions = decisions;
     }
 }

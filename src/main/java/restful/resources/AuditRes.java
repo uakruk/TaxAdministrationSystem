@@ -143,12 +143,12 @@ public class AuditRes {
         return temp;
     }
 
-    public JSONObject addAudit(JSONObject src, long taxpayerID) {
+    public JSONObject addAudit(JSONObject src/*, long taxpayerID*/) {
         JSONObject temp = new JSONObject();
         try {
             Factory factory = Factory.getInstance();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Taxpayer tp = tdao.getTaxpayerById(taxpayerID);
+            Taxpayer tp = tdao.getTaxpayerById(src.optLong("taxpayer_id"));
             AuditDAO dao = factory.getAuditDAO();
             Audit audit = new Audit();
             audit.setTaxpayer(tp);

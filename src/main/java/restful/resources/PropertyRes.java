@@ -1,15 +1,14 @@
 package restful.resources;
 
 import dao.Factory;
-import dao.PaymentDAO;
-import dao.TaxDAO;
-import logic.Payment;
-import logic.Tax;
+import dao.PropertyDAO;
+import dao.TaxpayerDAO;
+import logic.Property;
+import logic.Taxpayer;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONObject;
 import org.codehaus.jettison.json.JSONException;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
@@ -17,43 +16,45 @@ import java.util.Iterator;
 /**
  * This class used for:
  *
- * @author Yaroslav Kruk on 14.04.15.
+ * @author Yaroslav Kruk on 15.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
  * @version 1.0
  * @since 1.7
  */
-public class PaymentRes {
+public class PropertyRes {
+
     private static Factory factory = Factory.getInstance();
-    private static PaymentDAO dao = factory.getPaymentDAO();
-    private static PaymentDAO getDao() {
+    private static PropertyDAO dao = factory.getPropertyDAO();
+    private static PropertyDAO getDao() {
         factory = factory.equals(null) ? Factory.getInstance() : factory;
-        dao = dao.equals(null) ? factory.getPaymentDAO() : dao;
+        dao = dao.equals(null) ? factory.getPropertyDAO() : dao;
         return dao;
     }
 
     /**
-     * get payments by tax_id
+     * get property info by taxpayer_id
      * @param src
      * @return
      */
-    public JSONArray getAllPaymentsById(JSONObject src) {
+    public JSONArray getAllPropertyById(JSONObject src) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
-            TaxDAO tdao= factory.getTaxDAO();
-            Collection<Payment> col = tdao.getTaxById(src.optLong("tax_id"))
-                    .getPayments();
-            Iterator<Payment> iter = col.iterator();
+            TaxpayerDAO tdao = factory.getTaxpayerDAO();
+            Collection<Property> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+                    .getPropertys();
+            Iterator<Property> iter = col.iterator();
             while (iter.hasNext()) {
                 temp = new JSONObject();
-                Payment p = iter.next();
-                temp.put("payment_id", p.getPayment_id());
-                temp.put("amountOfPayment", p.getAmountOfPayment());
-                temp.put("idTransaction", p.getIdTransaction());
-                temp.put("paymentDate", p.getPaymentDate().toString());
-                temp.put("receiptNumber", p.getReceiptNumber());
+                Property p = iter.next();
+                temp.put("property_id", p.getProperty_id());
+                temp.put("cadastralNumber", p.getCadastralNumber());
+                temp.put("address", p.getAddress());
+                temp.put("price", p.getPrice());
+                temp.put("square", p.getSquare());
+                temp.put("typeOfProperty", p.getTypeOfProperty());
                 resp.put(temp);
             }
             temp = new JSONObject();
@@ -85,20 +86,21 @@ public class PaymentRes {
     }
 
     /**
-     * get payment by payment_id
+     * get property by property_id
      * @param src
      * @return
      */
-    public JSONObject getPaymentById(JSONObject src) {
+    public JSONObject getPropertyById(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Payment p = dao.getPaymentById(src.optLong("payment_id"));
-            temp.put("payment_id", p.getPayment_id());
-            temp.put("amountOfPayment", p.getAmountOfPayment());
-            temp.put("idTransaction", p.getIdTransaction());
-            temp.put("paymentDate", p.getPaymentDate().toString());
-            temp.put("receiptNumber", p.getReceiptNumber());
+            Property p = dao.getPropertyById(src.optLong("property_id"));
+            temp.put("property_id", p.getProperty_id());
+            temp.put("cadastralNumber", p.getCadastralNumber());
+            temp.put("address", p.getAddress());
+            temp.put("price", p.getPrice());
+            temp.put("square", p.getSquare());
+            temp.put("typeOfProperty", p.getTypeOfProperty());
             temp.put("MSG", "Item has been delivered successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {
@@ -124,20 +126,21 @@ public class PaymentRes {
     }
 
     /**
-     * update payment by payment_id
+     * update property by property_id
      * @param src
      * @return
      */
-    public JSONObject updatePaymentById(JSONObject src) {
+    public JSONObject updatePropertyById(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Payment p = dao.getPaymentById(src.optLong("payment_id"));
-            p.setAmountOfPayment(src.optDouble("amountOfPayment"));
-            p.setIdTransaction(src.optLong("idTransaction"));
-            p.setPaymentDate(new Date(src.optLong("paymentDate")));
-            p.setReceiptNumber(src.optLong("receiptNumber"));
-            dao.updatePayment(p);
+            Property p = dao.getPropertyById(src.optLong("property_id"));
+            p.setCadastralNumber(src.optLong("cadastralNumber"));
+            p.setAddress(src.optString("address"));
+            p.setPrice(src.optDouble("price"));
+            p.setSquare(src.optDouble("square"));
+            p.setTypeOfProperty(src.optString("typeOfProperty"));
+            dao.updateProperty(p);
             temp.put("MSG", "Item has been updated successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {
@@ -163,23 +166,59 @@ public class PaymentRes {
     }
 
     /**
-     * add payment by tax_id
+     * add property by taxpayer_id
      * @param src
      * @return
      */
-    public JSONObject addPayment(JSONObject src) {
+    public JSONObject addProperty(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Tax t = factory.getTaxDAO().getTaxById(src.optLong("tax_id"));
-            Payment p = new Payment();
-            p.setAmountOfPayment(src.optDouble("amountOfPayment"));
-            p.setIdTransaction(src.optLong("idTransaction"));
-            p.setPaymentDate(new Date(src.optLong("paymentDate")));
-            p.setReceiptNumber(src.optLong("receiptNumber"));
-            p.setTax(t);
-            dao.addPayment(p);
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Property p = new Property();
+            p.setCadastralNumber(src.optLong("cadastralNumber"));
+            p.setAddress(src.optString("address"));
+            p.setPrice(src.optDouble("price"));
+            p.setSquare(src.optDouble("square"));
+            p.setTypeOfProperty(src.optString("typeOfProperty"));
+            p.setTaxpayer(tp);
+            dao.addProperty(p);
             temp.put("MSG", "Item has been added successfully");
+            temp.put("HTTP_CODE", "200");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            try {
+                temp = new JSONObject();
+                temp.put("MSG", "Error while processing a JSON");
+                temp.put("HTTP_CODE", "500");
+            } catch (JSONException n) {
+                e.printStackTrace();
+            }
+        } catch (SQLException a) {
+            a.printStackTrace();
+            try {
+                temp = new JSONObject();
+                temp.put("MSG", "Error while executing a SQL querry");
+                temp.put("HTTP_CODE", "500");
+            } catch (JSONException n) {
+                n.printStackTrace();
+            }
+        }
+        return temp;
+    }
+
+    /**
+     * delete property by property_id
+     * @param src
+     * @return
+     */
+    public JSONObject deletePropertyById(JSONObject src) {
+        JSONObject temp = new JSONObject();
+        try {
+            dao = getDao();
+            Property p = dao.getPropertyById(src.optLong("property_id"));
+            dao.deleteProperty(p);
+            temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {
             e.printStackTrace();
