@@ -25,8 +25,9 @@ import java.util.Iterator;
  */
 public abstract class AuditRes {
 
-    public static synchronized JSONObject performAction(String action, long audit_id, JSONObject src) {
-        return action.equals("change") ? updateAuditByID(audit_id, src) : getAuditByID(audit_id);
+    public static synchronized JSONObject performAction(String action, long ID, long audit_id, JSONObject src) {
+        return action.equals("change") ? updateAuditByID(audit_id, src) :
+                  action.equals("add") ? addAudit(ID, src) : getAuditByID(audit_id);
     }
 
     public static JSONArray getAllAudit(long ID) {

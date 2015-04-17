@@ -34,9 +34,15 @@ public abstract class DecisionRes {
         return dao;
     }
 
+    public static JSONObject performAction(String action, long audit_id, long decision_id, JSONObject src) {
+        return action.equals("change") ? updateDecisionById(decision_id, src) :
+                action.equals("add") ? addDecision(audit_id, src.optLong("employee_id"), src) :
+                        getDecisionById(decision_id);
+    }
+
     /**
      * get get decisions by audit_id
-     * @param src
+     * @param audit_id
      * @return
      */
     public static JSONArray getDecisionsByAuditId(long audit_id) {
@@ -45,7 +51,7 @@ public abstract class DecisionRes {
         try {
             dao = getDao();
             AuditDAO adao = factory.getAuditDAO();
-            Collection<Decision> col = adao.getAuditById(src.optLong("audit_id")).getDecisions();
+            Collection<Decision> col = adao.getAuditById(audit_id).getDecisions();
             Iterator<Decision> iter = col.iterator();
             while (iter.hasNext()) {
                 temp = new JSONObject();
@@ -86,16 +92,16 @@ public abstract class DecisionRes {
 
     /**
      * get get decisions by employee_id
-     * @param src
+     * @param employee_id
      * @return
      */
-    public JSONArray getDecisionsByEmployeeId(JSONObject src) {
+    public static JSONArray getDecisionsByEmployeeId(long employee_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             EmployeeDAO edao = factory.getEmployeeDAO();
-            Collection<Decision> col = edao.getEmployeeById(src.optLong("employee_id")).getDecisions();
+            Collection<Decision> col = edao.getEmployeeById(employee_id).getDecisions();
             Iterator<Decision> iter = col.iterator();
             while (iter.hasNext()) {
                 temp = new JSONObject();
@@ -136,14 +142,14 @@ public abstract class DecisionRes {
 
     /**
      * get decision by decision_id
-     * @param src
+     * @param decision_id
      * @return
      */
-    public JSONObject getDecisionById(JSONObject src) {
+    public static JSONObject getDecisionById(long decision_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Decision d = dao.getDecisionById(src.optLong("decision_id"));
+            Decision d = dao.getDecisionById(decision_id);
             temp.put("decision_id", d.getDecision_id());
             temp.put("chief", d.getChief());
             temp.put("signature", d.getSignature());
@@ -175,13 +181,14 @@ public abstract class DecisionRes {
     /**
      * update decision by decision_id
      * @param src
+     * @param decision_id
      * @return
      */
-    public JSONObject updateDecisionById(JSONObject src) {
+    public static synchronized JSONObject updateDecisionById(long decision_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Decision d = dao.getDecisionById(src.optLong("decision_id"));
+            Decision d = dao.getDecisionById(decision_id);
             d.setChief(src.optString("chief"));
             d.setSignature(src.optString("signature"));
             d.setText(src.optString("text"));
@@ -213,14 +220,16 @@ public abstract class DecisionRes {
     /**
      * add decision by audit_id & employee_id
      * @param src
+     * @param audit_id
+     * @param employee_id
      * @return
      */
-    public JSONObject addDecision(JSONObject src) {
+    public static synchronized JSONObject addDecision(long audit_id, long employee_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Audit a = factory.getAuditDAO().getAuditById(src.optLong("audit_id"));
-            Employee e = factory.getEmployeeDAO().getEmployeeById(src.optLong("employee_id"));
+            Audit a = factory.getAuditDAO().getAuditById(audit_id);
+            Employee e = factory.getEmployeeDAO().getEmployeeById(employee_id);
             Decision d = new Decision();
             d.setChief(src.optString("chief"));
             d.setSignature(src.optString("signature"));

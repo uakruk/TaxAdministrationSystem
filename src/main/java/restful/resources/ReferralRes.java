@@ -25,7 +25,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class ReferralRes {
+public abstract class ReferralRes {
 /* IT's not necessary to make this class. Let it be the same id as in audit_id
 
   */
@@ -37,17 +37,25 @@ public class ReferralRes {
         return dao;
     }
 
+    public static JSONObject performAction(String action, long referral_id,
+                                           long audit_id, long employee_id, long decree_id,
+                                           JSONObject src) {
+        return action.equals("change") ? updateReferralById(referral_id) :
+                action.equals("add") ? addReferral(audit_id, employee_id,
+                        decree_id, src) : getReferralyById(referral_id);
+    }
+
     /**
      * get referrals by decree_id
-     * @param src
+     * @param decree_id
      * @return
      */
-    public JSONArray getReferralsByDecreeId(JSONObject src) {
+    public static JSONArray getReferralsByDecreeId(long decree_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
-            Decree d = factory.getDecreeDAO().getDecreeById(src.optLong("decree_id"));
+            Decree d = factory.getDecreeDAO().getDecreeById(decree_id);
             Collection<Referral> col = d.getReferrals();
             Iterator<Referral> iter = col.iterator();
             while (iter.hasNext()) {
@@ -86,15 +94,15 @@ public class ReferralRes {
 
     /**
      * get referrals by audit_id
-     * @param src
+     * @param audit_id
      * @return
      */
-    public JSONArray getReferralsByAuditId(JSONObject src) {
+    public static JSONArray getReferralsByAuditId(long audit_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
-            Audit a = factory.getAuditDAO().getAuditById(src.optLong("audit_id"));
+            Audit a = factory.getAuditDAO().getAuditById(audit_id);
             Collection<Referral> col = a.getReferrals();
             Iterator<Referral> iter = col.iterator();
             while (iter.hasNext()) {
@@ -133,15 +141,15 @@ public class ReferralRes {
 
     /**
      * get referrals by employee_id
-     * @param src
+     * @param employee_id
      * @return
      */
-    public JSONArray getReferralsByEmployeeId(JSONObject src) {
+    public static JSONArray getReferralsByEmployeeId(long employee_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
-            Employee e = factory.getEmployeeDAO().getEmployeeById(src.optLong("employee_id"));
+            Employee e = factory.getEmployeeDAO().getEmployeeById(employee_id);
             Collection<Referral> col = e.getReferral();
             Iterator<Referral> iter = col.iterator();
             while (iter.hasNext()) {
@@ -180,14 +188,14 @@ public class ReferralRes {
 
     /**
      * get referral by referral_id
-     * @param src
+     * @param referral_id
      * @return
      */
-    public JSONObject getReferralyById(JSONObject src) {
+    public static JSONObject getReferralyById(long referral_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Referral r = dao.getById(src.optLong("referral_id"));
+            Referral r = dao.getById(referral_id);
             temp.put("referral_id", r.getReferral_id());
             temp.put("MSG", "Item has been delivered successfully");
             temp.put("HTTP_CODE", "200");
@@ -215,14 +223,14 @@ public class ReferralRes {
 
     /**
      * update referral by referral_id
-     * @param src
+     * @param referral_id
      * @return
      */
-    public JSONObject updateReferralById(JSONObject src) {
+    public static synchronized JSONObject updateReferralById(long referral_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Referral r = dao.getById(src.optLong("referral_id"));
+            Referral r = dao.getById(referral_id);
         /*    Employee e = r.getEmployee();
             Decree d = r.getDecree();
             Audit a = r.getAudit(); */
@@ -253,16 +261,19 @@ public class ReferralRes {
 
     /**
      * add referral by employee_id, audit_id, decree_id
+     * @param audit_id
+     * @param employee_id
+     * @param decree_id
      * @param src
      * @return
      */
-    public JSONObject addReferral(JSONObject src) {
+    public static synchronized JSONObject addReferral(long audit_id, long employee_id, long decree_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Employee e = factory.getEmployeeDAO().getEmployeeById(src.optLong("employee_id"));
-            Audit a = factory.getAuditDAO().getAuditById(src.optLong("audit_id"));
-            Decree d = factory.getDecreeDAO().getDecreeById(src.optLong("decree_id"));
+            Employee e = factory.getEmployeeDAO().getEmployeeById(employee_id);
+            Audit a = factory.getAuditDAO().getAuditById(audit_id);
+            Decree d = factory.getDecreeDAO().getDecreeById(decree_id);
             Referral r = new Referral();
             r.setAudit(a);
             r.setDecree(d);

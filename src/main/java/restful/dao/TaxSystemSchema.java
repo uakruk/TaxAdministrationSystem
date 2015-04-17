@@ -18,7 +18,7 @@ import org.codehaus.jettison.json.JSONArray;
 
 public class TaxSystemSchema extends TaxsystemConn {
 
-
+/*
     public int updatePC_PARTS(int pk, int avail) throws Exception {
 
         PreparedStatement query = null;
@@ -28,7 +28,7 @@ public class TaxSystemSchema extends TaxsystemConn {
 			/*
 			 * If this was a real application, you should do data validation here
 			 * before updating data.
-			 */
+			 *
 
             conn = oraclePcPartsConnection();
             query = conn.prepareStatement("update PC_PARTS " +
@@ -63,7 +63,7 @@ public class TaxSystemSchema extends TaxsystemConn {
      * @param PC_PARTS_DESC
      * @return integer 200 for success, 500 for error
      * @throws Exception
-     */
+     *
     public int insertIntoPC_PARTS(String PC_PARTS_TITLE,
                                   String PC_PARTS_CODE,
                                   String PC_PARTS_MAKER,
@@ -82,7 +82,7 @@ public class TaxSystemSchema extends TaxsystemConn {
 			 * Important: The primary key on PC_PARTS table will auto increment.
 			 * 		That means the PC_PARTS_PK column does not need to be apart of the
 			 * 		SQL insert query below.
-			 */
+			 *
             conn = oraclePcPartsConnection();
             query = conn.prepareStatement("insert into PC_PARTS " +
                     "(PC_PARTS_TITLE, PC_PARTS_CODE, PC_PARTS_MAKER, PC_PARTS_AVAIL, PC_PARTS_DESC) " +
@@ -119,7 +119,7 @@ public class TaxSystemSchema extends TaxsystemConn {
      * @param brand - product brand
      * @return - json array of the results from the database
      * @throws Exception
-     */
+     *
     public JSONArray queryReturnBrandParts(String brand) throws Exception {
 
         PreparedStatement query = null;
@@ -167,7 +167,7 @@ public class TaxSystemSchema extends TaxsystemConn {
      * @param item_number - product item number
      * @return - json array of the results from the database
      * @throws Exception
-     */
+     *
     public JSONArray queryReturnBrandItemNumber(String brand, int item_number) throws Exception {
 
         PreparedStatement query = null;
@@ -187,8 +187,8 @@ public class TaxSystemSchema extends TaxsystemConn {
 			 * protect against sql injection
 			 * when you have more than one ?, it will go in chronological
 			 * order.
-			 */
-            query.setString(1, brand.toUpperCase()); //first ?
+			 *
+            quer.setString(1, brand.toUpperCase()); //first ?
             query.setInt(2, item_number); //second ?
             ResultSet rs = query.executeQuery();
 
@@ -216,7 +216,7 @@ public class TaxSystemSchema extends TaxsystemConn {
      *
      * @return - all PC parts in json format
      * @throws Exception
-     */
+     *
     public JSONArray queryAllPcParts() throws Exception {
 
         PreparedStatement query = null;
@@ -256,7 +256,7 @@ public class TaxSystemSchema extends TaxsystemConn {
      *
      * @return time/stamp in json format
      * @throws Exception
-     */
+     *
     public JSONArray queryCheckDbConnection() throws Exception {
 
         PreparedStatement query = null;
@@ -288,6 +288,6 @@ public class TaxSystemSchema extends TaxsystemConn {
         }
 
         return json;
-    }
+    } */
 }
 
