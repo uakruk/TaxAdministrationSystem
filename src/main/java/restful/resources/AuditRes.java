@@ -23,15 +23,19 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class AuditRes {
+public abstract class AuditRes {
 
-    public JSONArray getAllAudit(JSONObject src) {
+    public static synchronized JSONObject performAction(String action, long audit_id, JSONObject src) {
+        return action.equals("change") ? updateAuditByID(audit_id, src) : getAuditByID(audit_id);
+    }
+
+    public static JSONArray getAllAudit(long ID) {
         JSONArray resp = new JSONArray();
         JSONObject temp;
         try {
             Factory factory = Factory.getInstance();
             TaxpayerDAO dao = factory.getTaxpayerDAO();
-            Collection<Audit> col = dao.getTaxpayerById(src.optLong("taxpayer_id")).getAudits();
+            Collection<Audit> col = dao.getTaxpayerById(ID).getAudits();
             Iterator<Audit> iter = col.iterator();
             while (iter.hasNext()) {
                 temp = new JSONObject();
@@ -71,12 +75,12 @@ public class AuditRes {
         return resp;
     }
 
-    public JSONObject getAuditByID(JSONObject src) {
+    public static JSONObject getAuditByID(long audit_id) {
         JSONObject temp = new JSONObject();
         try {
             Factory factory = Factory.getInstance();
             AuditDAO dao = factory.getAuditDAO();
-            Audit audit = dao.getAuditById(src.optLong("audit_id"));
+            Audit audit = dao.getAuditById(audit_id);
             temp.put("audit_id", audit.getAudit_id());
             temp.put("startDate", audit.getStartDate().toString());
             temp.put("endDate", audit.getEndDate().toString());
@@ -108,12 +112,12 @@ public class AuditRes {
         return temp;
     }
 
-    public JSONObject updateAuditByID(JSONObject src) {
+    public static synchronized JSONObject updateAuditByID(long audit_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             Factory factory = Factory.getInstance();
             AuditDAO dao = factory.getAuditDAO();
-            Audit audit = dao.getAuditById(src.optLong("audit_id"));
+            Audit audit = dao.getAuditById(audit_id);
             audit.setComment(src.optString("comment"));
             audit.setReason(src.optString("reason"));
             audit.setStartDate(new Date(src.optLong("startDate")));
@@ -143,12 +147,12 @@ public class AuditRes {
         return temp;
     }
 
-    public JSONObject addAudit(JSONObject src/*, long taxpayerID*/) {
+    public static synchronized JSONObject addAudit(long ID, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             Factory factory = Factory.getInstance();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Taxpayer tp = tdao.getTaxpayerById(src.optLong("taxpayer_id"));
+            Taxpayer tp = tdao.getTaxpayerById(ID);
             AuditDAO dao = factory.getAuditDAO();
             Audit audit = new Audit();
             audit.setTaxpayer(tp);

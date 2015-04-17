@@ -22,7 +22,7 @@ import java.sql.Date;
  * @version 1.0
  * @since 1.7
  */
-public class AdditionalChargeesRes {
+public abstract class AdditionalChargeesRes {
 
     public static JSONObject getAdditionalCharges(JSONObject src) {
         JSONObject obj = new JSONObject();

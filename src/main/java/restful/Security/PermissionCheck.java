@@ -11,7 +11,7 @@ package restful.Security;
  */
 public abstract class PermissionCheck {
 
-    public static synchronized boolean check(long taxpayer_id) throws PermissionException {
+    public static synchronized boolean check(String token) throws PermissionException {
         return true;
     }
 }

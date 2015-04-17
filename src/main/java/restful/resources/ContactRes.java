@@ -162,7 +162,7 @@ public abstract class ContactRes {
      * @param ID
      * @return
      */
-    public JSONObject addContact(long ID, JSONObject src) {
+    public static JSONObject addContact(long ID, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             ContactDAO dao = getDao();

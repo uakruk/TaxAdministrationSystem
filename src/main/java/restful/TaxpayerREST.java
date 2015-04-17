@@ -32,7 +32,7 @@ public class TaxpayerREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(id);
+            PermissionCheck.check(token);
             JSONObject temp  = TaxpayerRes.getTaxpayerById(id);
             JSONArray tarray = ContactRes.getAllContactsById(id);
             tarray.put(temp);
@@ -44,7 +44,7 @@ public class TaxpayerREST {
         } catch (PermissionException e) {
             String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
             return Response.status(403).entity(resp).build();
-        }catch (JSONException e) {
+        }  catch (JSONException e) {
             e.printStackTrace();
             return Response.status(400).build();
         }
@@ -57,8 +57,29 @@ public class TaxpayerREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(id);
+            PermissionCheck.check(token);
             String s = TaxpayerRes.performAction(action, id, new JSONObject(src)).toString();
+            return Response.status(200).entity(s).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
+
+    @Consumes(MediaType.APPLICATION_JSON)
+    @PUT
+    public Response addTaxpayer(String src) {
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            String s = TaxpayerRes.addTaxpayer(new JSONObject(src)).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";

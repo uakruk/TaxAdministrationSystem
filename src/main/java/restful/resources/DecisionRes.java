@@ -24,7 +24,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class DecisionRes {
+public abstract class DecisionRes {
     /*go back to the future*/
     private static Factory factory = Factory.getInstance();
     private static DecisionDAO dao = factory.getDecisionDAO();
@@ -39,7 +39,7 @@ public class DecisionRes {
      * @param src
      * @return
      */
-    public JSONArray getDecisionsByAuditId(JSONObject src) {
+    public static JSONArray getDecisionsByAuditId(long audit_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
