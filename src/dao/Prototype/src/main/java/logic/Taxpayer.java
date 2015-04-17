@@ -18,6 +18,12 @@ public class Taxpayer {
     @Column(name = "fullName")
     private String fullName;
 
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "rights")
+    private String rights;
+
     @OneToMany(mappedBy = "taxpayer")
     private Collection<Tax> taxes = new ArrayList<Tax>();
 
@@ -50,6 +56,14 @@ public class Taxpayer {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public String getRights() {
+        return rights;
+    }
+
+    public void setRights(String rights) {
+        this.rights = rights;
     }
 
     public Collection<Tax> getTaxes() {
@@ -100,7 +114,16 @@ public class Taxpayer {
         this.contacts = contacts;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Taxpayer() {
+        password = "";
         fullName = "";
         taxes = new ArrayList<Tax>();
         licenses = new ArrayList<License>();
@@ -110,8 +133,9 @@ public class Taxpayer {
         contacts = new ArrayList<Contact>();
     }
 
-    public Taxpayer(long ID, String fullName,ArrayList<Tax> taxes, ArrayList<License> licenses, ArrayList<ObjectOfTaxation> objectOfTaxations, ArrayList<Audit> audits, ArrayList<Property> propertys, ArrayList<Contact> contacts) {
+    public Taxpayer(long ID, String fullName,String password,ArrayList<Tax> taxes, ArrayList<License> licenses, ArrayList<ObjectOfTaxation> objectOfTaxations, ArrayList<Audit> audits, ArrayList<Property> propertys, ArrayList<Contact> contacts) {
         this.fullName = fullName;
+        this.password = password;
         this.taxes = taxes;
         this.licenses = licenses;
         this.propertys = propertys;

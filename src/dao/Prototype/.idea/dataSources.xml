@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1342884536">
+  <component name="DataSourceManagerImpl" format="xml" hash="1503825506">
     <data-source source="LOCAL" name="MySQL - taxesdatabase@localhost" uuid="e577a0a1-c69d-4b52-86f4-d8cf57214956">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

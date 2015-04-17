@@ -28,10 +28,11 @@
       <column name="referral_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="audit_id"/>
-      <foreign-key name="FK_8updltkexoqhbdlwuuee5kjri" columns="referral_id" ref-table="referral" ref-schema="" ref-catalog="taxesdatabase" ref-columns="referral_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_bwgvliiedfkc5vvf28afr829u" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="taxesdatabase" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_8updltkexoqhbdlwuuee5kjri" unique="false" columns="referral_id"/>
-      <index name="FK_bwgvliiedfkc5vvf28afr829u" unique="false" columns="taxpayer_id"/>
+      <foreign-key name="FK_4juge9235cmtvqgj2nornu81d" columns="taxpayer_id" ref-table="taxpayer" ref-schema="" ref-catalog="taxesdatabase" ref-columns="taxpayer_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_r2rkt1dbk1e5xqt8rqxs7abbj" columns="referral_id" ref-table="referral" ref-schema="" ref-catalog="taxesdatabase" ref-columns="referral_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_tcab5i498tla4homghum0ugx2" table="decision" schema="" catalog="taxesdatabase" columns="audit_id"/>
+      <index name="FK_4juge9235cmtvqgj2nornu81d" unique="false" columns="taxpayer_id"/>
+      <index name="FK_r2rkt1dbk1e5xqt8rqxs7abbj" unique="false" columns="referral_id"/>
     </table>
     <table name="cashregister" schema="" catalog="taxesdatabase" type="TABLE">
       <column name="cashRegister_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -55,10 +56,13 @@
       <column name="chief" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="signature" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="text" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="audit_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="employee_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="decision_id"/>
       <foreign-key name="FK_7rwd1nvcmaabpi9vdu6upl0t4" columns="employee_id" ref-table="employee" ref-schema="" ref-catalog="taxesdatabase" ref-columns="employee_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_tcab5i498tla4homghum0ugx2" columns="audit_id" ref-table="audit" ref-schema="" ref-catalog="taxesdatabase" ref-columns="audit_id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FK_7rwd1nvcmaabpi9vdu6upl0t4" unique="false" columns="employee_id"/>
+      <index name="FK_tcab5i498tla4homghum0ugx2" unique="false" columns="audit_id"/>
     </table>
     <table name="decree" schema="" catalog="taxesdatabase" type="TABLE">
       <column name="decree_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -133,7 +137,7 @@
       <primary-key name="PRIMARY" columns="referral_id"/>
       <foreign-key name="FK_6xhx4te00wl5fuffhxe7xtbm8" columns="employee_id" ref-table="employee" ref-schema="" ref-catalog="taxesdatabase" ref-columns="employee_id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_q2sfb939nuxloo7tt5cs1mie6" columns="decree_id" ref-table="decree" ref-schema="" ref-catalog="taxesdatabase" ref-columns="decree_id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_8updltkexoqhbdlwuuee5kjri" table="audit" schema="" catalog="taxesdatabase" columns="referral_id"/>
+      <exported-key name="FK_r2rkt1dbk1e5xqt8rqxs7abbj" table="audit" schema="" catalog="taxesdatabase" columns="referral_id"/>
       <index name="FK_6xhx4te00wl5fuffhxe7xtbm8" unique="false" columns="employee_id"/>
       <index name="FK_q2sfb939nuxloo7tt5cs1mie6" unique="false" columns="decree_id"/>
     </table>
@@ -152,8 +156,9 @@
     <table name="taxpayer" schema="" catalog="taxesdatabase" type="TABLE">
       <column name="taxpayer_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="fullName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="taxpayer_id"/>
-      <exported-key name="FK_bwgvliiedfkc5vvf28afr829u" table="audit" schema="" catalog="taxesdatabase" columns="taxpayer_id"/>
+      <exported-key name="FK_4juge9235cmtvqgj2nornu81d" table="audit" schema="" catalog="taxesdatabase" columns="taxpayer_id"/>
       <exported-key name="FK_rpvsayw285rvuy0khqurocn6y" table="contact" schema="" catalog="taxesdatabase" columns="taxpayer_id"/>
       <exported-key name="FK_hdykpx7345cna9fm55djiu7um" table="license" schema="" catalog="taxesdatabase" columns="taxpayer_id"/>
       <exported-key name="FK_cqnn1xx74p6hi2djxay07cm2b" table="objectoftaxation" schema="" catalog="taxesdatabase" columns="taxpayer_id"/>

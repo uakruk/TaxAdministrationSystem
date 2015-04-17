@@ -2,13 +2,14 @@ package logic;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by Admon on 27.03.2015.
  */
 
 @Entity
-@Table(name="Audit")
+@Table(name="audit")
 public class Audit {
 
     @Id
@@ -30,6 +31,8 @@ public class Audit {
     @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
     @JoinColumn(name="taxpayer_id")
     private Taxpayer taxpayer;
+    @OneToMany(mappedBy = "audit")
+    private Collection<Decision> decisions = new ArrayList<Decision>();
 
     public Long getAudit_id() {
         return audit_id;
@@ -71,13 +74,13 @@ public class Audit {
         this.comment = comment;
     }
 
-    /*public ArrayList<Decision> getDecisions() {
+    public Collection<Decision> getDecisions() {
         return decisions;
     }
 
     public void setDecisions(ArrayList<Decision> decisions) {
         this.decisions = decisions;
-    }*/
+    }
 
     public String getReason() {
         return reason;
@@ -108,18 +111,18 @@ public class Audit {
         endDate = new Date(0);
         registrationNumber = 0;
         comment = "";
-        //decisions = new ArrayList<Decision>();
+        decisions = new ArrayList<Decision>();
         reason = new String();
         referral = new Referral();
 
     }
 
-    public Audit(Date startDate, Date endDate, long registrationNumber, String comment,String reason, Referral referral) {
+    public Audit(Date startDate, Date endDate, long registrationNumber, String comment,String reason, Referral referral, ArrayList<Decision> decisions) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.registrationNumber = registrationNumber;
         this.comment = comment;
-        //this.decisions = decisions;
+        this.decisions = decisions;
         this.reason = reason;
         this.referral = referral;
     }

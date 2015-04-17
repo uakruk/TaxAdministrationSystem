@@ -47,11 +47,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5792079" vertical-offset="259" max-vertical-offset="731">
-              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="226" max-vertical-offset="697">
+              <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,32 +59,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taxesdatabase.taxpayer" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..taxpayer">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+      <file leaf-file-name="TaxpayerDAOImplem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/TaxpayerDAOImplem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="1513">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="taxesdatabase.objectoftaxation" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..objectoftaxation">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -92,38 +72,8 @@
       <file leaf-file-name="hibernate.cfg.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-              <caret line="8" column="91" selection-start-line="8" selection-start-column="91" selection-end-line="8" selection-end-column="91" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Factory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/Factory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1955" max-vertical-offset="2448">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnitDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/UnitDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnitDAOImplem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/dao/UnitDAOImplem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1513">
-              <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="663">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -132,25 +82,107 @@
       <file leaf-file-name="Taxpayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/logic/Taxpayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
-              <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2057">
+              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
               <folding>
-                <element signature="e#636#654#0" expanded="true" />
-                <element signature="e#755#765#0" expanded="true" />
-                <element signature="e#860#867#0" expanded="true" />
-                <element signature="e#966#975#0" expanded="true" />
+                <element signature="e#754#772#0" expanded="true" />
+                <element signature="e#873#883#0" expanded="true" />
+                <element signature="e#978#985#0" expanded="true" />
+                <element signature="e#1084#1093#0" expanded="true" />
+                <element signature="e#1432#1433#0" expanded="true" />
+                <element signature="e#1461#1462#0" expanded="true" />
+                <element signature="e#1505#1506#0" expanded="true" />
+                <element signature="e#1541#1542#0" expanded="true" />
+                <element signature="e#1935#1936#0" expanded="true" />
+                <element signature="e#1975#1976#0" expanded="true" />
+                <element signature="e#2682#2683#0" expanded="true" />
+                <element signature="e#2713#2714#0" expanded="true" />
+                <element signature="e#2761#2762#0" expanded="true" />
+                <element signature="e#2801#2802#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObjectOfTaxation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/logic/ObjectOfTaxation.java">
+      <file leaf-file-name="License.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logic/License.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1071">
-              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logic/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36881188" vertical-offset="174" max-vertical-offset="1326">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding>
-                <element signature="e#676#690#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#503#513#0" expanded="true" />
+                <element signature="e#613#623#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#819#820#0" expanded="true" />
+                <element signature="e#871#872#0" expanded="true" />
+                <element signature="e#917#918#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Contact.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logic/Contact.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="986">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="taxesdatabase.taxpayer" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..taxpayer">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Audit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logic/Audit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="1683">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+              <folding>
+                <element signature="e#978#988#0" expanded="true" />
+                <element signature="e#1848#1849#0" expanded="true" />
+                <element signature="e#1880#1881#0" expanded="true" />
+                <element signature="e#1943#1944#0" expanded="true" />
+                <element signature="e#1985#1986#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Decision.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logic/Decision.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="99" max-vertical-offset="1292">
+              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+              <folding>
+                <element signature="e#1449#1450#0" expanded="true" />
+                <element signature="e#1477#1478#0" expanded="true" />
+                <element signature="e#1518#1519#0" expanded="true" />
+                <element signature="e#1552#1553#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/main/java/logic/AdditionalCharges.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/AdditionalChargesDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/AdditionalChargesDAOImplem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logic/Audit.java" />
         <option value="$PROJECT_DIR$/src/main/java/logic/CashRegister.java" />
         <option value="$PROJECT_DIR$/src/main/java/logic/ObjectOfTaxation.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/CashRegisterDAO.java" />
@@ -199,8 +230,6 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/PaymentDAOImplem.java" />
         <option value="$PROJECT_DIR$/src/main/java/logic/Tax.java" />
         <option value="$PROJECT_DIR$/src/main/java/logic/Payment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logic/Decision.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logic/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DecisionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DecisionDAOImplem.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/DecreeDAO.java" />
@@ -208,9 +237,12 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/EmployeeDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/EmployeeDAOImplem.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/Factory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logic/Decision.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logic/Audit.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/logic/Taxpayer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logic/Employee.java" />
       </list>
     </option>
   </component>
@@ -255,6 +287,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -385,7 +418,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -708,11 +740,12 @@
       <workItem from="1428386094181" duration="2941000" />
       <workItem from="1428394578491" duration="304000" />
       <workItem from="1428922338029" duration="5689000" />
+      <workItem from="1429264824263" duration="1630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28723000" />
+    <option name="totallyTimeSpent" value="30353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -736,7 +769,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33736762" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189108" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.204236" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -767,7 +800,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -776,51 +809,81 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..contact">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+    <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..objectoftaxation">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..additionalcharges">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="663">
+          <caret line="8" column="91" selection-start-line="8" selection-start-column="91" selection-end-line="8" selection-end-column="91" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..tax">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/Factory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1955" max-vertical-offset="2448">
+          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..taxpayer">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/UnitDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="340">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/UnitDAOImplem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1513">
+          <caret line="37" column="39" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Taxpayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1615">
+          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
+          <folding>
+            <element signature="e#754#772#0" expanded="true" />
+            <element signature="e#873#883#0" expanded="true" />
+            <element signature="e#978#985#0" expanded="true" />
+            <element signature="e#1084#1093#0" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1505#1506#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1935#1936#0" expanded="true" />
+            <element signature="e#1975#1976#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+            <element signature="e#2713#2714#0" expanded="true" />
+            <element signature="e#2761#2762#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/ObjectOfTaxation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1071">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding>
+            <element signature="e#676#690#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -845,65 +908,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..referral">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..property">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..cashregister">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d6758803/b64488b5-5bce-41f9-8677-1b8ae88c76b4/db..objectoftaxation">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/TaxpayerDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/TaxpayerDAOImplem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1024" max-vertical-offset="1513">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -918,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
           <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -934,15 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="1207">
           <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Audit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="303" max-vertical-offset="1649">
-          <caret line="28" column="21" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,18 +948,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="782">
           <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Tax.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="303" max-vertical-offset="1496">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#701#710#0" expanded="true" />
-            <element signature="e#822#841#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -978,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1309">
           <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -986,34 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="1224">
           <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/License.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Contact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1020">
-          <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
-          <folding>
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Decision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,22 +979,6 @@
           <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding>
             <element signature="e#426#436#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="104" max-vertical-offset="1326">
-          <caret line="85" column="127" selection-start-line="85" selection-start-column="127" selection-end-line="85" selection-end-column="127" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#503#513#0" expanded="true" />
-            <element signature="e#613#623#0" expanded="true" />
-            <element signature="e#1572#1573#0" expanded="true" />
-            <element signature="e#1604#1605#0" expanded="true" />
-            <element signature="e#1668#1669#0" expanded="true" />
-            <element signature="e#1710#1711#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1119,14 +1059,15 @@
               <point x="0.0" y="0.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.6781250000000001" x="812.9170506912442" y="744.9170506912442" />
+          <settings layout="Hierarchic Group" zoom="0.6781250000000001" x="813.0" y="745.0" />
           <SelectedNodes>
             <node>b64488b5-5bce-41f9-8677-1b8ae88c76b4.table:db.unit</node>
           </SelectedNodes>
           <Categories>
-            <Category>Key columns</Category>
             <Category>Columns</Category>
+            <Category>Key columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -1229,14 +1170,15 @@
               <point x="-47.75" y="48.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="0.830960086299892" x="724.8225366740231" y="492.8225366740231" />
+          <settings layout="Hierarchic Group" zoom="0.830960086299892" x="725.0" y="493.0" />
           <SelectedNodes>
             <node>b64488b5-5bce-41f9-8677-1b8ae88c76b4.table:db.payment</node>
           </SelectedNodes>
           <Categories>
-            <Category>Key columns</Category>
             <Category>Columns</Category>
+            <Category>Key columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -1268,7 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1276,7 +1217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
           <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,7 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,7 +1247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1340,28 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="417">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <caret line="8" column="91" selection-start-line="8" selection-start-column="91" selection-end-line="8" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..taxpayer">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1375,38 +1291,370 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Taxpayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1615">
-          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
-          <folding>
-            <element signature="e#636#654#0" expanded="true" />
-            <element signature="e#755#765#0" expanded="true" />
-            <element signature="e#860#867#0" expanded="true" />
-            <element signature="e#966#975#0" expanded="true" />
-          </folding>
+    <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..objectoftaxation">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..objectoftaxation">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Tax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="303" max-vertical-offset="1496">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#701#710#0" expanded="true" />
+            <element signature="e#822#841#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="38" max-vertical-offset="442">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/TaxpayerDAOImplem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="1513">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Audit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="1683">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+          <folding>
+            <element signature="e#978#988#0" expanded="true" />
+            <element signature="e#1848#1849#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1943#1944#0" expanded="true" />
+            <element signature="e#1985#1986#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Decision.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="1292">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+            <element signature="e#1552#1553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Contact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="986">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5792079" vertical-offset="259" max-vertical-offset="731">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="226" max-vertical-offset="697">
+          <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="663">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/e577a0a1-c69d-4b52-86f4-d8cf57214956">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>e577a0a1-c69d-4b52-86f4-d8cf57214956</OriginalElement>
+          <nodes>
+            <node x="54.25" y="314.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral</node>
+            <node x="979.0" y="0.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.unit</node>
+            <node x="0.0" y="124.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decree</node>
+            <node x="942.5" y="124.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee</node>
+            <node x="994.5" y="770.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.additionalcharges</node>
+            <node x="790.75" y="314.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer</node>
+            <node x="648.25" y="547.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.contact</node>
+            <node x="981.75" y="281.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decision</node>
+            <node x="369.25000000000006" y="547.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.objectoftaxation</node>
+            <node x="1192.25" y="536.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax</node>
+            <node x="872.25" y="492.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.license</node>
+            <node x="1314.5" y="770.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.payment</node>
+            <node x="1412.25" y="514.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.property</node>
+            <node x="72.63303821062442" y="503.0000000000001">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit</node>
+            <node x="392.2500000000001" y="803.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.cashregister</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decree">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.cashregister" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.objectoftaxation">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.additionalcharges" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decision" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.contact" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.property" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.unit">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.payment" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.objectoftaxation" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decision" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.license" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="0.0" />
+              <point x="0.0" y="0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.45563380281690147" x="676.875954298734" y="779.8422942628315" />
+          <SelectedNodes>
+            <node>e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/e577a0a1-c69d-4b52-86f4-d8cf57214956.schema:taxesdatabase">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>e577a0a1-c69d-4b52-86f4-d8cf57214956.schema:taxesdatabase</OriginalElement>
+          <nodes>
+            <node x="1534.5171568627452" y="292.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral</node>
+            <node x="1737.7671568627452" y="0.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.unit</node>
+            <node x="1480.2671568627452" y="124.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decree</node>
+            <node x="1701.2671568627452" y="124.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee</node>
+            <node x="907.8921568627452" y="726.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.additionalcharges</node>
+            <node x="712.1421568627452" y="292.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer</node>
+            <node x="0.0" y="503.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.contact</node>
+            <node x="1596.625" y="726.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decision</node>
+            <node x="544.0" y="503.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.objectoftaxation</node>
+            <node x="1114.0" y="492.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax</node>
+            <node x="224.0" y="448.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.license</node>
+            <node x="1227.8921568627452" y="726.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.payment</node>
+            <node x="823.0" y="470.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.property</node>
+            <node x="1424.5171568627452" y="459.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit</node>
+            <node x="567.0" y="759.0">e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.cashregister</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decree">
+              <point x="-46.25" y="-48.0" />
+              <point x="0.0" y="59.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.cashregister" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.objectoftaxation">
+              <point x="0.0" y="-48.0" />
+              <point x="0.0" y="59.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.additionalcharges" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax">
+              <point x="0.0" y="-81.0" />
+              <point x="1057.8921568627452" y="701.0" />
+              <point x="1164.0" y="701.0" />
+              <point x="-50.0" y="70.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee">
+              <point x="46.25" y="-48.0" />
+              <point x="1673.2671568627452" y="267.0" />
+              <point x="1755.5171568627452" y="267.0" />
+              <point x="-54.25" y="59.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decision" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit">
+              <point x="-61.75" y="-81.0" />
+              <point x="1658.375" y="701.0" />
+              <point x="1559.5171568627452" y="701.0" />
+              <point x="0.0" y="103.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="-70.0" />
+              <point x="1214.0" y="418.0" />
+              <point x="855.3921568627452" y="418.0" />
+              <point x="47.75" y="48.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.contact" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="-59.0" />
+              <point x="102.0" y="408.0" />
+              <point x="728.0588235294118" y="408.0" />
+              <point x="-79.58333333333337" y="48.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.property" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="-92.0" />
+              <point x="958.5" y="428.0" />
+              <point x="823.5588235294118" y="428.0" />
+              <point x="15.916666666666629" y="48.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.unit">
+              <point x="0.0" y="-59.0" />
+              <point x="0.0" y="37.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.payment" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.tax">
+              <point x="0.0" y="-81.0" />
+              <point x="1353.3921568627452" y="701.0" />
+              <point x="1264.0" y="701.0" />
+              <point x="50.0" y="70.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="-67.5" y="-103.0" />
+              <point x="1492.0171568627452" y="408.0" />
+              <point x="887.2254901960785" y="408.0" />
+              <point x="79.58333333333326" y="48.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.objectoftaxation" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="-59.0" />
+              <point x="673.5" y="428.0" />
+              <point x="791.7254901960786" y="428.0" />
+              <point x="-15.916666666666629" y="48.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.audit" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.referral">
+              <point x="67.5" y="-103.0" />
+              <point x="0.0" y="48.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.decision" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.employee">
+              <point x="61.75" y="-81.0" />
+              <point x="1781.875" y="701.0" />
+              <point x="1864.0171568627452" y="701.0" />
+              <point x="54.25" y="59.0" />
+            </edge>
+            <edge source="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.license" target="e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.taxpayer">
+              <point x="0.0" y="-114.0" />
+              <point x="374.0" y="418.0" />
+              <point x="759.8921568627452" y="418.0" />
+              <point x="-47.75" y="48.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.6093415007656967" x="1586.8678059814024" y="749.8678059814024" />
+          <SelectedNodes>
+            <node>e577a0a1-c69d-4b52-86f4-d8cf57214956.table:taxesdatabase.cashregister</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/d6758803/e577a0a1-c69d-4b52-86f4-d8cf57214956/taxesdatabase..taxpayer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/License.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1666">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Taxpayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2057">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="e#754#772#0" expanded="true" />
+            <element signature="e#873#883#0" expanded="true" />
+            <element signature="e#978#985#0" expanded="true" />
+            <element signature="e#1084#1093#0" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1505#1506#0" expanded="true" />
+            <element signature="e#1541#1542#0" expanded="true" />
+            <element signature="e#1935#1936#0" expanded="true" />
+            <element signature="e#1975#1976#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+            <element signature="e#2713#2714#0" expanded="true" />
+            <element signature="e#2761#2762#0" expanded="true" />
+            <element signature="e#2801#2802#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logic/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36881188" vertical-offset="174" max-vertical-offset="1326">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#503#513#0" expanded="true" />
+            <element signature="e#613#623#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#871#872#0" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
           </folding>
         </state>
       </provider>

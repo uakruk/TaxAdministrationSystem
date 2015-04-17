@@ -30,8 +30,6 @@ public class Main {
         c.setObjectOfTaxation(ob);
         man.getObjectOfTaxations().add(ob);
         ob.setTaxpayer(man);
-        List<ObjectOfTaxation> objectOfTaxations = Factory.getInstance().getTaxpayerDAO().getTaxpayerById(3000l).getObjectOfTaxations();
-        System.out.println(objectOfTaxations.get(1).getTitle());
-        System.out.println(objectOfTaxations.get(0).getTitle());
+        Factory.getInstance().getTaxpayerDAO().addTaxpayer(man);
     }
 }
