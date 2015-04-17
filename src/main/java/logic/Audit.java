@@ -2,6 +2,7 @@ package logic;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by Admon on 27.03.2015.
@@ -26,10 +27,12 @@ public class Audit {
     private String reason;
     @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
     @JoinColumn(name="referral_id")
-    private Referral referral;
+    private ArrayList<Referral> referrals = new ArrayList<Referral>();
     @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
     @JoinColumn(name="taxpayer_id")
     private Taxpayer taxpayer;
+
+    /**VALIK! PAY ATTENTION FOR THIS!*/
 
     @OneToMany
     private ArrayList<Decision> decisions;
@@ -89,7 +92,7 @@ public class Audit {
     public void setReason(String reason) {
         this.reason = reason;
     }
-
+/*
     public Referral getReferral() {
         return referral;
     }
@@ -97,7 +100,15 @@ public class Audit {
     public void setReferral(Referral referral) {
         this.referral = referral;
     }
+*/
 
+    public ArrayList<Referral> getReferrals() {
+        return referrals;
+    }
+
+    public void setReferrals(ArrayList<Referral> referrals) {
+        this.referrals = referrals;
+    }
     public Taxpayer getTaxpayer() {
         return taxpayer;
     }
@@ -113,17 +124,16 @@ public class Audit {
         comment = "";
         //decisions = new ArrayList<Decision>();
         reason = new String();
-        referral = new Referral();
-
+        referrals = new ArrayList<Referral>();
     }
 
-    public Audit(Date startDate, Date endDate, long registrationNumber, String comment,String reason, Referral referral) {
+    public Audit(Date startDate, Date endDate, long registrationNumber, String comment,String reason, ArrayList<Referral> referrals) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.registrationNumber = registrationNumber;
         this.comment = comment;
         //this.decisions = decisions;
         this.reason = reason;
-        this.referral = referral;
+        this.referrals = referrals;
     }
 }

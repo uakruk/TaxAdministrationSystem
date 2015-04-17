@@ -21,8 +21,14 @@ public class Referral {
     @JoinColumn(name="employee_id")
     private Employee employee;
 
-    @OneToMany(mappedBy = "referral")
-    private Collection<Audit> audits = new ArrayList<Audit>();
+    /**VALIK! CHECK THIS*/
+
+    @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
+    @JoinColumn(name="audit_id")
+    private Audit audit;
+
+ /*   @OneToMany(mappedBy = "referral")
+    private Collection<Audit> audits = new ArrayList<Audit>(); */
 
     public Long getReferral_id() {
         return referral_id;
@@ -47,7 +53,7 @@ public class Referral {
         this.employee = employee;
     }
 
-
+/*
     public Collection<Audit> getAudits() {
         return audits;
     }
@@ -55,16 +61,24 @@ public class Referral {
     public void setAudits(Collection<Audit> audits) {
         this.audits = audits;
     }
+*/
 
+    public Audit getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Audit audit) {
+        this.audit = audit;
+    }
     public Referral() {
         decree = new Decree();
         employee = new Employee();
-        audits = new ArrayList<Audit>();
+        audit = new Audit();
     }
 
-    public Referral(Decree decree, Employee employee, ArrayList<Audit> audits ) {
+    public Referral(Decree decree, Employee employee, Audit audit ) {
         this.decree = decree;
         this.employee = employee;
-        this.audits = audits;
+        this.audit = audit;
     }
 }
