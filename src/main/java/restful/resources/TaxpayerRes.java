@@ -18,7 +18,7 @@ import java.sql.SQLException;
  * @version 1.0
  * @since 1.7
  */
-public class TaxpayerRes {
+public abstract class TaxpayerRes {
 
     private static Factory factory = Factory.getInstance();
     private static TaxpayerDAO dao = factory.getTaxpayerDAO();
@@ -28,17 +28,21 @@ public class TaxpayerRes {
         return dao;
     }
 
+    public static synchronized JSONObject performAction(String action, long ID, JSONObject obj) {
+        return  action.equals("change") ? updateTaxpayerById(ID, obj) : getTaxpayerById(ID);
+    }
+
     /**
      * get taxpayer by taxpayer_id
-     * @param src
+     * @param ID
      * @return
      */
-    public JSONObject getTaxpayerById(JSONObject src) {
+    public static JSONObject getTaxpayerById(long ID) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Taxpayer t = dao.getTaxpayerById(src.optLong("taxpayer_id"));
-            temp.put("idCode", t.getIdCode());
+            Taxpayer t = dao.getTaxpayerById(ID);
+            temp.put("taxpayer_id", t.getTaxpayer_id());
             temp.put("fullName", t.getFullName());
             temp.put("MSG", "Item has been delivered successfully");
             temp.put("HTTP_CODE", "200");
@@ -66,14 +70,14 @@ public class TaxpayerRes {
 
     /**
      * update taxpayer by taxpayer_id
-     * @param src
+     * @param ID
      * @return
      */
-    public JSONObject updateTaxpayerById(JSONObject src) {
+    public static synchronized JSONObject updateTaxpayerById(long ID, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Taxpayer t = dao.getTaxpayerById(src.optLong("taxapayer_id"));
+            Taxpayer t = dao.getTaxpayerById(ID);
             t.setFullName(src.optString("fullName"));
             dao.updateTaxpayer(t);
             temp.put("MSG", "Item has been updated successfully");
@@ -105,13 +109,12 @@ public class TaxpayerRes {
      * @param src
      * @return
      */
-    public JSONObject addProperty(JSONObject src) {
+    public static synchronized JSONObject addTaxpayer(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
             Taxpayer t = new Taxpayer();
             t.setFullName(src.optString("fullName"));
-            t.setIdCode(src.optLong("idCode"));
             dao.addTaxpayer(t);
             temp.put("MSG", "Item has been added successfully");
             temp.put("HTTP_CODE", "200");

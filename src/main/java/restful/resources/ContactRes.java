@@ -22,7 +22,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class ContactRes {
+public abstract class ContactRes {
 
     private static Factory factory = Factory.getInstance();
     private static ContactDAO dao = factory.getContactDAO();
@@ -34,16 +34,16 @@ public class ContactRes {
 
     /**
      * get contacts by taxpayer_id
-     * @param src
+     * @param ID
      * @return
      */
-    public JSONArray getAllContactsById(JSONObject src) {
+    public static JSONArray getAllContactsById(long ID) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Collection<Contact> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+            Collection<Contact> col = tdao.getTaxpayerById(ID)
                     .getContacts();
             Iterator<Contact> iter = col.iterator();
             while (iter.hasNext()) {
@@ -84,14 +84,14 @@ public class ContactRes {
 
     /**
      * get contact by contact_id
-     * @param src
+     * @param contact_id
      * @return
      */
-    public JSONObject getContactById(JSONObject src) {
+    public static JSONObject getContactById(long contact_id) {
         JSONObject temp = new JSONObject();
         try {
             ContactDAO dao = getDao();
-            Contact c = dao.getContactById(src.optLong("contact_id"));
+            Contact c = dao.getContactById(contact_id);
             temp.put("contact_id", c.getContact_id());
             temp.put("value", c.getValue());
             temp.put("typeOfContact", c.getTypeOfContact());
@@ -124,11 +124,11 @@ public class ContactRes {
      * @param src
      * @return
      */
-    public JSONObject updateContactById(JSONObject src) {
+    public static synchronized JSONObject updateContactById(long contact_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             ContactDAO dao = getDao();
-            Contact c = dao.getContactById(src.optLong("contact_id"));
+            Contact c = dao.getContactById(contact_id);
             c.setValue(src.optString("value"));
             c.setTypeOfContact(src.optString("typeOfContact"));
             dao.updateContact(c);
@@ -159,13 +159,14 @@ public class ContactRes {
     /**
      * add contact by taxpayer_id
      * @param src
+     * @param ID
      * @return
      */
-    public JSONObject addContact(JSONObject src) {
+    public JSONObject addContact(long ID, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             ContactDAO dao = getDao();
-            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(ID);
             Contact c = new Contact();
             c.setValue(src.optString("value"));
             c.setTypeOfContact(src.optString("typeOfContact"));
@@ -197,14 +198,14 @@ public class ContactRes {
 
     /**
      * delete contact by contact_id
-     * @param src
+     * @param contact_id
      * @return
      */
-    public JSONObject deleteContacById(JSONObject src) {
+    public JSONObject deleteContacById(long contact_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Contact c = dao.getContactById(src.optLong("contact_id"));
+            Contact c = dao.getContactById(contact_id);
             dao.deleteContact(c);
             temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");

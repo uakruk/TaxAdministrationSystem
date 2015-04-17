@@ -9,6 +9,6 @@ package restful.Security;
  * @version 1.0
  * @since 1.7
  */
-public class SecurityException extends Exception {
+public class AuthSecurityException extends Exception {
 
 }

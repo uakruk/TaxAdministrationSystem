@@ -50,7 +50,7 @@ public class AuditREST {
                 temp.put("registrationNumber", daudit.getRegistrationNumber());
                 temp.put("comment", daudit.getComment());
                 temp.put("reason", daudit.getReason());
-                temp.put("refferal", daudit.getReferral());
+             //   temp.put("refferal", daudit.getReferrals());
             }
         } catch (Exception e) {
             e.printStackTrace();

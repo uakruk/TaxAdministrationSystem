@@ -9,9 +9,12 @@ package restful.Security;
  * @version 1.0
  * @since 1.7
  */
-public class AuthCheck {
+public abstract class AuthCheck {
 
-    public boolean check(String token) throws SecurityException {
+    public static boolean check(String token) throws AuthSecurityException {
+        if (!token.equals(null)) {
+            throw new AuthSecurityException();
+        }
         return true;
     }
 }

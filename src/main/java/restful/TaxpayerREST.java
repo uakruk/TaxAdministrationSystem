@@ -1,16 +1,16 @@
 package restful;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.Consumes;
 
 import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import restful.Security.*;
+import restful.resources.ContactRes;
+import restful.resources.TaxpayerRes;
+
 /**
  * This class used for:
  *
@@ -25,7 +25,50 @@ import org.codehaus.jettison.json.JSONObject;
 public class TaxpayerREST {
 
     @Path("/{id}")
-    public Response getGeneralInfo(@PathParam("id") long id) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    @POST
+    public Response getGeneralInfo(@PathParam("id") long id, String src) {
+        JSONArray response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(id);
+            JSONObject temp  = TaxpayerRes.getTaxpayerById(id);
+            JSONArray tarray = ContactRes.getAllContactsById(id);
+            tarray.put(temp);
+            response = tarray;
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
 
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @POST
+    public Response changeGeneralInfo(@PathParam("id") long id, @QueryParam("action") String action, String src) {
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(id);
+            String s = TaxpayerRes.performAction(action, id, new JSONObject(src)).toString();
+            return Response.status(200).entity(s).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
     }
 }

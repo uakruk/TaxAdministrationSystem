@@ -43,7 +43,7 @@ public class AdditionalChargesREST {
         } catch (JSONException e) {
             e.printStackTrace();
             resp = new JSONObject();
-        } catch (restful.Security.SecurityException b) {
+        } catch (AuthSecurityException b) {
             b.printStackTrace();
             resp = new JSONObject();
         }
