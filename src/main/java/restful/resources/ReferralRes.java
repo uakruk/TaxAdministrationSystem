@@ -40,7 +40,7 @@ public abstract class ReferralRes {
     public static JSONObject performAction(String action, long referral_id,
                                            long audit_id, long employee_id, long decree_id,
                                            JSONObject src) {
-        return action.equals("change") ? updateReferralById(referral_id) :
+        return action.equals("change") ? updateReferralById(referral_id, src) :
                 action.equals("add") ? addReferral(audit_id, employee_id,
                         decree_id, src) : getReferralyById(referral_id);
     }
@@ -92,6 +92,7 @@ public abstract class ReferralRes {
         return resp;
     }
 
+
     /**
      * get referrals by audit_id
      * @param audit_id
@@ -109,6 +110,16 @@ public abstract class ReferralRes {
                 temp = new JSONObject();
                 Referral r = iter.next();
                 temp.put("referral_id", r.getReferral_id());
+                /**ADDED ADDITIONAL INFORMATION*/
+                temp.put("decree_id", r.getDecree().getDecree_id());
+                temp.put("registrationNumber", r.getDecree().getRegiastrationNumber());
+                temp.put("signaturedByWho", r.getDecree().getSignaturedByWho());
+                temp.put("text", r.getDecree().getText());
+                temp.put("employee_id", r.getEmployee().getEmployee_id());
+                temp.put("name", r.getEmployee().getName());
+                temp.put("position", r.getEmployee().getPosition());
+                temp.put("title", r.getEmployee().getUnitBelongs().getTitle());
+                temp.put("unit_id", r.getEmployee().getUnitBelongs().getUnit_id());
                 resp.put(temp);
             }
             temp = new JSONObject();
@@ -197,6 +208,16 @@ public abstract class ReferralRes {
             dao = getDao();
             Referral r = dao.getById(referral_id);
             temp.put("referral_id", r.getReferral_id());
+            /**ADDED ADDITIONAL INFORMATION*/
+            temp.put("decree_id", r.getDecree().getDecree_id());
+            temp.put("registrationNumber", r.getDecree().getRegiastrationNumber());
+            temp.put("signaturedByWho", r.getDecree().getSignaturedByWho());
+            temp.put("text", r.getDecree().getText());
+            temp.put("employee_id", r.getEmployee().getEmployee_id());
+            temp.put("name", r.getEmployee().getName());
+            temp.put("position", r.getEmployee().getPosition());
+            temp.put("title", r.getEmployee().getUnitBelongs().getTitle());
+            temp.put("unit_id", r.getEmployee().getUnitBelongs().getUnit_id());
             temp.put("MSG", "Item has been delivered successfully");
             temp.put("HTTP_CODE", "200");
         } catch (JSONException e) {
@@ -226,14 +247,14 @@ public abstract class ReferralRes {
      * @param referral_id
      * @return
      */
-    public static synchronized JSONObject updateReferralById(long referral_id) {
+    public static synchronized JSONObject updateReferralById(long referral_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
             Referral r = dao.getById(referral_id);
-        /*    Employee e = r.getEmployee();
-            Decree d = r.getDecree();
-            Audit a = r.getAudit(); */
+            /**CHANGED*/
+            r.setDecree(factory.getDecreeDAO().getDecreeById(src.optLong("decree_id")));
+            r.setEmployee(factory.getEmployeeDAO().getEmployeeById(src.optLong("employee_id")));
             dao.updateReferral(r);
             temp.put("MSG", "Item has been updated successfully");
             temp.put("HTTP_CODE", "200");

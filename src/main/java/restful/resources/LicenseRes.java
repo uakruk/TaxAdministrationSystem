@@ -23,7 +23,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class LicenseRes {
+public abstract class LicenseRes {
 
     private static Factory factory = Factory.getInstance();
     private static LicenseDAO dao = factory.getLicenseDAO();
@@ -33,18 +33,24 @@ public class LicenseRes {
         return dao;
     }
 
+    public static JSONObject performAction(String action, long taxpayer_id,
+                                           long license_id, JSONObject src) {
+        return action.equals("change") ? updateLicenseById(license_id, src) :
+                action.equals("add") ? addLicense(taxpayer_id, src) : getLicenseById(license_id);
+    }
+
     /**
      * get licenses by taxpayer_id
-     * @param src
+     * @param
      * @return
      */
-    public JSONArray getAllLicensesById(JSONObject src) {
+    public static JSONArray getAllLicensesById(long taxpayer_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Collection<License> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+            Collection<License> col = tdao.getTaxpayerById(taxpayer_id)
                     .getLicenses();
             Iterator<License> iter = col.iterator();
             while (iter.hasNext()) {
@@ -93,11 +99,11 @@ public class LicenseRes {
      * @param src
      * @return
      */
-    public JSONObject getContactById(JSONObject src) {
+    public static JSONObject getLicenseById(long license_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            License l = dao.getLicenseById(src.optLong("license_id"));
+            License l = dao.getLicenseById(license_id);
             temp.put("license_id", l.getLicense_id());
             temp.put("series", l.getSeries());
             temp.put("number", l.getNumber());
@@ -135,11 +141,11 @@ public class LicenseRes {
      * @param src
      * @return
      */
-    public JSONObject updateLicenseById(JSONObject src) {
+    public static synchronized JSONObject updateLicenseById(long license_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            License l = dao.getLicenseById(src.optLong("license_id"));
+            License l = dao.getLicenseById(license_id);
             l.setAuthorityIssuedLicense(src.optString("authorityIssuedLicense"));
             l.setIssueDate(new Date(src.optLong("issueDate")));
             l.setNumber(src.optLong("number"));
@@ -177,11 +183,11 @@ public class LicenseRes {
      * @param src
      * @return
      */
-    public JSONObject addLicense(JSONObject src) {
+    public static synchronized JSONObject addLicense(long taxpayer_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(taxpayer_id);
             License l = new License();
             l.setAuthorityIssuedLicense(src.optString("authorityIssuedLicense"));
             l.setIssueDate(new Date(src.optLong("issueDate")));

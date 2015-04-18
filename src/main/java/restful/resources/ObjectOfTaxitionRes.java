@@ -222,7 +222,7 @@ public class ObjectOfTaxitionRes {
             a.printStackTrace();
             try {
                 temp = new JSONObject();
-                temp.put("MSG", "Error while executing a SQL querry");
+                temp.put("MSG",  "Error while executing a SQL querry");
                 temp.put("HTTP_CODE", "500");
             } catch (JSONException n) {
                 n.printStackTrace();

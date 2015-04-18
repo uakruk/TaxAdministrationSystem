@@ -19,7 +19,7 @@ import java.sql.SQLException;
  * @version 1.0
  * @since 1.7
  */
-public class DecreeRes {
+public abstract class DecreeRes {
 
     /*something fuckable*/
     private static Factory factory = Factory.getInstance();
@@ -30,16 +30,21 @@ public class DecreeRes {
         return dao;
     }
 
+    public static JSONObject performAction(String action, long decree_id, JSONObject src) {
+        return action.equals("change") ? updateDecreeById(decree_id, src) : getDecreeById(decree_id);
+    }
+
+
     /**
      * get decree by decree_id
-     * @param src
+     * @param decree_id
      * @return
      */
-    public JSONObject getDecreeById(JSONObject src) {
+    public static JSONObject getDecreeById(long decree_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Decree d =dao.getDecreeById(src.optLong("decree_id"));
+            Decree d =dao.getDecreeById(decree_id);
             temp.put("decree_id", d.getDecree_id());
             temp.put("registrationNumber", d.getRegiastrationNumber());
             temp.put("signaturedByWho", d.getSignaturedByWho());
@@ -70,14 +75,14 @@ public class DecreeRes {
 
     /**
      * update decree by decree_id
-     * @param src
+     * @param decree_id
      * @return
      */
-    public JSONObject updateDecreeById(JSONObject src) {
+    public static synchronized JSONObject updateDecreeById(long decree_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Decree d =dao.getDecreeById(src.optLong("decree_id"));
+            Decree d =dao.getDecreeById(decree_id);
             d.setRegiastrationNumber(src.optLong("registrationNumber"));
             d.setSignaturedByWho(src.optString("signaturedByWho"));
             d.setText(src.optString("text"));
@@ -111,7 +116,7 @@ public class DecreeRes {
      * @param src
      * @return
      */
-    public JSONObject addDecree(JSONObject src) {
+    public static synchronized JSONObject addDecree(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
@@ -143,6 +148,4 @@ public class DecreeRes {
         }
         return temp;
     }
-
-
 }

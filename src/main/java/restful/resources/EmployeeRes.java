@@ -21,7 +21,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class EmployeeRes {
+public abstract class EmployeeRes {
     /*because*/
     private static Factory factory = Factory.getInstance();
     private static EmployeeDAO dao = factory.getEmployeeDAO();
@@ -33,15 +33,15 @@ public class EmployeeRes {
 
     /**
      * get employees by unit_id
-     * @param src
+     * @param unit_id
      * @return
      */
-    public JSONArray getAllEmployeesByUnitId(JSONObject src) {
+    public static JSONArray getAllEmployeesByUnitId(long unit_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
-            Unit u = factory.getUnitDAO().getUnitById(src.optLong("unit_id"));
+            Unit u = factory.getUnitDAO().getUnitById(unit_id);
             Collection<Employee> col = u.getEmployees();
             Iterator<Employee> iter = col.iterator();
             while (iter.hasNext()) {
@@ -82,14 +82,14 @@ public class EmployeeRes {
 
     /**
      * get employee by employee_id
-     * @param src
+     * @param employee_id
      * @return
      */
-    public JSONObject getEmployeeById(JSONObject src) {
+    public static JSONObject getEmployeeById(long employee_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Employee e = dao.getEmployeeById(src.optLong("employee_id"));
+            Employee e = dao.getEmployeeById(employee_id);
             temp.put("employee_id", e.getEmployee_id());
             temp.put("name", e.getName());
             temp.put("position", e.getPosition());
@@ -119,14 +119,14 @@ public class EmployeeRes {
 
     /**
      * update employee by employee_id
-     * @param src
+     * @param employee_id
      * @return
      */
-    public JSONObject updateEmployeeById(JSONObject src) {
+    public static synchronized JSONObject updateEmployeeById(long employee_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Employee e = dao.getEmployeeById(src.optLong("employee_id"));
+            Employee e = dao.getEmployeeById(employee_id);
             e.setName(src.optString("name"));
             e.setPosition(src.optString("position"));
             dao.updateEmployee(e);
@@ -156,14 +156,14 @@ public class EmployeeRes {
 
     /**
      * add employee by unit_id
-     * @param src
+     * @param unit_id
      * @return
      */
-    public JSONObject addEmployeeByUnitId(JSONObject src) {
+    public static synchronized JSONObject addEmployeeByUnitId(long unit_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Unit u = factory.getUnitDAO().getUnitById(src.optLong("unit_id"));
+            Unit u = factory.getUnitDAO().getUnitById(unit_id);
             Employee e = new Employee();
             e.setName(src.optString("name"));
             e.setPosition(src.optString("position"));
@@ -195,14 +195,14 @@ public class EmployeeRes {
 
     /**
      * delete employee by employee_id
-     * @param src
+     * @param employee_id
      * @return
      */
-    public JSONObject deleteEmployeeById(JSONObject src) {
+    public static synchronized JSONObject deleteEmployeeById(long employee_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Employee e = dao.getEmployeeById(src.optLong("employee_id"));
+            Employee e = dao.getEmployeeById(employee_id);
             dao.deleteEmployee(e);
             temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");

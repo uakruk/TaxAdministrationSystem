@@ -22,7 +22,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class PropertyRes {
+public abstract class PropertyRes {
 
     private static Factory factory = Factory.getInstance();
     private static PropertyDAO dao = factory.getPropertyDAO();
@@ -32,18 +32,26 @@ public class PropertyRes {
         return dao;
     }
 
+    public static JSONObject performAction(String action, long taxpayer_id,
+                                           long property_id, JSONObject src) {
+        return action.equals("delete") ? deletePropertyById(property_id) :
+                action.equals("change") ? updatePropertyById(property_id, src) :
+                        action.equals("add") ? addProperty(taxpayer_id, src) :
+                                getPropertyById(property_id);
+    }
+
     /**
      * get property info by taxpayer_id
-     * @param src
+     * @param
      * @return
      */
-    public JSONArray getAllPropertyById(JSONObject src) {
+    public static JSONArray getAllPropertyById(long taxpayer_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Collection<Property> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+            Collection<Property> col = tdao.getTaxpayerById(taxpayer_id)
                     .getPropertys();
             Iterator<Property> iter = col.iterator();
             while (iter.hasNext()) {
@@ -87,14 +95,14 @@ public class PropertyRes {
 
     /**
      * get property by property_id
-     * @param src
+     * @param
      * @return
      */
-    public JSONObject getPropertyById(JSONObject src) {
+    public static JSONObject getPropertyById(long property_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Property p = dao.getPropertyById(src.optLong("property_id"));
+            Property p = dao.getPropertyById(property_id);
             temp.put("property_id", p.getProperty_id());
             temp.put("cadastralNumber", p.getCadastralNumber());
             temp.put("address", p.getAddress());
@@ -130,11 +138,12 @@ public class PropertyRes {
      * @param src
      * @return
      */
-    public JSONObject updatePropertyById(JSONObject src) {
+    public static synchronized JSONObject updatePropertyById(long property_id,
+                                                             JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Property p = dao.getPropertyById(src.optLong("property_id"));
+            Property p = dao.getPropertyById(property_id);
             p.setCadastralNumber(src.optLong("cadastralNumber"));
             p.setAddress(src.optString("address"));
             p.setPrice(src.optDouble("price"));
@@ -170,11 +179,12 @@ public class PropertyRes {
      * @param src
      * @return
      */
-    public JSONObject addProperty(JSONObject src) {
+    public static synchronized JSONObject addProperty(long taxpayer_id,
+                                                      JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(taxpayer_id);
             Property p = new Property();
             p.setCadastralNumber(src.optLong("cadastralNumber"));
             p.setAddress(src.optString("address"));
@@ -209,14 +219,14 @@ public class PropertyRes {
 
     /**
      * delete property by property_id
-     * @param src
+     * @param
      * @return
      */
-    public JSONObject deletePropertyById(JSONObject src) {
+    public static synchronized JSONObject deletePropertyById(long property_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Property p = dao.getPropertyById(src.optLong("property_id"));
+            Property p = dao.getPropertyById(property_id);
             dao.deleteProperty(p);
             temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");
