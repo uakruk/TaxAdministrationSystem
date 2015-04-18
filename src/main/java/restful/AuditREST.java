@@ -89,7 +89,9 @@ public class AuditREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s = AuditRes.performAction(action, id, audit_id, new JSONObject(src)).toString();
+            String s = action.equals("change") ?
+                    AuditRes.updateAuditByID(audit_id, new JSONObject(src)).toString() :
+                    AuditRes.getAuditByID(audit_id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -103,14 +105,14 @@ public class AuditREST {
         }
     }
 
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addAudit(@PathParam("id") long id, @QueryParam("action") String action, String src) {
+    public Response addAudit(@PathParam("id") long id, String src) {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s = AuditRes.performAction(action, id, id, new JSONObject(src)).toString();
+            String s = AuditRes.addAudit(id, new JSONObject(src)).toString()
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -164,16 +166,20 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/decision")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addDecision(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
-                                 @QueryParam("action") String action, String src) {
-        //  JSONArray response;
+    public Response addDecision(@PathParam("id") long id,
+                                @PathParam("audit_id") long audit_id, String src) {
+          JSONObject response;
         try {
-            String token = new JSONObject(src).optString("token");
+            JSONObject j = new JSONObject(src);
+            String token = j.optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s = DecisionRes.performAction(action, audit_id, 0, new JSONObject(src)).toString();
+            EmployeeRes.addEmployeeByUnitId(j.optLong("unit_id"), j);
+
+            String s = DecisionRes.addDecision(audit_id,j.optLong("employee_id"), j)
+                    .toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -198,7 +204,9 @@ public class AuditREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s = DecisionRes.performAction(action, audit_id, decision_id, new JSONObject(src)).toString();
+            String s = action.equals("change") ?
+                    DecisionRes.updateDecisionById(decision_id, new JSONObject(src)).toString() :
+                    DecisionRes.getDecisionById(decision_id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -219,6 +227,9 @@ public class AuditREST {
     /*REFERRAL BLOCK*//*REFERRAL BLOCK*//*REFERRAL BLOCK*//*REFERRAL BLOCK*//*REFERRAL BLOCK*/
 
     /*ATTENTION! VERY AFFECTIVE TO CHANGES*/
+
+
+    /*АТЕНСЬЙОН!!! ПОВНИЙ КРАХ!!!!*/
 
     /*********************************************************************
      * BIG
@@ -257,17 +268,18 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/referral")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addReferral(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
-                                 @QueryParam("action") String action, String src) {
+    public Response addReferral(@PathParam("id") long id,
+                                @PathParam("audit_id") long audit_id, String src) {
         try {
             JSONObject j = new JSONObject(src);
             String token = j.optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s  = ReferralRes.performAction(action, 0, audit_id, j.optLong("employee_id"),
+            String s  = ReferralRes.addReferral(audit_id,j.optLong("employee_id"),
                     j.optLong("decree_id"), j).toString();
+           //         j.optLong("decree_id"), j).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -315,8 +327,9 @@ public class AuditREST {
             String token = j.optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s  = ReferralRes.performAction(action, referral_id, audit_id, j.optLong("employee_id"),
-                    j.optLong("decree_id"), j).toString();
+            String s  = action.equals("change") ?
+                    ReferralRes.updateReferralById(referral_id, new JSONObject(src)).toString() :
+                    ReferralRes.getReferralyById(referral_id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
