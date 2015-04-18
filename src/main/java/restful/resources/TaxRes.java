@@ -23,7 +23,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class TaxRes {
+public abstract class TaxRes {
 
     private static Factory factory = Factory.getInstance();
     private static TaxDAO dao = factory.getTaxDAO();
@@ -38,13 +38,13 @@ public class TaxRes {
      * @param src
      * @return
      */
-    public JSONArray getAllTaxesById(JSONObject src) {
+    public static JSONArray getAllTaxesById(long taxpayer_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Collection<Tax> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+            Collection<Tax> col = tdao.getTaxpayerById(taxpayer_id)
                     .getTaxes();
             Iterator<Tax> iter = col.iterator();
             while (iter.hasNext()) {
@@ -89,11 +89,11 @@ public class TaxRes {
      * @param src
      * @return
      */
-    public JSONObject getTaxById(JSONObject src) {
+    public static JSONObject getTaxById(long tax_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Tax t = dao.getTaxById(src.optLong("tax_id"));
+            Tax t = dao.getTaxById(tax_id);
             temp.put("tax_id", t.getTax_id());
             temp.put("typeOfTax", t.getTypeOfTax());
             temp.put("startDate", t.getStartDate().toString());
@@ -127,11 +127,11 @@ public class TaxRes {
      * @param src
      * @return
      */
-    public JSONObject updateTaxById(JSONObject src) {
+    public static synchronized JSONObject updateTaxById(long tax_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Tax t = dao.getTaxById(src.optLong("tax_id"));
+            Tax t = dao.getTaxById(tax_id);
             t.setTypeOfTax(src.optString("typeOfTax"));
             t.setStartDate(new Date(src.optLong("startDate")));
             t.setEndDate(new Date(src.optLong("endDate")));
@@ -165,11 +165,11 @@ public class TaxRes {
      * @param src
      * @return
      */
-    public JSONObject addTaxByTaxpayerId(JSONObject src) {
+    public static synchronized JSONObject addTaxByTaxpayerId(long taxpayer_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(taxpayer_id);
             Tax t = new Tax();
             t.setTypeOfTax(src.optString("typeOfTax"));
             t.setStartDate(new Date(src.optLong("startDate")));

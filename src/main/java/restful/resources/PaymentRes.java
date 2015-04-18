@@ -23,7 +23,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class PaymentRes {
+public abstract class PaymentRes {
     private static Factory factory = Factory.getInstance();
     private static PaymentDAO dao = factory.getPaymentDAO();
     private static PaymentDAO getDao() {
@@ -37,13 +37,13 @@ public class PaymentRes {
      * @param src
      * @return
      */
-    public JSONArray getAllPaymentsById(JSONObject src) {
+    public static JSONArray getAllPaymentsById(long tax_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             TaxDAO tdao= factory.getTaxDAO();
-            Collection<Payment> col = tdao.getTaxById(src.optLong("tax_id"))
+            Collection<Payment> col = tdao.getTaxById(tax_id)
                     .getPayments();
             Iterator<Payment> iter = col.iterator();
             while (iter.hasNext()) {
@@ -89,11 +89,11 @@ public class PaymentRes {
      * @param src
      * @return
      */
-    public JSONObject getPaymentById(JSONObject src) {
+    public static JSONObject getPaymentById(long payment_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Payment p = dao.getPaymentById(src.optLong("payment_id"));
+            Payment p = dao.getPaymentById(payment_id);
             temp.put("payment_id", p.getPayment_id());
             temp.put("amountOfPayment", p.getAmountOfPayment());
             temp.put("idTransaction", p.getIdTransaction());
@@ -128,11 +128,12 @@ public class PaymentRes {
      * @param src
      * @return
      */
-    public JSONObject updatePaymentById(JSONObject src) {
+    public static synchronized JSONObject updatePaymentById(long payment_id,
+                                                            JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Payment p = dao.getPaymentById(src.optLong("payment_id"));
+            Payment p = dao.getPaymentById(payment_id);
             p.setAmountOfPayment(src.optDouble("amountOfPayment"));
             p.setIdTransaction(src.optLong("idTransaction"));
             p.setPaymentDate(new Date(src.optLong("paymentDate")));
@@ -167,11 +168,12 @@ public class PaymentRes {
      * @param src
      * @return
      */
-    public JSONObject addPayment(JSONObject src) {
+    public static synchronized JSONObject addPayment(long tax_id,
+                                                     JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Tax t = factory.getTaxDAO().getTaxById(src.optLong("tax_id"));
+            Tax t = factory.getTaxDAO().getTaxById(tax_id);
             Payment p = new Payment();
             p.setAmountOfPayment(src.optDouble("amountOfPayment"));
             p.setIdTransaction(src.optLong("idTransaction"));
