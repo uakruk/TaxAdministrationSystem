@@ -50,7 +50,7 @@ public class PropertyREST {
         }
     }
 
-    @POST
+    @PUT
     public Response addProperty(@PathParam("id") long id,
                                    String src) {
         JSONObject response;
@@ -99,7 +99,7 @@ public class PropertyREST {
 
     @POST
     @Path("/{property_id}")
-    public Response actWithProperty(@PathParam("id") long id,
+    public Response changeProperty(@PathParam("id") long id,
                                 @PathParam("property_id") long property_id,
                                 @QueryParam("action") String action, String src) {
         JSONObject response;
@@ -107,7 +107,35 @@ public class PropertyREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            response = PropertyRes.performAction(action, id, property_id, new JSONObject(src));
+            response = action.equals("change") ?
+                    PropertyRes.updatePropertyById(property_id, new JSONObject(src)) :
+                    PropertyRes.getPropertyById(property_id);
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }  catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
+
+    @DELETE
+    @Path("/{property_id}")
+    public Response deleteProperty(@PathParam("id") long id,
+                                   @PathParam("property_id") long property_id,
+                                   @QueryParam("action") String action, String src) {
+        JSONObject response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            response = action.equals("delete") ?
+                    PropertyRes.deletePropertyById(property_id) :
+                    PropertyRes.getPropertyById(property_id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";

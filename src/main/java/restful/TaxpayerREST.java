@@ -58,7 +58,9 @@ public class TaxpayerREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s = TaxpayerRes.performAction(action, id, new JSONObject(src)).toString();
+            String s = action.equals("change") ?
+                    TaxpayerRes.updateTaxpayerById(id, new JSONObject(src)).toString() :
+                    TaxpayerRes.getTaxpayerById(id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";

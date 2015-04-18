@@ -22,7 +22,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class CashRegisterRes {
+public abstract class CashRegisterRes {
 
     private static Factory factory = Factory.getInstance();
     private static CashRegisterDAO dao = factory.getCashRegisterDAO();
@@ -37,15 +37,15 @@ public class CashRegisterRes {
      * @param src
      * @return
      */
-    public JSONArray getAllashRegistersById(JSONObject src) {
+    public static JSONArray getAllashRegistersById(long taxition_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             Factory factory = Factory.getInstance();
             CashRegisterDAO dao = factory.getCashRegisterDAO();
             ObjectOfTaxationDAO odao = factory.getObjectOfTaxationDAO();
-            Collection<CashRegister> col = odao.getObjectOfTaxationById(src.optLong("objectOfTaxation_id"))
-                                                                                    .getCashRegisters();
+            Collection<CashRegister> col = odao.getObjectOfTaxationById(taxition_id)
+                                                                .getCashRegisters();
             Iterator<CashRegister> iter = col.iterator();
             while(iter.hasNext()) {
                 temp = new JSONObject();
@@ -87,11 +87,11 @@ public class CashRegisterRes {
      * @param src
      * @return
      */
-    public JSONObject getCashRegisterById(JSONObject src) {
+    public static JSONObject getCashRegisterById(long cashRegister_id) {
         JSONObject temp = new JSONObject();
         try {
             CashRegisterDAO dao = getDao();
-            CashRegister cr = dao.getCashRegisterById(src.optLong("cashRegister_id"));
+            CashRegister cr = dao.getCashRegisterById(cashRegister_id);
             temp.put("cashRegister_id", cr.getCashRegister_id());
             temp.put("ID", cr.getID());
             temp.put("MSG", "Item has been delivered successfully");
@@ -123,11 +123,11 @@ public class CashRegisterRes {
      * @param src
      * @return
      */
-    public JSONObject updateCashRegisterById(JSONObject src) {
+    public static synchronized JSONObject updateCashRegisterById(long cashRegister_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             CashRegisterDAO dao = getDao();
-            CashRegister cr = dao.getCashRegisterById(src.optLong("cashRegister_id"));
+            CashRegister cr = dao.getCashRegisterById(cashRegister_id);
             cr.setID(src.optLong("ID"));
             dao.updateCashRegister(cr);
             temp.put("MSG", "Item has been updated successfully");
@@ -159,12 +159,12 @@ public class CashRegisterRes {
      * @param src
      * @return
      */
-    public JSONObject addCashRegister(JSONObject src) {
+    public static synchronized JSONObject addCashRegister(long taxition_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             CashRegisterDAO dao = getDao();
-            ObjectOfTaxationDAO tdao = this.factory.getObjectOfTaxationDAO();
-            ObjectOfTaxation obj = tdao.getObjectOfTaxationById(src.optLong("objectOfTaxition_id"));
+            ObjectOfTaxationDAO tdao = factory.getObjectOfTaxationDAO();
+            ObjectOfTaxation obj = tdao.getObjectOfTaxationById(taxition_id);
             CashRegister cr = new CashRegister();
             cr.setCashRegister_id(src.optLong("cashRegister_id"));
             cr.setID(src.optLong("ID"));
@@ -199,11 +199,11 @@ public class CashRegisterRes {
      * @param src
      * @return
      */
-    public JSONObject deleteCashRegisterById(JSONObject src) {
+    public static synchronized JSONObject deleteCashRegisterById(long cashRegister_id) {
         JSONObject temp = new JSONObject();
         try {
             CashRegisterDAO dao = getDao();
-            CashRegister cr = dao.getCashRegisterById(src.optLong("cashRegister_id"));
+            CashRegister cr = dao.getCashRegisterById(cashRegister_id);
             dao.deleteCashRegister(cr);
             temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");

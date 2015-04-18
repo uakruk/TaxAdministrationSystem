@@ -96,7 +96,7 @@ public abstract class LicenseRes {
 
     /**
      * get license by license_id
-     * @param src
+     * @param
      * @return
      */
     public static JSONObject getLicenseById(long license_id) {
@@ -197,6 +197,7 @@ public abstract class LicenseRes {
             l.setTypeOfActivity(src.optString("typeOfActivity"));
             l.setValidityOf(new Date(src.optLong("validityOf")));
             l.setTaxpayer(tp);
+     //       l.set
             dao.addLicense(l);
             temp.put("MSG", "Item has been added successfully");
             temp.put("HTTP_CODE", "200");

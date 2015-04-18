@@ -7,6 +7,8 @@ import restful.Security.AuthCheck;
 import restful.Security.AuthSecurityException;
 import restful.Security.PermissionCheck;
 import restful.Security.PermissionException;
+import restful.resources.LicenseRes;
+import restful.resources.ObjectOfTaxitionRes;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -35,7 +37,7 @@ public class TaxitionObjectREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            response = PropertyRes.getAllPropertyById(id);
+            response = ObjectOfTaxitionRes.getAllObjectsOfTaxitionById(id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -48,4 +50,138 @@ public class TaxitionObjectREST {
             return Response.status(400).build();
         }
     }
+
+    @PUT
+    public Response addTaxitionObject(@PathParam("id") long id,
+                                                         String src) {
+        JSONObject response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            response = ObjectOfTaxitionRes.addObjectOfTaxition(id, new JSONObject(src));
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }  catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
+
+    @Path("/{taxition_id}")
+    @POST
+    public Response getTaxition(@PathParam("id") long id,
+                                   @PathParam("taxition_id") long taxition_id,
+                                          String src) {
+        JSONObject response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            response = ObjectOfTaxitionRes.getObjectOfTaxitionById(taxition_id);
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }  catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
+
+    /**
+     * UPDATE TAXITION OBJECT
+     * @param id
+     * @param taxition_id
+     * @param action
+     * @param src
+     * @return
+     */
+    @Path("/{taxition_id}")
+    @POST
+    public Response changeTaxition(@PathParam("id") long id,
+                                @PathParam("taxition_id") long taxition_id,
+                                @QueryParam("action") String action,
+                                String src) {
+        JSONObject response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            response = action.equals("change") ?
+                    ObjectOfTaxitionRes.updateObjectOfTaxitionById(id, new JSONObject(src)) :
+                    ObjectOfTaxitionRes.getObjectOfTaxitionById(taxition_id);
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }  catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
+
+    @Path("/{taxition_id}")
+    @DELETE
+    public Response deleteTaxition(@PathParam("id") long id,
+                                   @PathParam("taxition_id") long taxition_id,
+                                   @QueryParam("action") String action,
+                                   String src) {
+        JSONObject response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            response = action.equals("change") ?
+                    ObjectOfTaxitionRes.deleteObjectOfTaxitionById(taxition_id) :
+                    ObjectOfTaxitionRes.getObjectOfTaxitionById(taxition_id);
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }  catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    }
+/*
+    @Path("/{taxition_id}")
+    @POST
+    public Response addLicense(@PathParam("id") long id,
+                                   @PathParam("taxition_id") long taxition_id,
+                                   @QueryParam("action") String action,
+                                   String src) {
+        JSONObject response;
+        try {
+            String token = new JSONObject(src).optString("token");
+            AuthCheck.check(token);
+            PermissionCheck.check(token);
+            response = action.equals("addLicense") ?
+                    LicenseRes.update
+            return Response.status(200).entity(response.toString()).build();
+        } catch (AuthSecurityException e) {
+            String resp = "ACCESS DENIED";
+            return Response.status(403).entity(resp).build();
+        } catch (PermissionException e) {
+            String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
+            return Response.status(403).entity(resp).build();
+        }  catch (JSONException e) {
+            e.printStackTrace();
+            return Response.status(400).build();
+        }
+    } */
 }

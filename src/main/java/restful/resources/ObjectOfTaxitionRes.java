@@ -23,7 +23,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class ObjectOfTaxitionRes {
+public abstract class ObjectOfTaxitionRes {
 
     private static Factory factory = Factory.getInstance();
     private static ObjectOfTaxationDAO dao = factory.getObjectOfTaxationDAO();
@@ -33,18 +33,26 @@ public class ObjectOfTaxitionRes {
         return dao;
     }
 
+    public static JSONObject performAction(String action, long taxpayer_id,
+                                           long taxition_id, JSONObject src) {
+        return action.equals("change") ? updateObjectOfTaxitionById(taxition_id, src) :
+                action.equals("add") ? addObjectOfTaxition(taxpayer_id, src) :
+                        action.equals("delete") ? deleteObjectOfTaxitionById(taxition_id) :
+                                getObjectOfTaxitionById(taxition_id);
+    }
+
     /**
      * get objects of taxition by taxpayer_id
      * @param src
      * @return
      */
-    public JSONArray getAllObjectsOfTaxitionById(JSONObject src) {
+    public static JSONArray getAllObjectsOfTaxitionById(long taxpayer_id) {
         JSONObject temp;
         JSONArray resp = new JSONArray();
         try {
             dao = getDao();
             TaxpayerDAO tdao = factory.getTaxpayerDAO();
-            Collection<ObjectOfTaxation> col = tdao.getTaxpayerById(src.optLong("taxpayer_id"))
+            Collection<ObjectOfTaxation> col = tdao.getTaxpayerById(taxpayer_id)
                     .getObjectOfTaxations();
             Iterator<ObjectOfTaxation> iter = col.iterator();
             while (iter.hasNext()) {
@@ -88,11 +96,11 @@ public class ObjectOfTaxitionRes {
      * @param src
      * @return
      */
-    public JSONObject getObjectOfTaxitionById(JSONObject src) {
+    public static JSONObject getObjectOfTaxitionById(long taxition_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            ObjectOfTaxation o = dao.getObjectOfTaxationById(src.optLong("objectOfTaxition_id"));
+            ObjectOfTaxation o = dao.getObjectOfTaxationById(taxition_id);
             temp.put("objectOfTaxition_id", o.getObjectOfTaxation_id());
             temp.put("title", o.getTitle());
             temp.put("address", o.getAddress());
@@ -125,11 +133,11 @@ public class ObjectOfTaxitionRes {
      * @param src
      * @return
      */
-    public JSONObject updateObjectOfTaxitionById(JSONObject src) {
+    public static synchronized JSONObject updateObjectOfTaxitionById(long taxition_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            ObjectOfTaxation o = dao.getObjectOfTaxationById(src.optLong("objectOfTaxition_id"));
+            ObjectOfTaxation o = dao.getObjectOfTaxationById(taxition_id);
             o.setAddress(src.optString("address"));
             o.setTitle(src.optString("title"));
             dao.updateObjectOfTaxation(o);
@@ -162,11 +170,11 @@ public class ObjectOfTaxitionRes {
      * @param src
      * @return
      */
-    public JSONObject addObjectOfTaxition(JSONObject src) {
+    public static synchronized JSONObject addObjectOfTaxition(long taxpayer_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(src.optLong("taxpayer_id"));
+            Taxpayer tp = factory.getTaxpayerDAO().getTaxpayerById(taxpayer_id);
             ObjectOfTaxation o = new ObjectOfTaxation();
             o.setAddress(src.optString("address"));
             o.setTitle(src.optString("title"));
@@ -201,11 +209,11 @@ public class ObjectOfTaxitionRes {
      * @param src
      * @return
      */
-    public JSONObject deleteObjectOfTaxitionById(JSONObject src) {
+    public static synchronized JSONObject deleteObjectOfTaxitionById(long taxition_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            ObjectOfTaxation o = dao.getObjectOfTaxationById(src.optLong("objectOfTaxition_id"));;
+            ObjectOfTaxation o = dao.getObjectOfTaxationById(taxition_id);
             dao.deleteObjectOfTaxation(o);
             temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");
