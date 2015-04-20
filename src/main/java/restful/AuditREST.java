@@ -112,7 +112,7 @@ public class AuditREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            String s = AuditRes.addAudit(id, new JSONObject(src)).toString()
+            String s = AuditRes.addAudit(id, new JSONObject(src)).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -362,9 +362,10 @@ public class AuditREST {
             String token = j.optString("token");
             AuthCheck.check(token);
             PermissionCheck.check(token);
-            DecreeRes.addDecree(j);
-            String s  = ReferralRes.performAction(action, referral_id, audit_id, j.optLong("employee_id"),
-                    j.optLong("decree_id"), j).toString();
+            //DecreeRes.addDecree(j);
+            String s  = action.equals("change") ?
+                    DecreeRes.updateDecreeById(j.optLong("decree_id"), j).toString() :
+                    DecreeRes.getDecreeById(j.optLong("decree_id")).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
