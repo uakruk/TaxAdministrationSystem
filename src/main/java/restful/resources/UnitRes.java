@@ -20,7 +20,7 @@ import java.util.Iterator;
  * @version 1.0
  * @since 1.7
  */
-public class UnitRes {
+public abstract class UnitRes {
 
     private static Factory factory = Factory.getInstance();
     private static UnitDAO dao = factory.getUnitDAO();
@@ -30,16 +30,58 @@ public class UnitRes {
         return dao;
     }
 
+    public static JSONArray getAllUnits() {
+        JSONObject temp;
+        JSONArray resp = new JSONArray();
+        try {
+            dao = getDao();
+            Collection<Unit> col = dao.getAllUnit();
+            Iterator<Unit> iter = col.iterator();
+            while (iter.hasNext()) {
+                temp = new JSONObject();
+                Unit u = iter.next();
+                temp.put("unit_id", u.getUnit_id());
+                temp.put("title", u.getTitle());
+                resp.put(temp);
+            }
+            temp = new JSONObject();
+            temp.put("MSG", "Items have been delivered successfully");
+            temp.put("HTTP_CODE", "200");
+            resp.put(temp);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            try {
+                temp = new JSONObject();
+                temp.put("MSG", "Error while processing a JSON");
+                temp.put("HTTP_CODE", "500");
+                resp.put(temp);
+            } catch (JSONException n) {
+                e.printStackTrace();
+            }
+        } catch (SQLException a) {
+            a.printStackTrace();
+            try {
+                temp = new JSONObject();
+                temp.put("MSG", "Error while executing a SQL querry");
+                temp.put("HTTP_CODE", "500");
+                resp.put(temp);
+            } catch (JSONException n) {
+                n.printStackTrace();
+            }
+        }
+        return resp;
+    }
+
     /**
      * get unit by unit_id
-     * @param src
+     * @param
      * @return
      */
-    public JSONObject getUnitById(JSONObject src) {
+    public static JSONObject getUnitById(long unit_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Unit u = dao.getUnitById(src.optLong("unit_id"));
+            Unit u = dao.getUnitById(unit_id);
             temp.put("unit_id", u.getUnit_id());
             temp.put("title", u.getTitle());
             temp.put("MSG", "Item has been delivered successfully");
@@ -71,11 +113,11 @@ public class UnitRes {
      * @param src
      * @return
      */
-    public JSONObject updateUnitById(JSONObject src) {
+    public static synchronized JSONObject updateUnitById(long unit_id, JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Unit u = dao.getUnitById(src.optLong("unit_id"));
+            Unit u = dao.getUnitById(unit_id);
             u.setTitle(src.optString("title"));
             dao.updateUnit(u);
             temp.put("MSG", "Item has been updated successfully");
@@ -107,7 +149,7 @@ public class UnitRes {
      * @param src
      * @return
      */
-    public JSONObject addUnit(JSONObject src) {
+    public static synchronized JSONObject addUnit(JSONObject src) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
@@ -143,11 +185,11 @@ public class UnitRes {
      * @param src
      * @return
      */
-    public JSONObject deleteUnityById(JSONObject src) {
+    public static synchronized JSONObject deleteUnityById(long unit_id) {
         JSONObject temp = new JSONObject();
         try {
             dao = getDao();
-            Unit u = dao.getUnitById(src.optLong("unit_id"));
+            Unit u = dao.getUnitById(unit_id);
             dao.deleteUnit(u);
             temp.put("MSG", "Item has been deleted successfully");
             temp.put("HTTP_CODE", "200");

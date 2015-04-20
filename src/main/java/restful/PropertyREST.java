@@ -148,5 +148,4 @@ public class PropertyREST {
             return Response.status(400).build();
         }
     }
-
 }

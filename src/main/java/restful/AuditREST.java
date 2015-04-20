@@ -267,6 +267,14 @@ public class AuditREST {
         }
     }
 
+    /**
+     * in this method you should take care for both creating new decree
+     * and chosing existing empployee
+     * @param id
+     * @param audit_id
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}/referral")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
