@@ -1,0 +1,52 @@
+<section>
+    <div class="row">
+        <ul class="side-nav">
+            <li class="small-2 columns">
+                <a href="#" class="button" ng-click="panel.selectTab(1)">Desc</a>
+            </li>
+            <li class="small-2 columns">
+                <a href="#" class="button" ng-click="panel.selectTab(2)">Specs</a>
+            </li>
+            <li class="small-2 left columns">
+                <a href="#" class="button" ng-click="panel.selectTab(3)">Reviews</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <div class="panel" ng-show="panel.isSelected(1)">
+            <h4>Descript</h4>
+            <blockquote>None yet</blockquote>
+        </div>
+        <div class="panel" ng-show="panel.isSelected(2)">
+            <h4>Specs</h4>
+            <blockquote>None yet van</blockquote>
+        </div>
+        <div class="panel" ng-show="panel.isSelected(3)">
+            <h4>Reviews</h4>
+            <blockquote ng-repeat="review in product.reviews">
+                <b>Stars : {{review.stars}}</b>
+                {{review.body}}
+                <cite>{{review.author}}</cite>
+            </blockquote>
+
+            <form name="reviewForm" ng-controller="ReviewController as rCtrl"
+                  ng-submit="rCtrl.addReview(product)">
+                <h4>Preview</h4>
+
+                <select ng-model="rCtrl.review.stars" required>
+                    <option value="1">1 star</option>
+                    <option value="2">2 star</option>
+                    <option value="3">3 star</option>
+                    <option value="4">4 star</option>
+                    <option value="5">5 star</option>
+                </select>
+                <textarea ng-model="rCtrl.review.body" required></textarea>
+                <input type="email" ng-model="rCtrl.review.author" required/>
+                <div> form is {{reviewForm.$valid}}</div>
+                <input class="button" type="submit" value="Submit"/>
+            </form>
+
+        </div>
+    </div>
+</section>
