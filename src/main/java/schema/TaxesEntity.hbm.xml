@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.TaxesEntity" table="Taxes" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.TaxesEntityPK">
+            <key-property name="taxesId">
+                <column name="Taxes_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxpayerTaxpayerId">
+                <column name="Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="typeTaxesTypeTexesId">
+                <column name="Type taxes_Type_Texes_Id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="begining">
+            <column name="Begining" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="end">
+            <column name="End" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

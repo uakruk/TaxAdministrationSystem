@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.SolutionsEntity" table="Solutions" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.SolutionsEntityPK">
+            <key-property name="solutionsId">
+                <column name="Solutions_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="staffStaffId">
+                <column name="Staff_Staff_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="assayAssayId">
+                <column name="Assay_Assay_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="assayTaxpayerTaxpayerId">
+                <column name="Assay_Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="text">
+            <column name="Text" sql-type="varchar" length="300" not-null="true"/>
+        </property>
+        <property name="chiefAgreement">
+            <column name="Chief_Agreement" sql-type="tinyint" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

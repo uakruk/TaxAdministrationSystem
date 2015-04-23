@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.ChargesEntity" table="Charges" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.ChargesEntityPK">
+            <key-property name="chargesId">
+                <column name="Charges_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxesTaxesId">
+                <column name="Taxes_Taxes_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxesTaxpayerTaxpayerId">
+                <column name="Taxes_Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxesTypeTaxesTypeTexesId">
+                <column name="Taxes_Type taxes_Type_Texes_Id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="paymentTypePaymentType">
+                <column name="PaymentType_PaymentType_" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="maturity">
+            <column name="Maturity" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="dateOfAccrual">
+            <column name="Date_of_accrual" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="suma">
+            <column name="Suma" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.PropertyEntity" table="Property" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.PropertyEntityPK">
+            <key-property name="propertyId">
+                <column name="Property_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxpayerTaxpayerId">
+                <column name="Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="propertyTypePropertyTypeId">
+                <column name="Property Type_PropertyType_id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="adress">
+            <column name="Adress" sql-type="varchar" length="70" not-null="true"/>
+        </property>
+        <property name="squere">
+            <column name="Squere" sql-type="double" precision="22" not-null="true"/>
+        </property>
+        <property name="cadastralNumber">
+            <column name="Cadastral_number" sql-type="int" not-null="true"/>
+        </property>
+        <property name="cost">
+            <column name="Cost" sql-type="double" precision="22" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
