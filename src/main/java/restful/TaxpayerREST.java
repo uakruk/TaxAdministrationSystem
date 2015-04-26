@@ -52,7 +52,11 @@ public class TaxpayerREST {
 
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
+<<<<<<< HEAD
     @PUT
+=======
+    @POST
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public Response changeGeneralInfo(@PathParam("id") long id, @QueryParam("action") String action, String src) {
         try {
             String token = new JSONObject(src).optString("token");

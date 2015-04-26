@@ -80,10 +80,17 @@ public class AuditREST {
         }
     }
 
+<<<<<<< HEAD
     @Path("/{audit_idd}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeAudit(@PathParam("id") long id, @PathParam("audit_idd") long audit_id,
+=======
+    @Path("/{audit_id}")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response changeAudit(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
                              @QueryParam("action") String action, String src) {
         try {
             String token = new JSONObject(src).optString("token");
@@ -325,7 +332,11 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/referral/{referral_id}")
+<<<<<<< HEAD
     @PUT
+=======
+    @POST
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeReferral(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
                                 @PathParam("referral_id") long referral_id,

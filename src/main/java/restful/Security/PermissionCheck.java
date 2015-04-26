@@ -1,8 +1,11 @@
 package restful.Security;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 
+=======
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
 /**
  * This class used for:
  *
@@ -14,6 +17,7 @@ import java.util.List;
  */
 public abstract class PermissionCheck {
 
+<<<<<<< HEAD
     private static HashMap<String, Boolean> permissions;
 
     static {
@@ -36,4 +40,9 @@ public abstract class PermissionCheck {
         return true;
     }
 
+=======
+    public static synchronized boolean check(String token) throws PermissionException {
+        return true;
+    }
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
 }

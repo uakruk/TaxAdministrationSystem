@@ -96,11 +96,19 @@ public class AdditionalChargesREST {
         }
     }
 
+<<<<<<< HEAD
     @PUT
     @Path("/{charge_idd}")
     public Response changeCharge(@PathParam("id") long id,
                                   @PathParam("tax_id") long tax_id,
                                   @PathParam("charge_idd") long charge_idd,
+=======
+    @POST
+    @Path("/{charge_id}")
+    public Response changeCharge(@PathParam("id") long id,
+                                  @PathParam("tax_id") long tax_id,
+                                  @PathParam("charge_id") long charge_id,
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
                                   @QueryParam("action") String action,
                                   String src) {
         JSONObject response;
@@ -109,8 +117,13 @@ public class AdditionalChargesREST {
             AuthCheck.check(token);
             PermissionCheck.check(token);
             response = action.equals("change") ?
+<<<<<<< HEAD
                     AdditionalChargeesRes.updateAdditionalCharges(charge_idd, new JSONObject(src)) :
                     AdditionalChargeesRes.getAdditionalCharges(charge_idd);
+=======
+                    AdditionalChargeesRes.updateAdditionalCharges(charge_id, new JSONObject(src)) :
+                    AdditionalChargeesRes.getAdditionalCharges(charge_id);
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";

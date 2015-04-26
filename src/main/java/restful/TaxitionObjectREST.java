@@ -100,15 +100,26 @@ public class TaxitionObjectREST {
     /**
      * UPDATE TAXITION OBJECT
      * @param id
+<<<<<<< HEAD
      * @param taxition_idd
+=======
+     * @param taxition_id
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
      * @param action
      * @param src
      * @return
      */
+<<<<<<< HEAD
     @Path("/{taxition_idd}")
     @PUT
     public Response changeTaxition(@PathParam("id") long id,
                                 @PathParam("taxition_idd") long taxition_idd,
+=======
+    @Path("/{taxition_id}")
+    @POST
+    public Response changeTaxition(@PathParam("id") long id,
+                                @PathParam("taxition_id") long taxition_id,
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
                                 @QueryParam("action") String action,
                                 String src) {
         JSONObject response;
@@ -118,7 +129,11 @@ public class TaxitionObjectREST {
             PermissionCheck.check(token);
             response = action.equals("change") ?
                     ObjectOfTaxitionRes.updateObjectOfTaxitionById(id, new JSONObject(src)) :
+<<<<<<< HEAD
                     ObjectOfTaxitionRes.getObjectOfTaxitionById(taxition_idd);
+=======
+                    ObjectOfTaxitionRes.getObjectOfTaxitionById(taxition_id);
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";

@@ -3,7 +3,13 @@ package restful;
 
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+<<<<<<< HEAD
 import restful.Security.*;
+=======
+import restful.Security.TokenGenerator;
+import restful.Security.WrongLoginPasswordException;
+import restful.resources.LoginRes;
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -20,6 +26,7 @@ import javax.ws.rs.core.Response;
 
 @Path("/login")
 @Produces(MediaType.APPLICATION_JSON)
+<<<<<<< HEAD
 @Consumes({MediaType.APPLICATION_JSON, "text/plain"})
 public class Login {
 
@@ -28,11 +35,23 @@ public class Login {
         JSONObject src;
         try {
             src = new JSONObject(inp);
+=======
+@Consumes(MediaType.APPLICATION_JSON)
+public class Login {
+
+    @POST
+    public Response logIN(JSONObject src) {
+        try {
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             String username = src.optString("username");
             int pass = src.optString("password").hashCode();
             LoginRes.check(username, pass);
             JSONObject j= new JSONObject();
+<<<<<<< HEAD
             j.put("token", TokenGenerator.generate(username));
+=======
+            j.put("token", TokenGenerator.generate(src));
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             String s = j.toString();
             return Response.status(200).entity(s).build();
         } catch (WrongLoginPasswordException e) {
@@ -43,6 +62,7 @@ public class Login {
             return Response.status(400).build();
         }
     }
+<<<<<<< HEAD
 
     @POST
     public Response logOUT(@QueryParam("action") String action,
@@ -67,4 +87,6 @@ public class Login {
             return Response.status(403).entity("You're not authorized").build();
         }
     }
+=======
+>>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
 }
