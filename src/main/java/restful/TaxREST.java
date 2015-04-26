@@ -34,7 +34,7 @@ public class TaxREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Charge");
             response = TaxRes.getAllTaxesById(id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -55,7 +55,7 @@ public class TaxREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Charge");
             response = TaxRes.addTaxByTaxpayerId(id, new JSONObject(src));
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -78,7 +78,7 @@ public class TaxREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Charge");
             response = TaxRes.getTaxById(tax_id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -94,11 +94,7 @@ public class TaxREST {
     }
 
     @Path("/{tax_id}")
-<<<<<<< HEAD
-    @PUT
-=======
     @POST
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public Response changeTax(@PathParam("id") long id,
                            @PathParam("tax_id") long tax_id,
                            @QueryParam("action") String action,
@@ -107,7 +103,7 @@ public class TaxREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Charge");
             response = action.equals("change") ?
                     TaxRes.updateTaxById(tax_id, new JSONObject(src)) :
                     TaxRes.getTaxById(tax_id);

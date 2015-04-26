@@ -35,7 +35,7 @@ public class LicenseREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = LicenseRes.getAllLicensesById(id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -58,7 +58,7 @@ public class LicenseREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = LicenseRes.getLicenseById(license_id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -73,32 +73,20 @@ public class LicenseREST {
         }
     }
 
-<<<<<<< HEAD
-    @PUT
-    @Path("/{license_idd}")
-    public Response changeLicense(@PathParam("id") long id,
-                               @PathParam("license_idd") long license_idd,
-=======
     @POST
     @Path("/{license_id}")
     public Response changeLicense(@PathParam("id") long id,
                                @PathParam("license_id") long license_id,
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
                                @QueryParam("action") String action, String src) {
         JSONObject response;
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
 
             response = action.equals("change") ?
-<<<<<<< HEAD
-                    LicenseRes.updateLicenseById(license_idd, new JSONObject(src)) :
-                    LicenseRes.getLicenseById(license_idd);
-=======
                     LicenseRes.updateLicenseById(license_id, new JSONObject(src)) :
                     LicenseRes.getLicenseById(license_id);
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -119,7 +107,7 @@ public class LicenseREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = LicenseRes.addLicense(id, new JSONObject(src));
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {

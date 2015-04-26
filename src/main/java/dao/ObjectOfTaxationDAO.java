@@ -10,11 +10,7 @@ import java.util.Collection;
  */
 public interface ObjectOfTaxationDAO {
     public void addObjectOfTaxation(ObjectOfTaxation objectOfTaxation) throws SQLException;
-<<<<<<< HEAD
-    public void updateObjectOfTaxation(ObjectOfTaxation objectOfTaxation) throws SQLException;
-=======
     public void updateObjectOfTaxation(ObjectOfTaxation objectOfTaxation ) throws SQLException;
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public ObjectOfTaxation getObjectOfTaxationById(Long objectOfTaxation) throws SQLException;
     public Collection getAllObjectOfTaxation() throws SQLException;
     public void deleteObjectOfTaxation(ObjectOfTaxation objectOfTaxation) throws SQLException;

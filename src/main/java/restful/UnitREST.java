@@ -36,7 +36,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = UnitRes.getAllUnits();
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -57,7 +57,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = UnitRes.addUnit(new JSONObject(src));
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -81,7 +81,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = EmployeeRes.getAllEmployeesByUnitId(unit_id);
             response.put(UnitRes.getUnitById(unit_id));
             return Response.status(200).entity(response.toString()).build();
@@ -97,11 +97,7 @@ public class UnitREST {
         }
     }
 
-<<<<<<< HEAD
-    @PUT
-=======
     @POST
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     @Path("/{unit_id}")
     public Response changeUnit(@PathParam("unit_id") long unit_id,
                                    @QueryParam("action") String action, String src) {
@@ -109,7 +105,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = action.equals("change") ?
                     UnitRes.updateUnitById(unit_id, new JSONObject(src)) :
                     UnitRes.getUnitById(unit_id);
@@ -134,7 +130,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = action.equals("delete") ?
                     UnitRes.deleteUnityById(unit_id) :
                     UnitRes.getUnitById(unit_id);
@@ -152,23 +148,14 @@ public class UnitREST {
     }
 
     @PUT
-<<<<<<< HEAD
-    @Path("/{unit_idd}/staff")
-    public Response addEmployee(@PathParam("unit_idd") long unit_idd, String src) {
-=======
     @Path("/{unit_id}")
     public Response addEmployee(@PathParam("unit_id") long unit_id, String src) {
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
         JSONObject response;
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
-<<<<<<< HEAD
-            response = EmployeeRes.addEmployeeByUnitId(unit_idd, new JSONObject(src));
-=======
+            PermissionCheck.checkWrite(token, "Registration");
             response = EmployeeRes.addEmployeeByUnitId(unit_id, new JSONObject(src));
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
@@ -191,7 +178,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = action.equals("change") ?
                     EmployeeRes.updateEmployeeById(employee_id, new JSONObject(src)) :
                     EmployeeRes.getEmployeeById(employee_id);
@@ -217,7 +204,7 @@ public class UnitREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = action.equals("delete") ?
                     EmployeeRes.deleteEmployeeById(employee_id) :
                     EmployeeRes.getEmployeeById(employee_id);

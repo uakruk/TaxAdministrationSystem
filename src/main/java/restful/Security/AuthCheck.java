@@ -1,10 +1,7 @@
 package restful.Security;
 
-<<<<<<< HEAD
 import java.util.*;
 
-=======
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
 /**
  * This class used for:
  *
@@ -16,7 +13,6 @@ import java.util.*;
  */
 public abstract class AuthCheck {
 
-<<<<<<< HEAD
     private static List<String> tokens;
     private static Iterator<String> iter;
 
@@ -26,15 +22,10 @@ public abstract class AuthCheck {
 
     public static boolean check(String token) throws AuthSecurityException {
         if (!tokens.contains(token)) {
-=======
-    public static boolean check(String token) throws AuthSecurityException {
-        if (!token.equals(null)) {
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
             throw new AuthSecurityException();
         }
         return true;
     }
-<<<<<<< HEAD
 
     static void addToken(String token) {
         tokens.add(token);
@@ -45,6 +36,4 @@ public abstract class AuthCheck {
     }
 
 
-=======
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
 }

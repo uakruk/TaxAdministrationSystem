@@ -32,7 +32,7 @@ public class TaxpayerREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             JSONObject temp  = TaxpayerRes.getTaxpayerById(id);
             JSONArray tarray = ContactRes.getAllContactsById(id);
             tarray.put(temp);
@@ -52,16 +52,12 @@ public class TaxpayerREST {
 
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-<<<<<<< HEAD
-    @PUT
-=======
     @POST
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public Response changeGeneralInfo(@PathParam("id") long id, @QueryParam("action") String action, String src) {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             String s = action.equals("change") ?
                     TaxpayerRes.updateTaxpayerById(id, new JSONObject(src)).toString() :
                     TaxpayerRes.getTaxpayerById(id).toString();
@@ -84,7 +80,7 @@ public class TaxpayerREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             String s = TaxpayerRes.addTaxpayer(new JSONObject(src)).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {

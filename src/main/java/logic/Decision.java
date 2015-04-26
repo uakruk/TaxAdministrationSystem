@@ -23,20 +23,8 @@ public class Decision {
     @JoinColumn(name="employee_id")
     private Employee employee;
     @ManyToOne(cascade= {CascadeType.REFRESH}, fetch=FetchType.LAZY)
-<<<<<<< HEAD
     @JoinColumn(name = "audit_id")
     private Audit audit;
-=======
-    private Audit audit;
-
-    public Audit getAudit() {
-        return audit;
-    }
-
-    public void setAudit(Audit audit) {
-        this.audit = audit;
-    }
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public Long getDecision_id() {
         return decision_id;
     }
@@ -76,7 +64,6 @@ public class Decision {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-<<<<<<< HEAD
 
     public Audit getAudit() {
         return audit;
@@ -86,30 +73,19 @@ public class Decision {
         this.audit = audit;
     }
 
-=======
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public Decision() {
         text = "";
         chief = "";
         signature = "";
         employee = new Employee();
-<<<<<<< HEAD
         audit = new Audit();
     }
 
     public Decision(String text, String chief, String signature, Employee employee, Audit audit) {
-=======
-    }
-
-    public Decision(String text, String chief, String signature, Employee employee) {
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
         this.text = text;
         this.chief = chief;
         this.signature = signature;
         this.employee = employee;
-<<<<<<< HEAD
         this.audit = audit;
-=======
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     }
 }

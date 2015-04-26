@@ -38,16 +38,16 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-          //  PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Audit");
             JSONArray tarray = AuditRes.getAllAudit(id);
             response = tarray;
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
             return Response.status(403).entity(resp).build();
-    /*    } catch (PermissionException e) {
+        } catch (PermissionException e) {
             String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
-            return Response.status(403).entity(resp).build(); */
+            return Response.status(403).entity(resp).build();
         }  catch (JSONException e) {
             e.printStackTrace();
             return Response.status(400).build();
@@ -61,7 +61,7 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-       //     PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Audit");
             response = new JSONArray();
             response.put(AuditRes.getAuditByID(audit_id));
             response.put(DecisionRes.getDecisionsByAuditId(audit_id));
@@ -71,31 +71,24 @@ public class AuditREST {
         } catch (AuthSecurityException e) {
             String resp = "ACCESS DENIED";
             return Response.status(403).entity(resp).build();
-  /*      } catch (PermissionException e) {
+        } catch (PermissionException e) {
             String resp = "YOU HAVE NOT ENOUGH PERMISSION TO PERFORM THIS ACTION";
-            return Response.status(403).entity(resp).build(); */
+            return Response.status(403).entity(resp).build();
         }catch (JSONException e) {
             e.printStackTrace();
             return Response.status(400).build();
         }
     }
 
-<<<<<<< HEAD
-    @Path("/{audit_idd}")
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response changeAudit(@PathParam("id") long id, @PathParam("audit_idd") long audit_id,
-=======
     @Path("/{audit_id}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeAudit(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
                              @QueryParam("action") String action, String src) {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Audit");
             String s = action.equals("change") ?
                     AuditRes.updateAuditByID(audit_id, new JSONObject(src)).toString() :
                     AuditRes.getAuditByID(audit_id).toString();
@@ -118,7 +111,7 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Audit");
             String s = AuditRes.addAudit(id, new JSONObject(src)).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
@@ -157,7 +150,7 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Audit");
             String s = DecisionRes.getDecisionsByAuditId(audit_id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
@@ -182,7 +175,7 @@ public class AuditREST {
             JSONObject j = new JSONObject(src);
             String token = j.optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Audit");
             EmployeeRes.addEmployeeByUnitId(j.optLong("unit_id"), j);
 
             String s = DecisionRes.addDecision(audit_id,j.optLong("employee_id"), j)
@@ -210,7 +203,7 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Audit");
             String s = action.equals("change") ?
                     DecisionRes.updateDecisionById(decision_id, new JSONObject(src)).toString() :
                     DecisionRes.getDecisionById(decision_id).toString();
@@ -259,7 +252,7 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Audit");
             String s  = ReferralRes.getReferralsByAuditId(audit_id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
@@ -291,7 +284,7 @@ public class AuditREST {
             JSONObject j = new JSONObject(src);
             String token = j.optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Audit");
             String s  = ReferralRes.addReferral(audit_id,j.optLong("employee_id"),
                     j.optLong("decree_id"), j).toString();
            //         j.optLong("decree_id"), j).toString();
@@ -316,7 +309,7 @@ public class AuditREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Audit");
             String s  = ReferralRes.getReferralyById(referral_id).toString();
             return Response.status(200).entity(s).build();
         } catch (AuthSecurityException e) {
@@ -332,11 +325,7 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/referral/{referral_id}")
-<<<<<<< HEAD
-    @PUT
-=======
     @POST
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeReferral(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
                                 @PathParam("referral_id") long referral_id,
@@ -345,7 +334,7 @@ public class AuditREST {
             JSONObject j = new JSONObject(src);
             String token = j.optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Audit");
             String s  = action.equals("change") ?
                     ReferralRes.updateReferralById(referral_id, new JSONObject(src)).toString() :
                     ReferralRes.getReferralyById(referral_id).toString();
@@ -372,7 +361,7 @@ public class AuditREST {
             JSONObject j = new JSONObject(src);
             String token = j.optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Audit");
             //DecreeRes.addDecree(j);
             String s  = action.equals("change") ?
                     DecreeRes.updateDecreeById(j.optLong("decree_id"), j).toString() :

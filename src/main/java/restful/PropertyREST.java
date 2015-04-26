@@ -35,7 +35,7 @@ public class PropertyREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = PropertyRes.getAllPropertyById(id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -57,7 +57,7 @@ public class PropertyREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = PropertyRes.addProperty(id, new JSONObject(src));
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -82,7 +82,7 @@ public class PropertyREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = PropertyRes.getPropertyById(property_id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -97,11 +97,7 @@ public class PropertyREST {
         }
     }
 
-<<<<<<< HEAD
-    @PUT
-=======
     @POST
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     @Path("/{property_id}")
     public Response changeProperty(@PathParam("id") long id,
                                 @PathParam("property_id") long property_id,
@@ -110,7 +106,7 @@ public class PropertyREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = action.equals("change") ?
                     PropertyRes.updatePropertyById(property_id, new JSONObject(src)) :
                     PropertyRes.getPropertyById(property_id);
@@ -136,7 +132,7 @@ public class PropertyREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = action.equals("delete") ?
                     PropertyRes.deletePropertyById(property_id) :
                     PropertyRes.getPropertyById(property_id);

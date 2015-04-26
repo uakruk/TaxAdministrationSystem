@@ -18,15 +18,12 @@ public class Taxpayer {
     @Column(name = "fullName")
     private String fullName;
 
-<<<<<<< HEAD
     @Column(name = "password")
     private String password;
 
     @Column(name = "rights")
     private String rights;
 
-=======
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     @OneToMany(mappedBy = "taxpayer")
     private Collection<Tax> taxes = new ArrayList<Tax>();
 
@@ -61,7 +58,6 @@ public class Taxpayer {
         this.fullName = fullName;
     }
 
-<<<<<<< HEAD
     public String getRights() {
         return rights;
     }
@@ -70,8 +66,6 @@ public class Taxpayer {
         this.rights = rights;
     }
 
-=======
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
     public Collection<Tax> getTaxes() {
         return taxes;
     }
@@ -120,7 +114,6 @@ public class Taxpayer {
         this.contacts = contacts;
     }
 
-<<<<<<< HEAD
     public String getPassword() {
         return password;
     }
@@ -131,9 +124,6 @@ public class Taxpayer {
 
     public Taxpayer() {
         password = "";
-=======
-    public Taxpayer() {
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
         fullName = "";
         taxes = new ArrayList<Tax>();
         licenses = new ArrayList<License>();
@@ -143,14 +133,9 @@ public class Taxpayer {
         contacts = new ArrayList<Contact>();
     }
 
-<<<<<<< HEAD
     public Taxpayer(long ID, String fullName,String password,ArrayList<Tax> taxes, ArrayList<License> licenses, ArrayList<ObjectOfTaxation> objectOfTaxations, ArrayList<Audit> audits, ArrayList<Property> propertys, ArrayList<Contact> contacts) {
         this.fullName = fullName;
         this.password = password;
-=======
-    public Taxpayer(long ID, String fullName,ArrayList<Tax> taxes, ArrayList<License> licenses, ArrayList<ObjectOfTaxation> objectOfTaxations, ArrayList<Audit> audits, ArrayList<Property> propertys, ArrayList<Contact> contacts) {
-        this.fullName = fullName;
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
         this.taxes = taxes;
         this.licenses = licenses;
         this.propertys = propertys;

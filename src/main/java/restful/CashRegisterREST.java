@@ -36,7 +36,7 @@ public class CashRegisterREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkRead(token, "Registration");
             response = CashRegisterRes.getAllashRegistersById(taxition_id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -59,7 +59,7 @@ public class CashRegisterREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = CashRegisterRes.addCashRegister(taxition_id, new JSONObject(src));
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
@@ -91,7 +91,7 @@ public class CashRegisterREST {
         try {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
-            PermissionCheck.check(token);
+            PermissionCheck.checkWrite(token, "Registration");
             response = CashRegisterRes.deleteCashRegisterById(cash_id);
             return Response.status(200).entity(response.toString()).build();
         } catch (AuthSecurityException e) {
