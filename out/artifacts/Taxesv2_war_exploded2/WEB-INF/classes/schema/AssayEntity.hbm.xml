@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.AssayEntity" table="Assay" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.AssayEntityPK">
+            <key-property name="assayId">
+                <column name="Assay_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxpayerTaxpayerId">
+                <column name="Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="groundTypeGroundTypeId">
+                <column name="Ground Type_GroundType_id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="dateStart">
+            <column name="Date_start" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="dateEnd">
+            <column name="Date_end" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="registrationNum">
+            <column name="Registration_num" sql-type="int" not-null="true"/>
+        </property>
+        <property name="commert">
+            <column name="Commert" sql-type="varchar" length="300" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

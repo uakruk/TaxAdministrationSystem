@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.ContactEntity" table="Contact" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.ContactEntityPK">
+            <key-property name="contactId">
+                <column name="Contact_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxpayerTaxpayerId">
+                <column name="Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="contactTypeContactTypeId">
+                <column name="Contact Type_ContactType_id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="value">
+            <column name="Value" sql-type="varchar" length="40" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
