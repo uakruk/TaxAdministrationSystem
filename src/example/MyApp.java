@@ -12,6 +12,6 @@ import javax.ws.rs.core.Application;
  * @version 1.0
  * @since 1.7
  */
-@ApplicationPath("spi")
+@ApplicationPath("api")
 public class MyApp extends Application {
 }

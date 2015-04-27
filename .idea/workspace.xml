@@ -7,14 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69a21c92-b6fb-4055-aaf5-c9d5566afcce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/restful/resources/Registrator.java" afterPath="$PROJECT_DIR$/src/main/java/restful/resources/Registrator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taxesv2.iml" afterPath="$PROJECT_DIR$/Taxesv2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Taxesv2_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/Taxesv2_war_exploded/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Taxesv2_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/Taxesv2_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/example/MyApp.java" afterPath="$PROJECT_DIR$/src/example/MyApp.java" />
     </list>
     <ignored path="Taxesv2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,11 +53,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Registrator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Registrator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/restful/resources/Registrator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1766784" vertical-offset="0" max-vertical-offset="846">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
               <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyApp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/example/MyApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.41342756" vertical-offset="0" max-vertical-offset="566">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -110,16 +113,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/data/data.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="234">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="destroy_session.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/data/destroy_session.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -150,7 +143,6 @@
       <list>
         <option value="$PROJECT_DIR$/web/index.jsp" />
         <option value="$PROJECT_DIR$/src/example/HelloWorld.java" />
-        <option value="$PROJECT_DIR$/src/example/MyApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/AdditionalChargesDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/TaxDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/restful/Security/LoginRes.java" />
@@ -168,6 +160,7 @@
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/restful/resources/Registrator.java" />
+        <option value="$PROJECT_DIR$/src/example/MyApp.java" />
       </list>
     </option>
   </component>
@@ -341,6 +334,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -782,12 +779,12 @@
       <workItem from="1429797693120" duration="7886000" />
       <workItem from="1430147096768" duration="3643000" />
       <workItem from="1430151182182" duration="3781000" />
-      <workItem from="1430155310522" duration="2891000" />
+      <workItem from="1430155310522" duration="2963000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18201000" />
+    <option name="totallyTimeSpent" value="18273000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1012,13 +1009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/example/MyApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1259,8 +1249,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/restful/resources/Registrator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1766784" vertical-offset="0" max-vertical-offset="846">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="846">
           <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/example/MyApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41342756" vertical-offset="0" max-vertical-offset="566">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
           <folding />
         </state>
       </provider>
