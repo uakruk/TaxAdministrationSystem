@@ -26,15 +26,12 @@ public abstract class LoginRes {
         Taxpayer tp;
         try {
             tp = Factory.getInstance().getTaxpayerDAO().getTaxpayerById(Long.parseLong(name));
+            if (Integer.parseInt(tp.getPassword()) == pass) {
+                res = true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        /*
-        if (tp.getPassword() == pass) {
-            res = true;
-        }
-         */
 
         if (res) {
             AuthCheck.addToken(TokenGenerator.generate(name));

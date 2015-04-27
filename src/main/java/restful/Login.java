@@ -38,7 +38,7 @@ public class Login {
         } catch (WrongLoginPasswordException e) {
             String resp = "Wrong username/password";
             return Response.status(403).entity(resp).build();
-        }catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
             return Response.status(400).build();
         }

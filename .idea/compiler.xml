@@ -17,16 +17,7 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-<<<<<<< HEAD
-=======
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="TaxAdministrationSystem" />
-      </profile>
->>>>>>> 3179ac4f6421a9cff17b67e34c6df598ab89ace3
+
     </annotationProcessing>
   </component>
 </project>

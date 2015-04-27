@@ -33,5 +33,6 @@
     <orderEntry type="library" name="Jersey-2.2" level="project" />
     <orderEntry type="library" name="Hibernate 4.2.2-4.2.2" level="project" />
     <orderEntry type="library" name="jettison-1.1" level="project" />
+    <orderEntry type="library" name="commons-codec-1.10" level="project" />
   </component>
 </module>

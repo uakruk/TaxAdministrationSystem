@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="activation-1.1">
+  <library name="commons-codec-1.10">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.10.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
