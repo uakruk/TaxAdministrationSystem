@@ -23,7 +23,7 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class Login {
 
-    @POST
+    @PUT
     public Response logIN(String inp) {
         JSONObject src;
         try {

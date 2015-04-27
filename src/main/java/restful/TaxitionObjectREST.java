@@ -106,7 +106,7 @@ public class TaxitionObjectREST {
      * @return
      */
     @Path("/{taxition_id}")
-    @POST
+    @PUT
     public Response changeTaxition(@PathParam("id") long id,
                                 @PathParam("taxition_id") long taxition_id,
                                 @QueryParam("action") String action,

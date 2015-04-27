@@ -96,7 +96,7 @@ public class AdditionalChargesREST {
         }
     }
 
-    @POST
+    @PUT
     @Path("/{charge_id}")
     public Response changeCharge(@PathParam("id") long id,
                                   @PathParam("tax_id") long tax_id,

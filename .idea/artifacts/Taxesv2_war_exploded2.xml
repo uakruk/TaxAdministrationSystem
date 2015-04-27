@@ -1,8 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Taxesv2:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/Taxesv2_war_exploded</output-path>
+  <artifact type="exploded-war" name="Taxesv2:war exploded2">
+    <output-path>$PROJECT_DIR$/out/artifacts/Taxesv2_war_exploded2</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="Taxesv2/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Taxesv2" />
@@ -14,6 +13,7 @@
           <element id="library" level="project" name="commons-codec-1.10" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="Taxesv2/web/Web" />
     </root>
   </artifact>
 </component>

@@ -98,7 +98,7 @@ public class PaymentREST {
         }
     }
 
-    @POST
+    @PUT
     @Path("/{payment_id}")
     public Response changePayment(@PathParam("id") long id,
                                @PathParam("tax_id") long tax_id,

@@ -94,7 +94,7 @@ public class TaxREST {
     }
 
     @Path("/{tax_id}")
-    @POST
+    @PUT
     public Response changeTax(@PathParam("id") long id,
                            @PathParam("tax_id") long tax_id,
                            @QueryParam("action") String action,

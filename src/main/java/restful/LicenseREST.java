@@ -73,7 +73,7 @@ public class LicenseREST {
         }
     }
 
-    @POST
+    @PUT
     @Path("/{license_id}")
     public Response changeLicense(@PathParam("id") long id,
                                @PathParam("license_id") long license_id,

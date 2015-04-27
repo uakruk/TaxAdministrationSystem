@@ -81,7 +81,7 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeAudit(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
                              @QueryParam("action") String action, String src) {
@@ -194,7 +194,7 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/decision/{decision_id}")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeDecision(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
                                  @PathParam("decision_id") long decision_id,
@@ -325,7 +325,7 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/referral/{referral_id}")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeReferral(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
                                 @PathParam("referral_id") long referral_id,
@@ -352,7 +352,7 @@ public class AuditREST {
     }
 
     @Path("/{audit_id}/referral/{referral_id}/decree")
-    @POST
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response changeDecree(@PathParam("id") long id, @PathParam("audit_id") long audit_id,
                                    @PathParam("referral_id") long referral_id,

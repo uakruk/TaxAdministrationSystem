@@ -97,7 +97,7 @@ public class UnitREST {
         }
     }
 
-    @POST
+    @PUT
     @Path("/{unit_id}")
     public Response changeUnit(@PathParam("unit_id") long unit_id,
                                    @QueryParam("action") String action, String src) {
@@ -148,7 +148,7 @@ public class UnitREST {
     }
 
     @PUT
-    @Path("/{unit_id}")
+    @Path("/{unit_id}/staff")
     public Response addEmployee(@PathParam("unit_id") long unit_id, String src) {
         JSONObject response;
         try {

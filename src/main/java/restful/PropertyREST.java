@@ -97,7 +97,7 @@ public class PropertyREST {
         }
     }
 
-    @POST
+    @PUT
     @Path("/{property_id}")
     public Response changeProperty(@PathParam("id") long id,
                                 @PathParam("property_id") long property_id,

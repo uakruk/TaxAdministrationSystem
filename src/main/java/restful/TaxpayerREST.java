@@ -52,7 +52,7 @@ public class TaxpayerREST {
 
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @POST
+    @PUT
     public Response changeGeneralInfo(@PathParam("id") long id, @QueryParam("action") String action, String src) {
         try {
             String token = new JSONObject(src).optString("token");
