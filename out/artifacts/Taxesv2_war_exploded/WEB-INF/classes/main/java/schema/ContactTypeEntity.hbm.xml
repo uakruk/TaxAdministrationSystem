@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.ContactTypeEntity" table="ContactType" schema="" catalog="Podatkova">
+        <id name="contactTypeId">
+            <column name="ContactType_id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="email">
+            <column name="Email" sql-type="varchar" length="30" not-null="true"/>
+        </property>
+        <property name="adress">
+            <column name="Adress" sql-type="varchar" length="70"/>
+        </property>
+        <property name="fax">
+            <column name="Fax" sql-type="varchar" length="20"/>
+        </property>
+        <property name="legalAdress">
+            <column name="Legal_adress" sql-type="varchar" length="70"/>
+        </property>
+        <property name="phone">
+            <column name="Phone" sql-type="varchar" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

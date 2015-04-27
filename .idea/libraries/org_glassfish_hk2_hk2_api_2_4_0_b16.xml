@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="org.glassfish.hk2:hk2-api:2.4.0-b16" type="repository">
+    <properties maven-id="org.glassfish.hk2:hk2-api:2.4.0-b16" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/hk2-api-2.4.0-b16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hk2-utils-2.4.0-b16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-repackaged-2.4.0-b16.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

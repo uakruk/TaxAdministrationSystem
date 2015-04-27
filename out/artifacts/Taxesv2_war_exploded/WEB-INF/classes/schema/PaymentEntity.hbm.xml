@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.PaymentEntity" table="Payment" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.PaymentEntityPK">
+            <key-property name="paymentId">
+                <column name="Payment_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxesTaxesId">
+                <column name="Taxes_Taxes_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="taxesTaxpayerTaxpayerId">
+                <column name="Taxes_Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+        <property name="suma">
+            <column name="Suma" sql-type="double" precision="22" not-null="true"/>
+        </property>
+        <property name="date">
+            <column name="Date" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="idTransaction">
+            <column name="Id_transaction" sql-type="int" not-null="true"/>
+        </property>
+        <property name="numCheck">
+            <column name="Num_check" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

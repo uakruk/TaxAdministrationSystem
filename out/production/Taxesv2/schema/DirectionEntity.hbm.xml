@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.DirectionEntity" table="Direction" schema="" catalog="Podatkova">
+        <composite-id mapped="true" class="schema.DirectionEntityPK">
+            <key-property name="directionId">
+                <column name="Direction_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="orderOrderId">
+                <column name="Order_Order_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="staffStaffId">
+                <column name="Staff_Staff_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="assayAssayId">
+                <column name="Assay_Assay_id" sql-type="int" not-null="true"/>
+            </key-property>
+            <key-property name="assayTaxpayerTaxpayerId">
+                <column name="Assay_Taxpayer_Taxpayer_id" sql-type="int" not-null="true"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

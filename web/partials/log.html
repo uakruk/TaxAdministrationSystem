@@ -1,0 +1,46 @@
+<div  class="row">
+
+    <div  class="large-9 large-centered columns text-center">
+        <div class="row panel radius text-center">
+
+            <div id="logo" class="large-4 columns">
+                <a href="#/log"><img src="img/logo.png" alt ="Податкова"></a>
+            </div>
+            <div class="large-4  columns">
+                <h5>
+                    Увійдіть в систему:
+                </h5>
+                <form name="logForm" ng-controller="LogController as log" novalidate>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label class="text-left">Логін користувача: </label>
+                            <input type="text" placeholder="Введіть логін"  required ng-model="log.user.mail"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label class="text-left">Пароль користувача: </label>
+                            <input type="password" placeholder="Введіть пароль"  required ng-model="log.user.pass"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 large-centered columns">
+                            <input class="button radius" type="submit" value="Відправити запит" ng-disabled="logForm.$invalid"
+                                   ng-click="log.login(log.user)"/>
+                        </div>
+                    </div>
+                </form>
+                <a class="small-link" href="#/reg">Не зареєстровані в системі?</a>
+            </div>
+            <div class="large-4 columns show-for-medium-up">
+                <h3>
+                    Шановні Громадяни України!
+                </h3>
+                <p>
+                    Ми раді вітати Вас на оновленому веб-сервісі системи управляння подактками.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

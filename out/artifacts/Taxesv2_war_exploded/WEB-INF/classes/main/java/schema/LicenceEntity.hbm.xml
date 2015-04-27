@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.LicenceEntity" table="Licence" schema="" catalog="Podatkova">
+        <id name="licenceId">
+            <column name="Licence_id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="serialNumNum">
+            <column name="SerialNum_num" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="issueDate">
+            <column name="Issue_date" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="expirationDate">
+            <column name="Expiration_date" sql-type="varchar" length="20" not-null="true"/>
+        </property>
+        <property name="decisionNum">
+            <column name="Decision_num" sql-type="int" not-null="true"/>
+        </property>
+        <property name="licenseState">
+            <column name="LicenseState" sql-type="varchar" length="50" not-null="true"/>
+        </property>
+        <property name="activity">
+            <column name="Activity" sql-type="varchar" length="50" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
