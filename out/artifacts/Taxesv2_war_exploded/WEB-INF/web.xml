@@ -14,8 +14,8 @@
     <servlet>
         <servlet-name>TaxAdministrationSystem RESTful Service</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-   <!--     <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
+  <!--      <init-param>
+            <param-name>org.glassfish.jersey.</param-name>
             <param-value>Taxesv2</param-value>
         </init-param> -->
 
