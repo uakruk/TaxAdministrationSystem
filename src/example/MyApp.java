@@ -5,7 +5,7 @@ import javax.ws.rs.core.Application;
 
 /**
  * This class used for:
- *
+ * launching all written restful classes
  * @author Yaroslav Kruk on 23.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
