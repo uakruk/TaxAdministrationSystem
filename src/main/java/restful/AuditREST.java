@@ -176,7 +176,7 @@ public class AuditREST {
             String token = j.optString("token");
             AuthCheck.check(token);
             PermissionCheck.checkWrite(token, "Audit");
-            EmployeeRes.addEmployeeByUnitId(j.optLong("unit_id"), j);
+      //      EmployeeRes.addEmployeeByUnitId(j.optLong("unit_id"), j);
 
             String s = DecisionRes.addDecision(audit_id,j.optLong("employee_id"), j)
                     .toString();
@@ -362,7 +362,7 @@ public class AuditREST {
             String token = j.optString("token");
             AuthCheck.check(token);
             PermissionCheck.checkWrite(token, "Audit");
-            //DecreeRes.addDecree(j);
+            DecreeRes.addDecree(j);
             String s  = action.equals("change") ?
                     DecreeRes.updateDecreeById(j.optLong("decree_id"), j).toString() :
                     DecreeRes.getDecreeById(j.optLong("decree_id")).toString();

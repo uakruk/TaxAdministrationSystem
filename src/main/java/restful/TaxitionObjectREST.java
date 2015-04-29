@@ -143,7 +143,7 @@ public class TaxitionObjectREST {
             String token = new JSONObject(src).optString("token");
             AuthCheck.check(token);
             PermissionCheck.checkWrite(token, "Registration");
-            response = action.equals("change") ?
+            response = action.equals("delete") ?
                     ObjectOfTaxitionRes.deleteObjectOfTaxitionById(taxition_id) :
                     ObjectOfTaxitionRes.getObjectOfTaxitionById(taxition_id);
             return Response.status(200).entity(response.toString()).build();
