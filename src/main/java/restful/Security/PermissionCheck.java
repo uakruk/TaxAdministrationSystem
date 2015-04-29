@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * This class used for:
+ * checking permissions for every type of users
  *
  * important information:
  *
@@ -44,7 +45,7 @@ public abstract class PermissionCheck {
     }
 
     /**
-     * Увага! код заряджений костилями! небезпечно! можливе пригорання
+     * check write permission by users token
      * @param token
      * @param section
      * @return
@@ -78,6 +79,13 @@ public abstract class PermissionCheck {
         }
     }
 
+    /**
+     * check read permission by user's token
+     * @param token
+     * @param section
+     * @return
+     * @throws PermissionException
+     */
     public static boolean checkRead(String token, String section) throws PermissionException {
 
         String status = tokens.get(token);
@@ -97,6 +105,13 @@ public abstract class PermissionCheck {
     }
 
 
+    /**
+     * special cheking of permission to allow
+     * common user add charges
+     * @param token
+     * @return
+     * @throws PermissionException
+     */
     public static boolean specialCheck(String token) throws PermissionException {
         String status = tokens.get(token);
         if (status.equals("admin") || status.equals("charger") ||
@@ -107,10 +122,21 @@ public abstract class PermissionCheck {
         }
     }
 
+    /**
+     * associate token with user's right's
+     * @param token
+     * @param rights
+     * @return
+     */
     static String addToken(String token, String rights) {
         return tokens.put(token, rights);
     }
 
+    /**
+     * remove token from permissions collection
+     * @param token
+     * @return
+     */
     static String removeToken(String token) {
         return tokens.remove(token);
     }

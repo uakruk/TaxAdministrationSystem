@@ -15,7 +15,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * This class used for:
- *
+ * providing restful services of taxadministrationsystem,
+ * section: property
  * @author Yaroslav Kruk on 18.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -28,6 +29,12 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PropertyREST {
 
+    /**
+     * get json array of property by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @POST
     public Response getAllProperty(@PathParam("id") long id,
                                 String src) {
@@ -50,6 +57,12 @@ public class PropertyREST {
         }
     }
 
+    /**
+     * add new property by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addProperty(@PathParam("id") long id,
                                    String src) {
@@ -73,6 +86,13 @@ public class PropertyREST {
     }
 
 
+    /**
+     * get json object of property by property_id
+     * @param id
+     * @param property_id
+     * @param src
+     * @return
+     */
     @POST
     @Path("/{property_id}")
     public Response getProperty(@PathParam("id") long id,
@@ -97,6 +117,14 @@ public class PropertyREST {
         }
     }
 
+    /**
+     * update property by property_id
+     * @param id
+     * @param property_id
+     * @param action
+     * @param src
+     * @return
+     */
     @PUT
     @Path("/{property_id}")
     public Response changeProperty(@PathParam("id") long id,
@@ -123,6 +151,14 @@ public class PropertyREST {
         }
     }
 
+    /**
+     * delete property by property_id
+     * @param id
+     * @param property_id
+     * @param action
+     * @param src
+     * @return
+     */
     @DELETE
     @Path("/{property_id}")
     public Response deleteProperty(@PathParam("id") long id,

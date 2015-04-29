@@ -16,7 +16,8 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * This class used for:
- *
+ * provide restful services of taxadministrationsystem,
+ * section: licenses
  * @author Yaroslav Kruk on 18.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -29,6 +30,12 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class LicenseREST {
 
+    /***
+     * get json array of licenses by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @POST
     public Response getLicenses(@PathParam("id") long id, String src) {
         JSONArray response;
@@ -50,6 +57,13 @@ public class LicenseREST {
         }
     }
 
+    /**
+     * get json object of license by license_id
+     * @param id
+     * @param license_id
+     * @param src
+     * @return
+     */
     @POST
     @Path("/{license_id}")
     public Response getLicense(@PathParam("id") long id,
@@ -73,6 +87,14 @@ public class LicenseREST {
         }
     }
 
+    /**
+     * update license by license_id
+     * @param id
+     * @param license_id
+     * @param action
+     * @param src
+     * @return
+     */
     @PUT
     @Path("/{license_id}")
     public Response changeLicense(@PathParam("id") long id,
@@ -100,6 +122,12 @@ public class LicenseREST {
         }
     }
 
+    /**
+     * add new license by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addLicense(@PathParam("id") long id,
                                                          String src) {

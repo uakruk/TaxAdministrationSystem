@@ -12,7 +12,9 @@ import java.sql.SQLException;
 
 /**
  * This class used for:
- *
+ * generation special key's for users - tokens
+ * by which he will be able to access the system
+ * being logged in
  * @author Yaroslav Kruk on 17.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -21,6 +23,11 @@ import java.sql.SQLException;
  */
 public abstract class TokenGenerator {
 
+    /**
+     * generate token
+     * @param inputData
+     * @return
+     */
     public static String generate(String inputData) {
         Taxpayer tp;
         String resp;

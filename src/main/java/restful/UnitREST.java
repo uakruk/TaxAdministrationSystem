@@ -17,7 +17,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * This class used for:
- *
+ * providing restful services of taxadministrationsystem,
+ * section: unit (staff)
  * @author Yaroslav Kruk on 20.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -30,6 +31,11 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UnitREST {
 
+    /**
+     * get all avaliable units
+     * @param src
+     * @return
+     */
     @POST
     public Response getAllUnits(String src) {
         JSONArray response;
@@ -51,6 +57,11 @@ public class UnitREST {
         }
     }
 
+    /**
+     * add new unit
+     * @param src
+     * @return
+     */
     @PUT
     public Response addUnit(String src) {
         JSONObject response;
@@ -73,6 +84,12 @@ public class UnitREST {
     }
 
 
+    /**
+     * get unit's staff by unit_id
+     * @param unit_id
+     * @param src
+     * @return
+     */
     @POST
     @Path("/{unit_id}")
     public Response getUnitStaff(@PathParam("unit_id") long unit_id,
@@ -97,6 +114,13 @@ public class UnitREST {
         }
     }
 
+    /**
+     * update unit by unit_id
+     * @param unit_id
+     * @param action
+     * @param src
+     * @return
+     */
     @PUT
     @Path("/{unit_id}")
     public Response changeUnit(@PathParam("unit_id") long unit_id,
@@ -122,6 +146,13 @@ public class UnitREST {
         }
     }
 
+    /**
+     * delete unit by unit_id
+     * @param unit_id
+     * @param action
+     * @param src
+     * @return
+     */
     @DELETE
     @Path("/{unit_id}")
     public Response deleteUnit(@PathParam("unit_id") long unit_id,
@@ -147,6 +178,12 @@ public class UnitREST {
         }
     }
 
+    /**
+     * add new employee by unit_id
+     * @param unit_id
+     * @param src
+     * @return
+     */
     @PUT
     @Path("/{unit_id}/staff")
     public Response addEmployee(@PathParam("unit_id") long unit_id, String src) {
@@ -169,6 +206,14 @@ public class UnitREST {
         }
     }
 
+    /**
+     * update employee by employee_id
+     * @param unit_id
+     * @param employee_id
+     * @param action
+     * @param src
+     * @return
+     */
     @POST
     @Path("/{unit_id}/staff/{employee_id}")
     public Response changeEmployee(@PathParam("unit_id") long unit_id,
@@ -195,6 +240,14 @@ public class UnitREST {
         }
     }
 
+    /**
+     * delete employee by umployee_id
+     * @param unit_id
+     * @param employee_id
+     * @param action
+     * @param src
+     * @return
+     */
     @DELETE
     @Path("/{unit_id}/staff/{employee_id}")
     public Response deleteUnit(@PathParam("unit_id") long unit_id,

@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 /**
  * This class used for:
- *
+ * registration new common users in the system
  * @author Yaroslav Kruk on 17.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -25,6 +25,11 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class Registration {
 
+    /***
+     * registrate new user
+     * @param src
+     * @return
+     */
     @POST
     public Response register(String src) {
         try {

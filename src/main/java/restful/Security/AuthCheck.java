@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * This class used for:
- *
+ * cheking the authentification of user
  * @author Yaroslav Kruk on 14.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -20,6 +20,12 @@ public abstract class AuthCheck {
         tokens = new ArrayList<String>();
     }
 
+    /**
+     * check whether a user already logged in
+     * @param token
+     * @return
+     * @throws AuthSecurityException
+     */
     public static boolean check(String token) throws AuthSecurityException {
         if (!tokens.contains(token)) {
             throw new AuthSecurityException();
@@ -27,10 +33,19 @@ public abstract class AuthCheck {
         return true;
     }
 
+    /**
+     * service method. add new token to collection
+     * @param token
+     */
     static void addToken(String token) {
         tokens.add(token);
     }
 
+    /**
+     * service method. remove a token from collection
+     * @param token
+     * @return
+     */
     static boolean removeToken(String token) {
         return tokens.remove(token);
     }

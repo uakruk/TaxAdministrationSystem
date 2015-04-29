@@ -15,7 +15,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * This class used for:
- *
+ * providiong restful services of taxadministrationsystem,
+ * section: taxes
  * @author Yaroslav Kruk on 18.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -28,6 +29,12 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TaxREST {
 
+    /**
+     * get json array of all taxes by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @POST
     public Response getTaxes(@PathParam("id") long id, String src) {
         JSONArray response;
@@ -49,6 +56,12 @@ public class TaxREST {
         }
     }
 
+    /**
+     * add new tax by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addTax(@PathParam("id") long id, String src) {
         JSONObject response;
@@ -70,6 +83,13 @@ public class TaxREST {
         }
     }
 
+    /**
+     * get tax by tax_id
+     * @param id
+     * @param tax_id
+     * @param src
+     * @return
+     */
     @Path("/{tax_id}")
     @POST
     public Response getTax(@PathParam("id") long id,
@@ -93,6 +113,14 @@ public class TaxREST {
         }
     }
 
+    /**
+     * update tax by tax_id
+     * @param id
+     * @param tax_id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{tax_id}")
     @PUT
     public Response changeTax(@PathParam("id") long id,

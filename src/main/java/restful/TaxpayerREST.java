@@ -13,7 +13,8 @@ import restful.resources.TaxpayerRes;
 
 /**
  * This class used for:
- *
+ * providing restful services of taxadministrationsystem,
+ * section: taxpayer
  * @author Yaroslav Kruk on 13.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -24,6 +25,12 @@ import restful.resources.TaxpayerRes;
 @Produces(MediaType.APPLICATION_JSON)
 public class TaxpayerREST {
 
+    /**
+     * get general info of taxpayer + his contact info (json array)
+     * @param id
+     * @param src
+     * @return
+     */
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
@@ -50,6 +57,13 @@ public class TaxpayerREST {
         }
     }
 
+    /**
+     * change general info of taxpayer
+     * @param id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @PUT
@@ -74,6 +88,11 @@ public class TaxpayerREST {
         }
     }
 
+    /**
+     * add new taxpayer
+     * @param src
+     * @return
+     */
     @Consumes(MediaType.APPLICATION_JSON)
     @PUT
     public Response addTaxpayer(String src) {

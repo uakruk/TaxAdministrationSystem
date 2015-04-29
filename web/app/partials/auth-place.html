@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="large-3 columns">
+        <h1><img src="http://placehold.it/400x100&text=Logo"/></h1>
+    </div>
+    <div class="large-9 columns">
+        <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+
+
+    <div class="large-9 push-3 columns">
+        <h1> Congratz bro!</h1>
+        <h2> You made it!</h2>
+        <h3> Celebration time!</h3>
+
+        <a href="#/blahblah"> Go back please</a>
+        <h3>Now you can see all users :D</h3>
+        <ul class="users">
+            <li ng-repeat="user in users | orderBy:orderProp" class="thumbnail">
+                <img width="300" ng-src="{{user.avatarUrl}}">
+                <span>Name: {{user.username}}</span>
+                <p>Id: {{user.id}}</p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="large-3 pull-9 columns">
+        <ul class="side-nav">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+            <li><a href="#">Section 5</a></li>
+            <li><a href="#">Section 6</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer class="row">
+    <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+            <div class="large-6 columns">
+                <p>&copy; Copyright no one at all. Go to town.</p>
+            </div>
+            <div class="large-6 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Section 1</a></li>
+                    <li><a href="#">Section 2</a></li>
+                    <li><a href="#">Section 3</a></li>
+                    <li><a href="#">Section 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -15,7 +15,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * This class used for:
- *
+ * provide restful services of taxadministrationsystem,
+ * section: paymets
  * @author Yaroslav Kruk on 18.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -27,6 +28,13 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PaymentREST {
 
+    /**
+     * get json array of payments by tax_id
+     * @param id
+     * @param tax_id
+     * @param src
+     * @return
+     */
     @POST
     public Response getAllPayments(@PathParam("id") long id,
                                    @PathParam("tax_id") long tax_id,
@@ -50,6 +58,13 @@ public class PaymentREST {
         }
     }
 
+    /**
+     * add new payment by tax_id
+     * @param id
+     * @param tax_id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addPayment(@PathParam("id") long id,
                                    @PathParam("tax_id") long tax_id,
@@ -73,6 +88,14 @@ public class PaymentREST {
         }
     }
 
+    /**
+     * get json object of payment by tax_id
+     * @param id
+     * @param tax_id
+     * @param payment_id
+     * @param src
+     * @return
+     */
     @POST
     @Path("/{payment_id}")
     public Response getPayment(@PathParam("id") long id,
@@ -98,6 +121,15 @@ public class PaymentREST {
         }
     }
 
+    /**
+     * update payment by payment_id
+     * @param id
+     * @param tax_id
+     * @param payment_id
+     * @param action
+     * @param src
+     * @return
+     */
     @PUT
     @Path("/{payment_id}")
     public Response changePayment(@PathParam("id") long id,

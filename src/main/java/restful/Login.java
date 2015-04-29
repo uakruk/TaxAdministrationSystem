@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 /**
  * This class used for:
- *
+ * providing authentification of users into system
  * @author Yaroslav Kruk on 17.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -23,6 +23,11 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class Login {
 
+    /**
+     * log into system wit usrename and password
+     * @param inp
+     * @return token
+     */
     @PUT
     public Response logIN(String inp) {
         JSONObject src;
@@ -44,6 +49,12 @@ public class Login {
         }
     }
 
+    /**
+     * log out of system with a token
+     * @param action
+     * @param src
+     * @return
+     */
     @POST
     public Response logOUT(@QueryParam("action") String action,
                                                      String src) {

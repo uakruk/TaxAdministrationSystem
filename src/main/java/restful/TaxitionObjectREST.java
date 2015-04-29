@@ -16,7 +16,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * This class used for:
- *
+ * providing restful sevices of taxadministrationsystem,
+ * section: objects of taxition
  * @author Yaroslav Kruk on 18.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -29,6 +30,12 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class TaxitionObjectREST {
 
+    /**
+     * get json array of objects of taxition by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @POST
     public Response getAllTaxitionObjects(@PathParam("id") long id,
                                    String src) {
@@ -51,6 +58,12 @@ public class TaxitionObjectREST {
         }
     }
 
+    /**
+     * add new object of taxition by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addTaxitionObject(@PathParam("id") long id,
                                                          String src) {
@@ -73,6 +86,13 @@ public class TaxitionObjectREST {
         }
     }
 
+    /**
+     * get object of taxition by taxition_id
+     * @param id
+     * @param taxition_id
+     * @param src
+     * @return
+     */
     @Path("/{taxition_id}")
     @POST
     public Response getTaxition(@PathParam("id") long id,
@@ -98,7 +118,7 @@ public class TaxitionObjectREST {
     }
 
     /**
-     * UPDATE TAXITION OBJECT
+     * UPDATE TAXITION OBJECT by taxition_id
      * @param id
      * @param taxition_id
      * @param action
@@ -132,6 +152,14 @@ public class TaxitionObjectREST {
         }
     }
 
+    /**
+     * delete object of taxition by taxition_id
+     * @param id
+     * @param taxition_id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{taxition_id}")
     @DELETE
     public Response deleteTaxition(@PathParam("id") long id,

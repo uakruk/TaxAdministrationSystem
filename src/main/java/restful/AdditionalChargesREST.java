@@ -12,7 +12,8 @@ import restful.resources.AdditionalChargeesRes;
 
 /**
  * This class used for:
- *
+ * allow communication with outer services which
+ * uses this rest service
  * @author Yaroslav Kruk on 14.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -25,6 +26,13 @@ import restful.resources.AdditionalChargeesRes;
 @Consumes(MediaType.APPLICATION_JSON)
 public class AdditionalChargesREST {
 
+    /**
+     * get json array of additional charges
+     * @param id
+     * @param tax_id
+     * @param src
+     * @return
+     */
     @POST
     public Response getAllCharges(@PathParam("id") long id,
                                    @PathParam("tax_id") long tax_id,
@@ -48,6 +56,13 @@ public class AdditionalChargesREST {
         }
     }
 
+    /**
+     * add new additional charge by tax_id
+     * @param id
+     * @param tax_id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addCharge(@PathParam("id") long id,
                                @PathParam("tax_id") long tax_id,
@@ -71,6 +86,14 @@ public class AdditionalChargesREST {
         }
     }
 
+    /**
+     * get json object of additional charge by charge_id
+     * @param id
+     * @param tax_id
+     * @param charge_id
+     * @param src
+     * @return
+     */
     @POST
     @Path("/{charge_id}")
     public Response getCharge(@PathParam("id") long id,
@@ -96,6 +119,15 @@ public class AdditionalChargesREST {
         }
     }
 
+    /**
+     * update existion additional charge by charge_id
+     * @param id
+     * @param tax_id
+     * @param charge_id
+     * @param action
+     * @param src
+     * @return
+     */
     @PUT
     @Path("/{charge_id}")
     public Response changeCharge(@PathParam("id") long id,

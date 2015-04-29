@@ -15,7 +15,8 @@ import javax.ws.rs.core.Response;
 
 /**
  * This class used for:
- *
+ * provide restful service of taxadministrationsystem,
+ * section: cashregisters
  * @author Yaroslav Kruk on 18.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -28,6 +29,13 @@ import javax.ws.rs.core.Response;
 @Consumes(MediaType.APPLICATION_JSON)
 public class CashRegisterREST {
 
+    /**
+     * get json array of cashregisters by object of taxition_id
+     * @param id
+     * @param taxition_id
+     * @param src
+     * @return
+     */
     @POST
     public Response getAllCashRegister(@PathParam("id") long id,
                                           @PathParam("taxition_id") long taxition_id,
@@ -51,6 +59,13 @@ public class CashRegisterREST {
         }
     }
 
+    /**
+     * add new cashregister by object of taxition_id
+     * @param id
+     * @param taxition_id
+     * @param src
+     * @return
+     */
     @PUT
     public Response addCashRegister(@PathParam("id") long id,
                                           @PathParam("taxition_id") long taxition_id,

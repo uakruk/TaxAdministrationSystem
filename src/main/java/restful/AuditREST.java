@@ -20,7 +20,8 @@ import restful.resources.*;
 
 /**
  * This class used for:
- *
+ * provide restful service of taxadministrationsytem,
+ * section - audit
  * @author Yaroslav Kruk on 13.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -31,6 +32,12 @@ import restful.resources.*;
 @Produces(MediaType.APPLICATION_JSON)
 public class AuditREST {
 
+    /**
+     * get json array of taxpayer's audit by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getAllAudit(@PathParam("id") long id, String src) {
@@ -53,6 +60,14 @@ public class AuditREST {
             return Response.status(400).build();
         }
     }
+
+    /**
+     * get json object of audit by audit_id
+     * @param id
+     * @param audit_id
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -80,6 +95,14 @@ public class AuditREST {
         }
     }
 
+    /**
+     * update existing audit by audit_id
+     * @param id
+     * @param audit_id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -105,6 +128,12 @@ public class AuditREST {
         }
     }
 
+    /**
+     * add new audit by taxpayer_id
+     * @param id
+     * @param src
+     * @return
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addAudit(@PathParam("id") long id, String src) {
@@ -137,6 +166,7 @@ public class AuditREST {
 
 
     /**
+     * get json array of decisions by audit_id
      * @param id
      * @param audit_id
      * @param src
@@ -165,6 +195,13 @@ public class AuditREST {
         }
     }
 
+    /**
+     * add new decision by audit_id
+     * @param id
+     * @param audit_id
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}/decision")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -193,6 +230,15 @@ public class AuditREST {
         }
     }
 
+    /***
+     * change decision by decsion_id
+     * @param id
+     * @param audit_id
+     * @param decision_id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}/decision/{decision_id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -229,14 +275,8 @@ public class AuditREST {
     /*ATTENTION! VERY AFFECTIVE TO CHANGES*/
 
 
-    /*АТЕНСЬЙОН!!! ПОВНИЙ КРАХ!!!!*/
-
     /*********************************************************************
-     * BIG
-     * AMOUNT
-     * OF
-     * PROBLEMS
-     * *******************************************************************
+     * get json array of referrals by audit_id
      *
      *
      * @param id
@@ -268,6 +308,7 @@ public class AuditREST {
     }
 
     /**
+     * add new referral by audit_id and others:
      * in this method you should take care for both creating new decree
      * and chosing existing empployee
      * @param id
@@ -301,6 +342,14 @@ public class AuditREST {
         }
     }
 
+    /**
+     * get json object of referral by referral_id
+     * @param id
+     * @param audit_id
+     * @param referral_id
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}/referral/{referral_id}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -324,6 +373,15 @@ public class AuditREST {
         }
     }
 
+    /**
+     * update referral by referral_id
+     * @param id
+     * @param audit_id
+     * @param referral_id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}/referral/{referral_id}")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -351,6 +409,15 @@ public class AuditREST {
         }
     }
 
+    /***
+     * update decree by referral_id
+     * @param id
+     * @param audit_id
+     * @param referral_id
+     * @param action
+     * @param src
+     * @return
+     */
     @Path("/{audit_id}/referral/{referral_id}/decree")
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
@@ -378,6 +445,4 @@ public class AuditREST {
             return Response.status(400).build();
         }
     }
-
-
 }

@@ -11,7 +11,8 @@ import java.sql.SQLException;
 
 /**
  * This class used for:
- *
+ * checking whether the user already exists
+ * with following pair of username/password
  * @author Yaroslav Kruk on 17.04.15.
  *         e-mail : uakruk@ukr.net
  *         GitHub : https://github.com/uakruk
@@ -20,6 +21,13 @@ import java.sql.SQLException;
  */
 public abstract class LoginRes {
 
+    /**
+     * serves to log into a system
+     * @param name
+     * @param pass
+     * @return
+     * @throws WrongLoginPasswordException
+     */
     public static boolean check(String name, int pass) throws WrongLoginPasswordException {
 
         boolean res = false;
@@ -41,6 +49,11 @@ public abstract class LoginRes {
         return true;
     }
 
+    /**
+     * serves to log out of the system
+     * @param token
+     * @return
+     */
     public static boolean logOut(String token) {
         return AuthCheck.removeToken(token);
     }
